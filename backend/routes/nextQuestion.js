@@ -20,7 +20,7 @@ async function sumCorrectIncorrect(req, res) {
 			.execute("dbo.SumCorrectIncorrectRow");
 
 		let ThetaValue = result1.recordset[0].Theta;
-		// console.log(ThetaValue);
+		console.log("ThetaValue: " + ThetaValue);
 
 		let result2 = await pool
 			.request()
@@ -29,9 +29,9 @@ async function sumCorrectIncorrect(req, res) {
 			.input("theta", mssql.Decimal, ThetaValue)
 			.execute("dbo.SumRaschThetaRow");
 
-		// console.log(result2.recordset[0].result)
+		console.log(result2.recordset[0].result);
 		let sumRaschVal = result2.recordset[0].result;
-		if (sumRaschVal > 0.625 || numQuestions == 4) {
+		if (sumRaschVal > 6.25 || numQuestions >= 4) {
 			res.send({ nextQuestion: "" });
 			return;
 		}
@@ -44,7 +44,7 @@ async function sumCorrectIncorrect(req, res) {
 			.output("name", mssql.NChar) // output
 			.execute("dbo.SelectNextQuestion");
 		let nextQuestion = result3.output.name;
-		// console.log(nextQuestion.trim());
+		console.log(nextQuestion.trim());
 		res.send({ nextQuestion: nextQuestion.trim() });
 	} catch (err) {
 		console.log(err);

@@ -50,7 +50,6 @@ class Section3 extends Component {
 						danger
 						// onClick={this.getNextQuestion}
 						style={{ color: "green", borderColor: "green" }}
-						wrapperCol={{ offset: 7 }}
 					>
 						<Link to="/section3DAD">Next</Link>
 					</Button>

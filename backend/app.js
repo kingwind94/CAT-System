@@ -42,8 +42,6 @@ app.put("/UpdateCATAnswer/:id?", function (req, res) {
 	const question = req.body.question;
 	const answer = req.body.answer;
 
-	console.log(id);
-
 	mssql.connect(config, function (err) {
 		if (err) {
 			return callback(err);

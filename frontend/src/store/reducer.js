@@ -1,7 +1,7 @@
 export const defaultState = {
 	sessionNum: 0,
 	numQuestions: 0,
-	fontSize: "large",
+	fontSize: "medium",
 	questionAns: "",
 	questionAnsSum: "",
 	questions: "",

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, Typography, notification, Radio } from "antd";
+import { Card, Typography, notification, Radio, Button } from "antd";
 import { connect } from "react-redux";
 import { compose } from "redux";
 import ReactAudioPlayer from "react-audio-player";
@@ -11,31 +11,41 @@ import FetchData from "../../FetchData";
 
 const { Text } = Typography;
 
+function firstUpperCase(s) {
+	return s.replace(/^\S/, (s) => s.toUpperCase());
+}
+
+const openNotification = () => {
+	notification.open({
+		message: "You should choose an option to go next.",
+		duration: 2.5,
+	});
+};
+
+const SectionName = "CONNECTIVES_SENTENCES";
+
 class ConnectSentence extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			bodyText: "",
 			blank: "________________",
-			optionTexts: [],
 			selectOption: -1,
 			question: "Connect_sent_however",
-			curAnswer: "",
 			radioColor: ["black", "black", "black"],
 			showElem: "none",
 		};
 	}
 
 	onChange = (e) => {
-		var choice = eval("this.props.curState." + String(this.state.question) + ".choice");
+		let choice = eval("this.props.curState." + String(this.state.question) + ".choice");
 
 		this.setState({
 			selectOption: e.target.value,
-			curAnswer: e.target.value,
 			blank: choice[e.target.value],
 		});
 
-		const newRadioColor = ["black", "black", "black"];
+		let newRadioColor = ["black", "black", "black"];
 		newRadioColor[e.target.value] = "green";
 		this.setState({ radioColor: newRadioColor });
 	};
@@ -44,6 +54,85 @@ class ConnectSentence extends Component {
 		this.setState({
 			showElem: "inline",
 		});
+	};
+
+	getNextQuestion = async (e) => {
+		if (this.state.selectOption === -1) {
+			openNotification();
+			return;
+		}
+
+		let ans;
+		switch (this.state.selectOption) {
+			case 1:
+				ans = "A";
+				break;
+			case 2:
+				ans = "B";
+				break;
+			case 3:
+				ans = "C";
+				break;
+			default:
+				break;
+		}
+
+		let catAns = {
+			question: this.state.question,
+			answer: ans,
+		};
+		await FetchData("/UpdateCATAnswer/32", "PUT", catAns)
+			.then((res) => res.json())
+			.then((res) => {
+				// console.log("UpdateCATAnswer: " + res);
+			});
+
+		let judgeOfAnswer;
+		const correctAns = eval("this.props.curState." + String(this.state.question) + ".answer") - 1;
+
+		if (correctAns === this.state.selectOption) {
+			judgeOfAnswer = "r." + this.state.question;
+		} else {
+			judgeOfAnswer = "w." + this.state.question;
+		}
+		// console.log("judgeOfAnswer: " + judgeOfAnswer);
+
+		await this.props.answerQuestionAns(judgeOfAnswer, this.state.question);
+		console.log(this.props.curState.questionAns);
+		console.log(this.props.curState.questionAnsSum);
+		console.log(this.props.curState.questions);
+		console.log(this.props.curState.questionSum);
+
+		let data = {
+			questionAns: this.props.curState.questionAns,
+			questionAnsSum: this.props.curState.questionAnsSum,
+			questions: this.props.curState.questions,
+			questionSum: this.props.curState.questionSum,
+			sectionName: SectionName,
+			numQuestions: this.props.curState.numQuestions - 4,
+		};
+
+		this.setState({
+			selectOption: -1,
+			radioColor: ["black", "black", "black"],
+		});
+
+		await FetchData("/sumCorrectIncorrect", "PUT", data)
+			.then((res) => {
+				if (res.status === 200) {
+					return res.json();
+				} else {
+				}
+			})
+			.then((res) => {
+				console.log(res);
+				if (res.nextQuestion === "") {
+					this.props.history.push("/section2");
+				} else {
+					this.setState({ question: firstUpperCase(res.nextQuestion) });
+					this.setState({ blank: "________________" });
+				}
+			});
 	};
 
 	render() {
@@ -101,6 +190,11 @@ class ConnectSentence extends Component {
 								{choice[2]}
 							</Radio>
 						</Radio.Group>
+					</div>
+					<div style={{ marginTop: "20px", float: "right" }}>
+						<Button size={this.state.fontSize} danger onClick={this.getNextQuestion} style={{ color: "green", borderColor: "green" }}>
+							Next
+						</Button>
 					</div>
 				</div>
 			</div>

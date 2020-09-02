@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, Typography, notification, Radio, Button } from "antd";
+import { Card, Typography, notification, Radio, Button, Row } from "antd";
 import { connect } from "react-redux";
 import { compose } from "redux";
 import ReactAudioPlayer from "react-audio-player";
@@ -8,6 +8,7 @@ import { withRouter } from "react-router";
 import "./Style.css";
 import Pic from "../../play.png";
 import FetchData from "../../FetchData";
+import { SectionBar } from "../utils/Utils";
 
 const { Text } = Typography;
 
@@ -142,60 +143,81 @@ class ConnectSentence extends Component {
 		let audio = eval("this.props.curState." + String(this.state.question) + ".audio");
 
 		return (
-			<div style={{ marginTop: "10%" }}>
-				<div className="connect_sentence">
-					<div style={{ marginBottom: "5px", height: "50px" }}>
-						<img onClick={this.playAudio} src={Pic} height="54px" width="54px" />
-						<ReactAudioPlayer style={{ display: this.state.showElem, verticalAlign: "middle" }} src={audio} controls></ReactAudioPlayer>
-					</div>
-					<div style={{ fontSize: this.props.curState.fontSize, margin: "10px" }}>
-						<Text style={{ color: "black" }}>{questionText1}</Text>
-						<Text strong style={{ color: "black" }}>
-							{questionText2}
-						</Text>
-						<Text underline style={{ color: "green" }}>
-							{this.state.blank}
-						</Text>
-					</div>
-					<div style={{ margin: "10px", paddingLeft: "20px" }}>
-						<Radio.Group size="large" onChange={this.onChange} value={this.state.selectOption}>
-							<Radio
-								style={{
-									color: this.state.radioColor[0],
-									fontSize: this.props.curState.fontSize,
-									display: "block",
-								}}
-								value={0}
+			<div className="connect_sentence">
+				<div style={{ paddingLeft: "5%", paddingRight: "5%", position: "absolute", top: "15%", width: "100%" }}>
+					<Row>
+						<div style={{ marginBottom: "5px", height: "50px" }}>
+							<img onClick={this.playAudio} src={Pic} height="54px" width="54px" />
+							<ReactAudioPlayer
+								style={{ display: this.state.showElem, verticalAlign: "middle" }}
+								src={audio}
+								controls
+							></ReactAudioPlayer>
+						</div>
+					</Row>
+					<Row>
+						<div style={{ fontSize: this.props.curState.fontSize, margin: "10px" }}>
+							<Text style={{ color: "black" }}>{questionText1}</Text>
+							<Text strong style={{ color: "black" }}>
+								{questionText2}
+							</Text>
+							<Text underline style={{ color: "green" }}>
+								{this.state.blank}
+							</Text>
+						</div>
+					</Row>
+					<Row>
+						<div style={{ margin: "10px", paddingLeft: "20px" }}>
+							<Radio.Group size="large" onChange={this.onChange} value={this.state.selectOption}>
+								<Radio
+									style={{
+										color: this.state.radioColor[0],
+										fontSize: this.props.curState.fontSize,
+										display: "block",
+									}}
+									value={0}
+								>
+									{choice[0]}
+								</Radio>
+								<Radio
+									style={{
+										color: this.state.radioColor[1],
+										fontSize: this.props.curState.fontSize,
+										display: "block",
+									}}
+									value={1}
+								>
+									{choice[1]}
+								</Radio>
+								<Radio
+									style={{
+										color: this.state.radioColor[2],
+										fontSize: this.props.curState.fontSize,
+										display: "block",
+									}}
+									value={2}
+								>
+									{choice[2]}
+								</Radio>
+							</Radio.Group>
+						</div>
+					</Row>
+
+					<Row justify="end">
+						<div style={{ marginTop: "20px", float: "right" }}>
+							<Button
+								size={this.state.fontSize}
+								danger
+								onClick={this.getNextQuestion}
+								style={{ color: "green", borderColor: "green" }}
 							>
-								{choice[0]}
-							</Radio>
-							<Radio
-								style={{
-									color: this.state.radioColor[1],
-									fontSize: this.props.curState.fontSize,
-									display: "block",
-								}}
-								value={1}
-							>
-								{choice[1]}
-							</Radio>
-							<Radio
-								style={{
-									color: this.state.radioColor[2],
-									fontSize: this.props.curState.fontSize,
-									display: "block",
-								}}
-								value={2}
-							>
-								{choice[2]}
-							</Radio>
-						</Radio.Group>
-					</div>
-					<div style={{ marginTop: "20px", float: "right" }}>
-						<Button size={this.state.fontSize} danger onClick={this.getNextQuestion} style={{ color: "green", borderColor: "green" }}>
-							Next
-						</Button>
-					</div>
+								Next
+							</Button>
+						</div>
+					</Row>
+				</div>
+				<div style={{ position: "absolute", bottom: "0px", width: "100%" }}>
+					<SectionBar numSection={1} />
 				</div>
 			</div>
 		);

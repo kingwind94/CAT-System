@@ -1,7 +1,11 @@
 .connect_sentence {
 	margin: auto;
-	width: 70%;
-	/* border: 3px solid green; */
-	padding: 70px 0;
-	/* text-align: center; */
+	/* padding: 0px 5%; */
+	height: 100%;
+	position: relative;
+}
+
+.connect_picture {
+	height: 100%;
+	position: relative;
 }

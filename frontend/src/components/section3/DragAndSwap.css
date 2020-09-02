@@ -19,13 +19,13 @@
 	width: 45%;
 	margin: 10px;
 	display: flex;
-  flex-direction: column;
+	flex-direction: column;
 }
 
 .item {
 	background: greenyellow;
-  margin: 20px auto;
-  flex-grow: 1;
+	margin: 20px auto;
+	flex-grow: 1;
 	width: 80%;
 	display: flex;
 	justify-content: center;

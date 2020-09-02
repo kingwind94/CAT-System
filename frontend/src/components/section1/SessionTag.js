@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 import "../style/SessionTag.css";
-import { TwoPictures } from "./Utils";
+import { TwoPictures } from "../utils/Utils";
 
 const { Title, Text } = Typography;
 
@@ -34,15 +34,15 @@ class SessionTag extends Component {
 	};
 
 	render() {
-		let choice = ["but", "then", "so", "also"];
-		let questionText1 = "Kate wears sneakers, ";
-		let questionText2 = " Jim wears sandals.";
-		let picture1 = require("../../Site/Images/ConnectingIdeaExamplePic1.jpg");
-		let picture2 = require("../../Site/Images/ConnectingIdeaExamplePic2.jpg");
-		let audio = "../../Site/audio/Task_1_Connecting_Ideas_Directions.mp3";
+		const choice = ["but", "then", "so", "also"];
+		const questionText1 = "Kate wears sneakers, ";
+		const questionText2 = " Jim wears sandals.";
+		const picture1 = require("../../Site/Images/ConnectingIdeaExamplePic1.jpg");
+		const picture2 = require("../../Site/Images/ConnectingIdeaExamplePic2.jpg");
+		const audio = "../../Site/audio/Task_1_Connecting_Ideas_Directions.mp3";
 
 		return (
-			<Card style={{ padding: "30px", fontSize: this.props.fontSize }}>
+			<div style={{ padding: "30px", fontSize: this.props.fontSize }}>
 				<Title level={3} align="left">
 					SECTION 1: CONNECTING IDEAS
 				</Title>
@@ -132,7 +132,7 @@ class SessionTag extends Component {
 						</Col>
 					</Row>
 				</div>
-			</Card>
+			</div>
 		);
 	}
 }

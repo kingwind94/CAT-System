@@ -206,7 +206,7 @@ class ConnectSentence extends Component {
 					<Row justify="end">
 						<div style={{ marginTop: "20px", float: "right" }}>
 							<Button
-								size={this.state.fontSize}
+								size={this.props.curState.fontSize}
 								danger
 								onClick={this.getNextQuestion}
 								style={{ color: "green", borderColor: "green" }}

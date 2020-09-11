@@ -5,7 +5,7 @@ import { Divider } from "antd";
 import { Link } from "react-router-dom";
 
 import DragAndDrop from "./DragAndDrop";
-import "../style/SessionTag.css";
+import "../style/UniformStyle.css";
 
 const { Title, Text, Paragraph } = Typography;
 

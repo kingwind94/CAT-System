@@ -45,6 +45,7 @@ export function SectionBar(props) {
 		return (
 			<div
 				className="section-bar"
+				key={idx}
 				style={{
 					height: "32px",
 					width: "120px",

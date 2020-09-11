@@ -4,12 +4,12 @@ import { connect } from "react-redux";
 
 import { Link } from "react-router-dom";
 
-import "../style/SessionTag.css";
+import "../style/UniformStyle.css";
 import { TwoPictures } from "../utils/Utils";
 
 const { Title, Text } = Typography;
 
-class SessionTag extends Component {
+class Section1 extends Component {
 	constructor(props) {
 		super(props);
 
@@ -153,4 +153,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 	};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SessionTag);
+export default connect(mapStateToProps, mapDispatchToProps)(Section1);

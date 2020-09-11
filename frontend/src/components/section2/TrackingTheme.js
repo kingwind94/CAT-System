@@ -1,13 +1,26 @@
 import React, { Component } from "react";
 import { Card, Typography, Radio, Button } from "antd";
+import { notification } from "antd";
 import { connect } from "react-redux";
 import { Divider } from "antd";
 import { Link } from "react-router-dom";
 
 import { SectionBar } from "../utils/Utils";
 import "./Style.css";
+import FetchData from "../../FetchData";
 
 const { Title, Text, Paragraph } = Typography;
+
+const openNotification = () => {
+	notification.open({
+		message: "You should choose an option to go next.",
+		duration: 2.5,
+	});
+};
+
+function firstUpperCase(s) {
+	return s.replace(/^\S/, (s) => s.toUpperCase());
+}
 
 class TrackingTheme extends Component {
 	constructor(props) {
@@ -16,11 +29,96 @@ class TrackingTheme extends Component {
 		this.state = {
 			value: -1,
 			radioColor: ["black", "black", "black"],
+			question: "Anaphora_material",
+			showElem: "none",
 		};
 	}
 
+	onChange = (e) => {
+		let choice = eval("this.props.curState." + String(this.state.question) + ".choice");
+		this.setState({
+			value: e.target.value,
+		});
+
+		let newRadioColor = ["black", "black", "black"];
+		newRadioColor[e.target.value] = "green";
+		this.setState({ radioColor: newRadioColor });
+	};
+
+	getNextQuestion = async (e) => {
+		if (this.state.value === -1) {
+			openNotification();
+			return;
+		}
+
+		const ABC = ["a", "b", "c"];
+		let ans = ABC[this.state.value];
+
+		let catAns = {
+			question: this.state.question,
+			answer: ans,
+		};
+		await FetchData("/UpdateCATAnswer/32", "PUT", catAns)
+			.then((res) => res.json())
+			.then((res) => {
+				// console.log(res);
+			});
+
+		let judgeOfAnswer;
+		const questionText = eval("this.props.curState." + String(this.state.question) + ".answer") - 1;
+
+		if (questionText === this.state.value) {
+			judgeOfAnswer = "r." + this.state.question;
+		} else {
+			judgeOfAnswer = "w." + this.state.question;
+		}
+		// console.log("judgeOfAnswer: " + judgeOfAnswer);
+
+		await this.props.answerQuestionAns(judgeOfAnswer, this.state.question);
+		// console.log(this.props.curState.questionAns);
+		// console.log(this.props.curState.questionAnsSum);
+		// console.log(this.props.curState.questions);
+		// console.log(this.props.curState.questionSum);
+
+		let data = {
+			questionAns: this.props.curState.questionAns,
+			questionAnsSum: this.props.curState.questionAnsSum,
+			questions: this.props.curState.questions,
+			questionSum: this.props.curState.questionSum,
+			sectionName: "ANAPHORA",
+			numQuestions: this.props.curState.numQuestions - 8,
+		};
+
+		this.setState({
+			value: -1,
+			radioColor: ["black", "black", "black"],
+		});
+
+		await FetchData("/sumCorrectIncorrect", "PUT", data)
+			.then((res) => {
+				if (res.status === 200) {
+					return res.json();
+				} else {
+				}
+			})
+			.then((res) => {
+				console.log(res);
+				// window.localStorage.question = firstUpperCase(String(res.nextQuestion));
+				if (res.nextQuestion === "") {
+					this.props.history.push("/section3");
+				} else {
+					this.setState({ question: firstUpperCase(res.nextQuestion) });
+				}
+			});
+	};
+
 	render() {
-		const choice = ["These materials", "huge quantities", "gases and ash"];
+		const choice = eval("this.props.curState." + String(this.state.question) + ".choice");
+		const questionText1 = eval("this.props.curState." + String(this.state.question) + ".text1");
+		const questionText2 = eval("this.props.curState." + String(this.state.question) + ".text2");
+		const keyword = eval("this.props.curState." + String(this.state.question) + ".keyword");
+		const audio = eval("this.props.curState." + String(this.state.question) + ".audio");
+
 		return (
 			<div className="tracking_themes">
 				<div style={{ position: "absolute", top: "10%", width: "100%" }}>
@@ -35,21 +133,21 @@ class TrackingTheme extends Component {
 						}}
 					>
 						<Paragraph strong style={{ color: "black" }}>
-							Major volcanic eruptions release huge quantities of gases and ash into the air.
+							{questionText1}{" "}
 						</Paragraph>
 						<Text underline strong style={{ color: "green" }}>
-							These materials
+							{keyword}
 						</Text>
 						<Text strong style={{ color: "black" }}>
 							{" "}
-							can stay in the upper atmosphere for months or years.
+							{questionText2}
 						</Text>
 					</div>
 
 					<div style={{ marginLeft: "5%", marginTop: "40px" }}>
 						<Paragraph style={{ color: "black" }}>In the text above,</Paragraph>
 						<Paragraph underline strong style={{ color: "black", textAlign: "center", fontSize: "large" }}>
-							These materials
+							{keyword}
 						</Paragraph>
 						<Paragraph strong style={{ color: "black", textAlign: "center", fontSize: "large" }}>
 							refers to:
@@ -88,8 +186,13 @@ class TrackingTheme extends Component {
 							</Radio.Group>
 						</div>
 						<div style={{ marginTop: "20px", float: "right" }}>
-							<Button danger style={{ color: "green", borderColor: "green" }}>
-								<Link to="/section3">Next</Link>
+							<Button
+								danger
+								size={this.props.curState.fontSize}
+								onClick={this.getNextQuestion}
+								style={{ color: "green", borderColor: "green" }}
+							>
+								Next
 							</Button>
 						</div>
 					</div>
@@ -103,17 +206,21 @@ class TrackingTheme extends Component {
 	}
 }
 const mapStateToProps = (state) => {
-	console.log(state);
 	return {
-		sessionNum: state.sessionNum,
 		fontSize: state.fontSize,
+		curState: state,
 	};
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
 	return {
-		dispatch1: () => {
-			dispatch();
+		answerQuestionAns(questionAns, question) {
+			const action = {
+				type: "ANSWER_QUESTION",
+				questionAns: questionAns,
+				question: question,
+			};
+			dispatch(action);
 		},
 	};
 };

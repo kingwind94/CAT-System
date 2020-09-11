@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { Divider } from "antd";
 import { Link } from "react-router-dom";
 
-import "../style/SessionTag.css";
+import "../style/UniformStyle.css";
 
 const { Title, Text, Paragraph } = Typography;
 

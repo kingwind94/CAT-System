@@ -1,13 +1,10 @@
+import { Button, notification, Radio, Typography } from "antd";
 import React, { Component } from "react";
-import { Card, Typography, Radio, Button } from "antd";
-import { notification } from "antd";
 import { connect } from "react-redux";
-import { Divider } from "antd";
-import { Link } from "react-router-dom";
-
+import FetchData from "../../FetchData";
 import { SectionBar } from "../utils/Utils";
 import "./Style.css";
-import FetchData from "../../FetchData";
+
 
 const { Title, Text, Paragraph } = Typography;
 

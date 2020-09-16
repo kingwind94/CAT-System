@@ -1,10 +1,9 @@
+import { Button, Divider, Radio, Typography } from "antd";
 import React, { Component } from "react";
-import { Card, Typography, Radio, Button } from "antd";
 import { connect } from "react-redux";
-import { Divider } from "antd";
 import { Link } from "react-router-dom";
-
 import "../style/UniformStyle.css";
+
 
 const { Title, Text, Paragraph } = Typography;
 

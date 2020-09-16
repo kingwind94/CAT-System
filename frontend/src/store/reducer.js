@@ -6,6 +6,31 @@ export const defaultState = {
 	questionAnsSum: "",
 	questions: "",
 	questionSum: "",
+	Anagram: {
+		Anagram_recess: {
+			title: "Saving Recess",
+			numOfText: 4,
+			text1: "One reason is that recess is healthy for kids.",
+			text2: "That’s why I think it is important to try to save recess.",
+			text3: "Some schools are getting rid of recess, but I think recess is good for students.",
+			text4: "For example, kids can do a lot of exercise during recess.",
+			fullAnswer: ["2413"],
+			partAnswer: ["2314"],
+		},
+		Anagram_lunches: {
+			title: "Healthier School Lunches",
+			numOfText: 5,
+			text1: "Another reason is that not all students like the same food, so students need more choices.",
+			text2:
+				"That’s why I think healthier food, more choices, and more food would make our school lunches better.",
+			text3: "One reason is that students need healthier food to stay healthy.",
+			text4: "I believe that students should get better lunches at school.",
+			text5: "Finally, some students are still hungry after lunch, so each student should get more food.",
+			fullAnswer: ["35214"],
+			partAnswer: ["34215"],
+			lessAnswer: ["5", "1"],
+		},
+	},
 	Connect_pic_therefore_B: {
 		text: "Our school football team won the game; ________ our school got a prize.",
 		text1: "Our school football team won the game; ",
@@ -587,6 +612,23 @@ export const defaultState = {
 		keyword: "abundant",
 		answer: ["abundant", "abundent", "abundint", "abundunt"],
 		audio: "../Site/audio/Morpho_abundant.mp3",
+	},
+	Syntax_pic_1: {
+		picture1: require("../Site/Images/Comprehending_S_Syntax_pic_1a.JPG"),
+		picture2: require("../Site/Images/Comprehending_S_Syntax_pic_1b.JPG"),
+		picture3: require("../Site/Images/Comprehending_S_Syntax_pic_1c.JPG"),
+		picture4: require("../Site/Images/Comprehending_S_Syntax_pic_1d.JPG"),
+		audio: "../Site/audio/Syntax_pic_1.mp3",
+		answer: 2,
+	},
+	def_aware_umbrella: {
+		text1:
+			"An umbrella is what you use so you do not get wet in the rain; it has fabric over a frame that you can fold.",
+		text2: "An umbrella is something that stops the rain and it has some fabric over a type of frame that folds.",
+		text3:
+			"An umbrella is an object that provides protection from the rain, made of fabric stretched over a folding frame.",
+		keyword: "Umbrella",
+		answer: [1, 1, 2],
 	},
 };
 

@@ -1,5 +1,6 @@
+import { Button, Col, Row } from "antd";
 import React from "react";
-import { Row, Col } from "antd";
+import { Link } from "react-router-dom";
 import "../../index.css";
 
 export function TwoPictures(props) {
@@ -39,6 +40,31 @@ export function TwoPictures(props) {
 	);
 }
 
+export function FourPictures(props) {
+	return (
+		<div>
+			<Row justify="space-around" gutter={[16, 24]}>
+				<Col span={10} offset={4}>
+					<img src={props.picture1} />
+				</Col>
+
+				<Col span={10}>
+					<img src={props.picture2} />
+				</Col>
+			</Row>
+			<Row justify="space-around" gutter={[16, 24]}>
+				<Col span={10} offset={4}>
+					<img src={props.picture3} />
+				</Col>
+
+				<Col span={10}>
+					<img src={props.picture4} />
+				</Col>
+			</Row>
+		</div>
+	);
+}
+
 export function SectionBar(props) {
 	const arr = Array.from(Array(props.numSection), (_, i) => i + 1);
 	const Section = (idx) => {
@@ -75,6 +101,18 @@ export function SectionBar(props) {
 			{arr.map((idx) => {
 				return Section(idx);
 			})}
+		</div>
+	);
+}
+
+export function NextButton(props) {
+	return (
+		<div style={{ marginLeft: "5%", marginTop: "40px" }}>
+			<div style={{ marginTop: "20px", float: "right" }}>
+				<Button danger style={{ color: "green", borderColor: "green" }}>
+					<Link to={props.link}>Next</Link>
+				</Button>
+			</div>
 		</div>
 	);
 }

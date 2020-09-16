@@ -3,7 +3,7 @@ import "./DragAndSwap.css";
 
 export default class DragAndSwap extends Component {
 	constructor(props) {
-		super(props);
+		super();
 		this.state = {
 			numOfOptions: 8,
 			textOptions: [

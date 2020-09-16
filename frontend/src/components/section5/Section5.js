@@ -1,44 +1,44 @@
+import { Button, Divider, Typography } from "antd";
 import React, { Component } from "react";
-import { Card, Typography, Radio, Button } from "antd";
 import { connect } from "react-redux";
-import { Divider } from "antd";
 import { Link } from "react-router-dom";
-import { Input } from "antd";
-
 import "../style/UniformStyle.css";
+import { FourPictures } from "../utils/Utils";
 
 const { Title, Text, Paragraph } = Typography;
 
-class Section4 extends Component {
+class Section5 extends Component {
 	constructor(props) {
-		super(props);
-
+		super();
 		this.state = {
 			value: -1,
 		};
 	}
 	render() {
-		const choice = ["water", "heats", "land"];
+		const picture1 = require("../../Site/Images/Comprehending_S_Example_1.JPG");
+		const picture2 = require("../../Site/Images/Comprehending_S_Example_2.JPG");
+		const picture3 = require("../../Site/Images/Comprehending_S_Example_3.JPG");
+		const picture4 = require("../../Site/Images/Comprehending_S_Example_4.JPG");
 
 		return (
 			<div style={{ padding: "30px", fontSize: this.props.fontSize }}>
 				<Title level={3} align="left">
-					SECTION 4: BREAKING WORDS
+					SECTION 5: COMPREHENDING SENTENCES
 				</Title>
 				<Divider />
 				<div>
 					<ul>
 						<li style={{ fontSize: this.props.fontSize }}>
-							<Text style={{ color: "black" }}>First, read the word before the sentence.</Text>
-						</li>
-						<li style={{ fontSize: this.props.fontSize }}>
 							<Text style={{ color: "black" }}>
-								You need to change this word into a different form to complete the sentence.
+								First, click the PLAY button below to listen to a sentence.
 							</Text>
 						</li>
 						<li style={{ fontSize: this.props.fontSize }}>
+							<Text style={{ color: "black" }}>You will hear the sentence three times.</Text>
+						</li>
+						<li style={{ fontSize: this.props.fontSize }}>
 							<Text style={{ color: "black" }}>
-								When you are ready, type changed word inside the green box.
+								Then, you need to select the picture that goes with that sentence.
 							</Text>
 						</li>
 					</ul>
@@ -50,29 +50,7 @@ class Section4 extends Component {
 					<Divider />
 				</div>
 				<div>
-					<div>
-						<Text strong style={{ color: "black", marginRight: "15px" }}>
-							driver
-						</Text>
-						<Text strong style={{ color: "black" }}>
-							Children are too young to
-						</Text>
-
-						<div>
-							<input  onChange={this.onChange} />
-						</div>
-					</div>
-					<div>
-						<Text strong style={{ color: "black", marginRight: "15px" }}>
-							improvement
-						</Text>
-						<Text strong style={{ color: "black" }}>
-							My teacher wants my spelling to
-						</Text>
-						<div>
-							<input  onChange={this.onChange} />
-						</div>
-					</div>
+					<FourPictures picture1={picture1} picture2={picture2} picture3={picture3} picture4={picture4} />
 				</div>
 
 				<div style={{ marginLeft: "5%", marginTop: "40px" }}>
@@ -103,4 +81,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 	};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Section4);
+export default connect(mapStateToProps, mapDispatchToProps)(Section5);

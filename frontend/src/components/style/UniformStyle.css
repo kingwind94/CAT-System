@@ -1,5 +1,8 @@
-
 ul {
 	list-style-type: square;
 }
 
+.button_div {
+	margin-top: 20px;
+	float: right;
+}

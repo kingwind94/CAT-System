@@ -9,7 +9,7 @@ var cors = require("cors");
 app.use(
 	cors({
 		credentials: true,
-		origin: "http://localhost:3000",
+		origin: "http://hbs-310s-it-xxx.times.uh.edu/",
 		exposedHeaders: ["Origin", "X-Requested-With", "Content-Type, Accept"],
 	})
 );

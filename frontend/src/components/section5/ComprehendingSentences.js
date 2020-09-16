@@ -1,4 +1,4 @@
-import { Button, notification, Typography } from "antd";
+import { Button, Col, notification, Row } from "antd";
 import React, { Component } from "react";
 import ReactAudioPlayer from "react-audio-player";
 import { connect } from "react-redux";
@@ -6,10 +6,7 @@ import FetchData from "../../FetchData";
 import Pic from "../../play.png";
 import "../style/UniformStyle.css";
 import { SectionBar } from "../utils/Utils";
-
-
-
-const { Title, Text, Paragraph } = Typography;
+import "./Style.css";
 
 const openNotification = () => {
 	notification.open({
@@ -22,19 +19,23 @@ function firstUpperCase(s) {
 	return s.replace(/^\S/, (s) => s.toUpperCase());
 }
 
-class BreakingWords extends Component {
+class ComprehendingSentences extends Component {
 	constructor(props) {
-		super(props);
+		super();
 
 		this.state = {
-			answerText: "",
-			question: "Morpho_activity",
+			selectOption: -1,
+			question: "Syntax_pic_1",
+			borderStyle: ["none", "none", "none", "none"],
 			showElem: "none",
 		};
 	}
 
-	onChange = (e) => {
-		this.setState({ answerText: e.target.value });
+	onClick = (e, val) => {
+		this.setState({ selectOption: 1 });
+		let newBorderStyle = ["none", "none", "none", "none"];
+		newBorderStyle[val - 1] = "solid";
+		this.setState({ borderStyle: newBorderStyle });
 	};
 
 	playAudio = () => {
@@ -44,25 +45,21 @@ class BreakingWords extends Component {
 	};
 
 	getNextQuestion = async (e) => {
-		if (this.state.answerText === "") {
+		if (this.state.selectOption === -1) {
 			openNotification();
 			return;
 		}
 
 		let catAns = {
 			question: this.state.question,
-			answer: this.state.answerText,
+			answer: this.state.selectOption,
 		};
-		await FetchData("/UpdateCATAnswer/32", "PUT", catAns)
-			.then((res) => res.json())
-			.then((res) => {
-				// console.log(res);
-			});
+		await FetchData("/UpdateCATAnswer/32", "PUT", catAns).then((res) => res.json());
 
 		let judgeOfAnswer;
 		const correctAns = eval("this.props.curState." + String(this.state.question) + ".answer");
 
-		if (correctAns.includes(this.state.answerText)) {
+		if (correctAns === this.state.selectOption) {
 			judgeOfAnswer = "r." + this.state.question;
 		} else {
 			judgeOfAnswer = "w." + this.state.question;
@@ -75,12 +72,12 @@ class BreakingWords extends Component {
 			questionAnsSum: this.props.curState.questionAnsSum,
 			questions: this.props.curState.questions,
 			questionSum: this.props.curState.questionSum,
-			sectionName: "MORPHOLOGY",
+			sectionName: "SYNTAX_PICTURES",
 			numQuestions: this.props.curState.numQuestions,
 		};
 
 		this.setState({
-			answerText: "",
+			selectOption: -1,
 		});
 
 		await FetchData("/sumCorrectIncorrect", "PUT", data)
@@ -92,10 +89,9 @@ class BreakingWords extends Component {
 			})
 			.then((res) => {
 				console.log(res);
-				// window.localStorage.question = firstUpperCase(String(res.nextQuestion));
 				if (res.nextQuestion === "") {
 					this.props.clearNumQuestions();
-					this.props.history.push("/section3");
+					this.props.history.push("/section6");
 				} else {
 					this.setState({ question: firstUpperCase(res.nextQuestion) });
 				}
@@ -103,13 +99,14 @@ class BreakingWords extends Component {
 	};
 
 	render() {
-		const questionText1 = eval("this.props.curState." + String(this.state.question) + ".text1");
-		const questionText2 = eval("this.props.curState." + String(this.state.question) + ".text2");
-		const keyword = eval("this.props.curState." + String(this.state.question) + ".keyword");
+		const picture1 = eval("this.props.curState." + String(this.state.question) + ".picture1");
+		const picture2 = eval("this.props.curState." + String(this.state.question) + ".picture2");
+		const picture3 = eval("this.props.curState." + String(this.state.question) + ".picture3");
+		const picture4 = eval("this.props.curState." + String(this.state.question) + ".picture4");
 		const audio = eval("this.props.curState." + String(this.state.question) + ".audio");
 
 		return (
-			<div className="breaking_words">
+			<div className="comprehending_sentences">
 				<div className="main_context">
 					<div>
 						<img onClick={this.playAudio} src={Pic} height="54px" width="54px" />
@@ -119,13 +116,41 @@ class BreakingWords extends Component {
 							controls
 						></ReactAudioPlayer>
 					</div>
-					<div style={{ fontSize: this.props.curState.fontSize }} className="question_text">
-						<div style={{color:"green"}}>{keyword} </div>
-						<div>{questionText1}</div>
-						<div>
-							<input value={this.state.answerText} onChange={this.onChange} />
-						</div>
-						<div>{questionText2}</div>
+					<div>
+						<Row justify="space-around" gutter={[16, 24]}>
+							<Col span={10} offset={4}>
+								<img
+									src={picture1}
+									onClick={(e) => this.onClick(e, 1)}
+									style={{ borderStyle: this.state.borderStyle[0] }}
+								/>
+							</Col>
+
+							<Col span={10}>
+								<img
+									src={picture2}
+									onClick={(e) => this.onClick(e, 2)}
+									style={{ borderStyle: this.state.borderStyle[1] }}
+								/>
+							</Col>
+						</Row>
+						<Row justify="space-around" gutter={[16, 24]}>
+							<Col span={10} offset={4}>
+								<img
+									src={picture3}
+									onClick={(e) => this.onClick(e, 3)}
+									style={{ borderStyle: this.state.borderStyle[2] }}
+								/>
+							</Col>
+
+							<Col span={10}>
+								<img
+									src={picture4}
+									onClick={(e) => this.onClick(e, 4)}
+									style={{ borderStyle: this.state.borderStyle[3] }}
+								/>
+							</Col>
+						</Row>
 					</div>
 
 					<div className="button_div">
@@ -140,8 +165,8 @@ class BreakingWords extends Component {
 					</div>
 				</div>
 
-				<div>
-					<SectionBar numSection={4} />
+				<div style={{ position: "absolute", bottom: "0px", width: "100%" }}>
+					<SectionBar numSection={5} />
 				</div>
 			</div>
 		);
@@ -173,4 +198,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 	};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(BreakingWords);
+export default connect(mapStateToProps, mapDispatchToProps)(ComprehendingSentences);

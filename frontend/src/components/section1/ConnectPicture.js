@@ -1,16 +1,14 @@
+import { Button, Col, Divider, notification, Radio, Row, Typography } from "antd";
 import React, { Component } from "react";
-import { Card, Radio, Button, Row, Col, Typography } from "antd";
-import { connect } from "react-redux";
-import { compose } from "redux";
-import { notification } from "antd";
-import { Divider } from "antd";
 import ReactAudioPlayer from "react-audio-player";
+import { connect } from "react-redux";
 import { withRouter } from "react-router";
-
-import Pic from "../../play.png";
-import "./Style.css";
+import { compose } from "redux";
 import FetchData from "../../FetchData";
-import { TwoPictures, SectionBar } from "../utils/Utils";
+import Pic from "../../play.png";
+import { SectionBar, TwoPictures } from "../utils/Utils";
+import "./Style.css";
+
 
 const { Text } = Typography;
 

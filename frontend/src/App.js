@@ -1,22 +1,24 @@
-import React, { Component } from "react";
-
-import { BrowserRouter, Route, Switch, Link, withRouter } from "react-router-dom";
-import { connect } from "react-redux";
-
-import { Layout, Menu, Breadcrumb } from "antd";
 import { FontColorsOutlined } from "@ant-design/icons";
-
-import Section1 from "./components/section1/Section1";
-import ConnectPicture from "./components/section1/ConnectPicture";
+import { Layout } from "antd";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { BrowserRouter, Route } from "react-router-dom";
 import LoginComponent from "./components/auth/LoginPage";
+import ConnectPicture from "./components/section1/ConnectPicture";
 import ConnectSentence from "./components/section1/ConnectSentence";
+import Section1 from "./components/section1/Section1";
 import Section2 from "./components/section2/Section2";
 import TrackingTheme from "./components/section2/TrackingTheme";
-import Section3 from "./components/section3/Section3";
-import DragAndDrop from "./components/section3/DragAndDrop";
 import DragAndSwap from "./components/section3/DragAndSwap";
-import Section4 from "./components/section4/Section4";
+import Section3 from "./components/section3/Section3";
 import BreakingWords from "./components/section4/BreakingWords";
+import Section4 from "./components/section4/Section4";
+import ComprehendingSentences from "./components/section5/ComprehendingSentences";
+import Section5 from "./components/section5/Section5";
+import IdentifyingDefinitions from "./components/section6/IdentifyingDefinitions";
+import Section6 from "./components/section6/Section6";
+import Section7 from "./components/section7/Section7";
+import Section8 from "./components/section8/Section8";
 
 const { Header, Content, Footer } = Layout;
 
@@ -26,7 +28,6 @@ class App extends Component {
 			<BrowserRouter>
 				<div id="root-container">
 					<Layout className="layout" style={{ minHeight: "100vh" }}>
-
 						<Content style={{ margin: "25px auto" }}>
 							<div className="site-layout-content">
 								<div style={{ height: "20px" }}>
@@ -49,6 +50,12 @@ class App extends Component {
 								<Route path="/section3DAD" component={DragAndSwap}></Route>
 								<Route path="/section4" component={Section4}></Route>
 								<Route path="/section4_1" component={BreakingWords}></Route>
+								<Route path="/section5" component={Section5}></Route>
+								<Route path="/section5_1" component={ComprehendingSentences}></Route>
+								<Route path="/section6" component={Section6}></Route>
+								<Route path="/section6_1" component={IdentifyingDefinitions}></Route>
+								<Route path="/section7" component={Section7}></Route>
+								<Route path="/section8" component={Section8}></Route>
 							</div>
 						</Content>
 					</Layout>

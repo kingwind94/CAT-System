@@ -9,7 +9,6 @@ import Pic from "../../play.png";
 import { SectionBar, TwoPictures } from "../utils/Utils";
 import "./Style.css";
 
-
 const { Text } = Typography;
 
 function firstUpperCase(s) {
@@ -37,6 +36,7 @@ class ConnectPicture extends Component {
 	}
 
 	onChange = (e) => {
+		console.log(this.props);
 		let choice = eval("this.props.curState." + String(this.state.question) + ".choice");
 		this.setState({
 			value: e.target.value,

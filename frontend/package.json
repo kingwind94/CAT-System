@@ -1,7 +1,7 @@
 {
-  "name": "front_test",
+  "name": "cat-system",
   "version": "0.1.0",
-  "homepage": "https://kingwind123.gitihub.io/CAT-System",
+  "homepage": "https://kingwind123.github.io/CAT-System/",
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^4.2.1",

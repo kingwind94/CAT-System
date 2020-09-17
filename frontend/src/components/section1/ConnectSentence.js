@@ -39,7 +39,7 @@ class ConnectSentence extends Component {
 	}
 
 	onChange = (e) => {
-		let choice = eval("this.props.curState." + String(this.state.question) + ".choice");
+		let choice = this.props.curState[this.state.question].choice;
 
 		this.setState({
 			selectOption: e.target.value,
@@ -89,7 +89,7 @@ class ConnectSentence extends Component {
 			});
 
 		let judgeOfAnswer;
-		const correctAns = eval("this.props.curState." + String(this.state.question) + ".answer") - 1;
+		const correctAns = this.props.curState[this.state.question].answer - 1;
 
 		if (correctAns === this.state.selectOption) {
 			judgeOfAnswer = "r." + this.state.question;
@@ -99,10 +99,10 @@ class ConnectSentence extends Component {
 		// console.log("judgeOfAnswer: " + judgeOfAnswer);
 
 		await this.props.answerQuestionAns(judgeOfAnswer, this.state.question);
-		console.log(this.props.curState.questionAns);
-		console.log(this.props.curState.questionAnsSum);
-		console.log(this.props.curState.questions);
-		console.log(this.props.curState.questionSum);
+		// console.log(this.props.curState.questionAns);
+		// console.log(this.props.curState.questionAnsSum);
+		// console.log(this.props.curState.questions);
+		// console.log(this.props.curState.questionSum);
 
 		let data = {
 			questionAns: this.props.curState.questionAns,
@@ -137,10 +137,10 @@ class ConnectSentence extends Component {
 	};
 
 	render() {
-		let choice = eval("this.props.curState." + String(this.state.question) + ".choice");
-		let questionText1 = eval("this.props.curState." + String(this.state.question) + ".text1");
-		let questionText2 = eval("this.props.curState." + String(this.state.question) + ".text2");
-		let audio = eval("this.props.curState." + String(this.state.question) + ".audio");
+		let choice = this.props.curState[this.state.question].choice;
+		let questionText1 = this.props.curState[this.state.question].text1;
+		let questionText2 = this.props.curState[this.state.question].text2;
+		let audio = this.props.curState[this.state.question].audio
 
 		return (
 			<div className="connect_sentence">

@@ -36,8 +36,7 @@ class ConnectPicture extends Component {
 	}
 
 	onChange = (e) => {
-		console.log(this.props.curState);
-		let choice = eval("this.props.curState." + String(this.state.question) + ".choice");
+		let choice = this.props.curState[this.state.question].choice;
 		this.setState({
 			value: e.target.value,
 			blank: choice[e.target.value],
@@ -68,7 +67,7 @@ class ConnectPicture extends Component {
 			});
 
 		let judgeOfAnswer;
-		const questionText = eval("this.props.curState." + String(this.state.question) + ".answer") - 1;
+		const questionText = this.props.curState[this.state.question].answer - 1;
 
 		if (questionText === this.state.value) {
 			judgeOfAnswer = "r." + this.state.question;
@@ -123,12 +122,12 @@ class ConnectPicture extends Component {
 	};
 
 	render() {
-		let choice = eval("this.props.curState." + String(this.state.question) + ".choice");
-		let questionText1 = eval("this.props.curState." + String(this.state.question) + ".text1");
-		let questionText2 = eval("this.props.curState." + String(this.state.question) + ".text2");
-		let picture1 = eval("this.props.curState." + String(this.state.question) + ".picture1");
-		let picture2 = eval("this.props.curState." + String(this.state.question) + ".picture2");
-		let audio = eval("this.props.curState." + String(this.state.question) + ".audio");
+		let choice = this.props.curState[this.state.question].choice;
+		let questionText1 = this.props.curState[this.state.question].questionText1;
+		let questionText2 = this.props.curState[this.state.question].text2;
+		let picture1 = this.props.curState[this.state.question].picture1;
+		let picture2 = this.props.curState[this.state.question].picture2;
+		let audio = this.props.curState[this.state.question].audio;
 
 		return (
 			<div className="connect_picture" style={{ fontSize: this.props.curState.fontSize }}>

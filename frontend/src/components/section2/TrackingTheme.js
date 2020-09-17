@@ -5,7 +5,6 @@ import FetchData from "../../FetchData";
 import { SectionBar } from "../utils/Utils";
 import "./Style.css";
 
-
 const { Title, Text, Paragraph } = Typography;
 
 const openNotification = () => {
@@ -32,7 +31,6 @@ class TrackingTheme extends Component {
 	}
 
 	onChange = (e) => {
-		let choice = eval("this.props.curState." + String(this.state.question) + ".choice");
 		this.setState({
 			value: e.target.value,
 		});
@@ -62,7 +60,7 @@ class TrackingTheme extends Component {
 			});
 
 		let judgeOfAnswer;
-		const questionText = eval("this.props.curState." + String(this.state.question) + ".answer") - 1;
+		const questionText = this.props.curState[this.state.question].answer - 1;
 
 		if (questionText === this.state.value) {
 			judgeOfAnswer = "r." + this.state.question;
@@ -99,8 +97,6 @@ class TrackingTheme extends Component {
 				}
 			})
 			.then((res) => {
-				console.log(res);
-				// window.localStorage.question = firstUpperCase(String(res.nextQuestion));
 				if (res.nextQuestion === "") {
 					this.props.history.push("/section3");
 				} else {
@@ -110,11 +106,11 @@ class TrackingTheme extends Component {
 	};
 
 	render() {
-		const choice = eval("this.props.curState." + String(this.state.question) + ".choice");
-		const questionText1 = eval("this.props.curState." + String(this.state.question) + ".text1");
-		const questionText2 = eval("this.props.curState." + String(this.state.question) + ".text2");
-		const keyword = eval("this.props.curState." + String(this.state.question) + ".keyword");
-		const audio = eval("this.props.curState." + String(this.state.question) + ".audio");
+		const choice = this.props.curState[this.state.question].choice;
+		const questionText1 = this.props.curState[this.state.question].text1;
+		const questionText2 = this.props.curState[this.state.question].text2;
+		const keyword = this.props.curState[this.state.question].keyword;
+		const audio = this.props.curState[this.state.question].audio;
 
 		return (
 			<div className="tracking_themes">

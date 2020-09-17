@@ -1,0 +1,160 @@
+﻿html {
+    
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    
+    font-size: .85em;
+    font-family: Arial;
+    margin: 0;
+    padding: 0;
+}
+h1 {
+    font-family: Arial;
+    font-size: 35px;
+    color: black
+}
+h2 {
+  font-family: Arial;
+  color:black;
+  font-size: 32px;
+} 
+hr {
+    border-top: 1px solid black;
+    vertical-align:text-top;
+}
+span.heading 
+{
+    font-family:Arial;
+    font-size:30px;
+}
+span.questiontext 
+{  
+    font-family:Arial;
+    font-size:25px;
+    font-weight:bold;
+}
+span.questionanswer {
+    font-family:Arial;
+    font-size:25px;
+    font-weight:bold;
+    text-decoration: underline;
+   -webkit-text-decoration-color: black; /* Safari */  
+    text-decoration-color: black;
+    color: #99cc00;
+}
+
+span.trackingthemesword {
+    font-family:Arial;
+    font-size:20px;
+    font-weight:bold;
+    text-decoration: underline;
+   -webkit-text-decoration-color: black; /* Safari */     
+    color: black;
+}
+
+span.trackingthemesquestiontext 
+{  
+    font-family:Arial;
+    font-size:20px;
+   /* font-weight:bold;*/
+}
+span.trackingthemestext {
+    font-family:Arial;
+    font-size:20px;
+}
+
+input:checked + label {
+    color: #99cc00;
+}
+
+rdobtn label {      
+   width: auto;      
+   display: inline;      
+   float: left;      
+   font-size: 0.7rem;      
+   color: #0367B2 !important;      
+   font-style: italic;  
+}
+
+.contactTypeRadio {
+    margin-left:40px;
+    float:left;
+}
+
+
+.contactTypeRadio label
+{
+    font-family:Arial;font-size:20px; text-align: left;
+    
+}
+
+.contactTypeRadioTrackingTheme {
+    margin-left:10px;
+    float:left;
+}
+
+
+.contactTypeRadioTrackingTheme label
+{
+    font-family:Arial;font-size:20px; text-align: left;
+    
+}
+
+
+.fmSmtButtom 
+{
+    
+    border-width : 1px;
+    border-style : solid;
+    border-color : #99cc00;
+    background : white;
+    font-family : Arial;
+    font-size  : 20px;
+    font-weight: bold;
+    color : #99cc00;
+    
+}
+
+
+
+
+/*.contactTypeRadio {width: 20%; border: solid thin red;} */
+/*.contactTypeRadio input{width: 20%; margin-top: 7px; border: solid thin blue; float: left;} */
+
+
+ul.b {
+  list-style-type: square;
+  font-family:Arial;
+  font-size:25px;
+}
+
+td {
+    padding-left:2px;
+    padding-right:2px;
+    padding-top:2px;
+    padding-bottom:2px;
+    
+}
+    td.leftColumn {
+        width:150px;
+    }
+    td.trackingthemesques {
+        background-color:#F0F0F0;
+        padding-left:20px;
+        padding-top:20px;
+        padding-bottom:20px;
+        
+    }
+    td.trackingthemesCenter {
+        text-align:center;
+       
+        
+    }
+
+table {
+    width:1000px;
+    margin-bottom: 0px;
+}

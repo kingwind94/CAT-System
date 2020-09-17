@@ -36,7 +36,7 @@ class ConnectPicture extends Component {
 	}
 
 	onChange = (e) => {
-		console.log(this.props);
+		console.log(this.props.curState);
 		let choice = eval("this.props.curState." + String(this.state.question) + ".choice");
 		this.setState({
 			value: e.target.value,

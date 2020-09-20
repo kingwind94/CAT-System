@@ -4,7 +4,7 @@ import ReactAudioPlayer from "react-audio-player";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
 import { compose } from "redux";
-import FetchData from "../../FetchData";
+import FetchData from "../utils/FetchData";
 import Pic from "../../play.png";
 import { SectionBar, TwoPictures } from "../utils/Utils";
 import "./Style.css";
@@ -137,7 +137,7 @@ class ConnectPicture extends Component {
 					<Row>
 						<Col span={22} offset={1}>
 							<div style={{ marginBottom: "5px", height: "50px" }}>
-								<img onClick={this.playAudio} src={Pic} height="54px" width="54px" />
+								<img onClick={this.playAudio} src={Pic} height="54px" width="54px" alt="img"/>
 								<ReactAudioPlayer
 									style={{ display: this.state.showElem, verticalAlign: "middle" }}
 									src={audio}

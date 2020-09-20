@@ -1,15 +1,12 @@
-import { Button, notification, Typography } from "antd";
+import { notification, Row, Col } from "antd";
 import React, { Component } from "react";
 import ReactAudioPlayer from "react-audio-player";
 import { connect } from "react-redux";
-import FetchData from "../../FetchData";
 import Pic from "../../play.png";
 import "../style/UniformStyle.css";
-import { SectionBar } from "../utils/Utils";
-
-
-
-const { Title, Text, Paragraph } = Typography;
+import FetchData from "../utils/FetchData";
+import { NextQuestionButton, SectionBar } from "../utils/Utils";
+import "./Style.css";
 
 const openNotification = () => {
 	notification.open({
@@ -24,7 +21,7 @@ function firstUpperCase(s) {
 
 class BreakingWords extends Component {
 	constructor(props) {
-		super(props);
+		super();
 
 		this.state = {
 			answerText: "",
@@ -60,7 +57,7 @@ class BreakingWords extends Component {
 			});
 
 		let judgeOfAnswer;
-		const correctAns = eval("this.props.curState." + String(this.state.question) + ".answer");
+		const correctAns = this.props.curState[this.state.question].answer;
 
 		if (correctAns.includes(this.state.answerText)) {
 			judgeOfAnswer = "r." + this.state.question;
@@ -92,10 +89,9 @@ class BreakingWords extends Component {
 			})
 			.then((res) => {
 				console.log(res);
-				// window.localStorage.question = firstUpperCase(String(res.nextQuestion));
 				if (res.nextQuestion === "") {
 					this.props.clearNumQuestions();
-					this.props.history.push("/section3");
+					this.props.history.push("/section5");
 				} else {
 					this.setState({ question: firstUpperCase(res.nextQuestion) });
 				}
@@ -103,44 +99,39 @@ class BreakingWords extends Component {
 	};
 
 	render() {
-		const questionText1 = eval("this.props.curState." + String(this.state.question) + ".text1");
-		const questionText2 = eval("this.props.curState." + String(this.state.question) + ".text2");
-		const keyword = eval("this.props.curState." + String(this.state.question) + ".keyword");
-		const audio = eval("this.props.curState." + String(this.state.question) + ".audio");
+		const questionText1 = this.props.curState[this.state.question].text1;
+		const questionText2 = this.props.curState[this.state.question].text2;
+		const keyword = this.props.curState[this.state.question].keyword;
+		const audio = this.props.curState[this.state.question].audio;
 
 		return (
 			<div className="breaking_words">
-				<div className="main_context">
-					<div>
-						<img onClick={this.playAudio} src={Pic} height="54px" width="54px" />
+				<div
+					style={{ paddingLeft: "10%", paddingRight: "10%", position: "absolute", top: "15%", width: "100%" }}
+				>
+					<div style={{ marginBottom: "5px", height: "50px" }}>
+						<img onClick={this.playAudio} src={Pic} height="54px" width="54px" alt="img" />
 						<ReactAudioPlayer
-							style={{ display: this.state.showElem }}
+							style={{ display: this.state.showElem, verticalAlign: "middle" }}
 							src={audio}
 							controls
 						></ReactAudioPlayer>
 					</div>
-					<div style={{ fontSize: this.props.curState.fontSize }} className="question_text">
-						<div style={{color:"green"}}>{keyword} </div>
-						<div>{questionText1}</div>
-						<div>
-							<input value={this.state.answerText} onChange={this.onChange} />
-						</div>
-						<div>{questionText2}</div>
-					</div>
-
-					<div className="button_div">
-						<Button
-							danger
-							size={this.props.curState.fontSize}
-							onClick={this.getNextQuestion}
-							style={{ color: "green", borderColor: "green" }}
-						>
-							Next
-						</Button>
-					</div>
+					<Row style={{ fontSize: this.props.curState.fontSize }}>
+						<Col span={5}>
+							<div style={{ backgroundColor: "green", width: "160px", borderStyle: "dotted", textAlign: "center" }}>
+								{keyword}{" "}
+							</div>
+						</Col>
+						<Col>
+							{questionText1} <input value={this.state.answerText} onChange={this.onChange} />{" "}
+							{questionText2}
+						</Col>
+					</Row>
 				</div>
+				<NextQuestionButton getNextQuestion={this.getNextQuestion} />
 
-				<div>
+				<div style={{ position: "absolute", bottom: "0px", width: "100%" }}>
 					<SectionBar numSection={4} />
 				</div>
 			</div>

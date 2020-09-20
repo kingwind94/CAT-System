@@ -1,10 +1,7 @@
+import { Button, Divider, Typography, Row, Col } from "antd";
 import React, { Component } from "react";
-import { Card, Typography, Radio, Button } from "antd";
 import { connect } from "react-redux";
-import { Divider } from "antd";
 import { Link } from "react-router-dom";
-import { Input } from "antd";
-
 import "../style/UniformStyle.css";
 
 const { Title, Text, Paragraph } = Typography;
@@ -18,8 +15,6 @@ class Section4 extends Component {
 		};
 	}
 	render() {
-		const choice = ["water", "heats", "land"];
-
 		return (
 			<div style={{ padding: "30px", fontSize: this.props.fontSize }}>
 				<Title level={3} align="left">
@@ -50,35 +45,40 @@ class Section4 extends Component {
 					<Divider />
 				</div>
 				<div>
-					<div>
-						<Text strong style={{ color: "black", marginRight: "15px" }}>
-							driver
-						</Text>
-						<Text strong style={{ color: "black" }}>
-							Children are too young to
-						</Text>
-
-						<div>
-							<input  onChange={this.onChange} />
-						</div>
-					</div>
-					<div>
-						<Text strong style={{ color: "black", marginRight: "15px" }}>
-							improvement
-						</Text>
-						<Text strong style={{ color: "black" }}>
-							My teacher wants my spelling to
-						</Text>
-						<div>
-							<input  onChange={this.onChange} />
-						</div>
-					</div>
+					<Row style={{ margin: "20px" }}>
+						<Col span={4} offset={2}>
+							<Text strong style={{ color: "black" }}>
+								driver
+							</Text>
+						</Col>
+						<Col>
+							<Text strong style={{ color: "black" }}>
+								Children are too young to{" "}
+							</Text>
+							<input onChange={this.onChange} />
+							{"."}
+						</Col>
+					</Row>
+					<Row style={{ margin: "20px" }}>
+						<Col span={4} offset={2}>
+							<Text strong style={{ color: "black" }}>
+								improvement
+							</Text>
+						</Col>
+						<Col>
+							<Text strong style={{ color: "black" }}>
+								My teacher wants my spelling to{" "}
+							</Text>
+							<input onChange={this.onChange} />
+							{"."}
+						</Col>
+					</Row>
 				</div>
 
 				<div style={{ marginLeft: "5%", marginTop: "40px" }}>
 					<div style={{ marginTop: "20px", float: "right" }}>
 						<Button danger style={{ color: "green", borderColor: "green" }}>
-							<Link to="/section5_1">Next</Link>
+							<Link to="/section4_1">Next</Link>
 						</Button>
 					</div>
 				</div>

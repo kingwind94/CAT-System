@@ -2,7 +2,7 @@ import { FontColorsOutlined } from "@ant-design/icons";
 import { Layout } from "antd";
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { HashRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 import LoginComponent from "./components/auth/LoginPage";
 import ConnectPicture from "./components/section1/ConnectPicture";
 import ConnectSentence from "./components/section1/ConnectSentence";
@@ -20,12 +20,12 @@ import Section6 from "./components/section6/Section6";
 import Section7 from "./components/section7/Section7";
 import Section8 from "./components/section8/Section8";
 
-const { Header, Content, Footer } = Layout;
+const { Content } = Layout;
 
 class App extends Component {
 	render() {
 		return (
-			<HashRouter>
+			<BrowserRouter>
 				<div id="root-container">
 					<Layout className="layout" style={{ minHeight: "100vh" }}>
 						<Content style={{ margin: "25px auto" }}>
@@ -60,7 +60,7 @@ class App extends Component {
 						</Content>
 					</Layout>
 				</div>
-			</HashRouter>
+			</BrowserRouter>
 		);
 	}
 }

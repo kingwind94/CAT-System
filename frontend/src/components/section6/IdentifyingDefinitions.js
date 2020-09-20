@@ -1,9 +1,7 @@
 import { Button, Col, notification, Row } from "antd";
 import React, { Component } from "react";
-import ReactAudioPlayer from "react-audio-player";
 import { connect } from "react-redux";
-import FetchData from "../../FetchData";
-import Pic from "../../play.png";
+import FetchData from "../utils/FetchData";
 import "../style/UniformStyle.css";
 import { SectionBar } from "../utils/Utils";
 import "./Style.css";
@@ -103,11 +101,11 @@ class IdentifyingDefinitions extends Component {
 		const adult2 = require("../../Site/Images/Adult2.png");
 		const children1 = require("../../Site/Images/children1.png");
 		const children2 = require("../../Site/Images/children2.png");
-		const audio = eval("this.props.curState." + String(this.state.question) + ".audio");
-		const questionText1 = eval("this.props.curState." + String(this.state.question) + ".text1");
-		const questionText2 = eval("this.props.curState." + String(this.state.question) + ".text2");
-        const questionText3 = eval("this.props.curState." + String(this.state.question) + ".text3");
-        const keyword = eval("this.props.curState." + String(this.state.question) + ".keyword");
+		const audio = this.props.curState[this.state.question].audio;
+		const questionText1 = this.props.curState[this.state.question].text1;
+		const questionText2 = this.props.curState[this.state.question].text2;
+		const questionText3 = this.props.curState[this.state.question].text3;
+		const keyword = this.props.curState[this.state.question].keyword;
 
 		return (
 			<div className="identifying_definitions">
@@ -122,8 +120,8 @@ class IdentifyingDefinitions extends Component {
 						</Col>
 						<Col span={4}>
 							<div>
-								<img src={children1} height="50px" />
-								<img src={children2} height="50px" />
+								<img src={children1} height="50px" alt="img" />
+								<img src={children2} height="50px" alt="img"/>
 							</div>
 						</Col>
 						<Col span={2}>
@@ -131,8 +129,8 @@ class IdentifyingDefinitions extends Component {
 						</Col>
 						<Col span={4}>
 							<div>
-								<img src={adult1} height="50px" />
-								<img src={adult2} height="50px" />
+								<img src={adult1} height="50px" alt="img"/>
+								<img src={adult2} height="50px" alt="img"/>
 							</div>
 						</Col>
 					</Row>
@@ -146,8 +144,8 @@ class IdentifyingDefinitions extends Component {
 						</Col>
 						<Col span={4}>
 							<div>
-								<img src={children1} height="50px" />
-								<img src={children2} height="50px" />
+								<img src={children1} height="50px" alt="img"/>
+								<img src={children2} height="50px" alt="img"/>
 							</div>
 						</Col>
 						<Col span={2}>
@@ -155,8 +153,8 @@ class IdentifyingDefinitions extends Component {
 						</Col>
 						<Col span={4}>
 							<div>
-								<img src={adult1} height="50px" />
-								<img src={adult2} height="50px" />
+								<img src={adult1} height="50px" alt="img"/>
+								<img src={adult2} height="50px" alt="img"/>
 							</div>
 						</Col>
 					</Row>
@@ -170,8 +168,8 @@ class IdentifyingDefinitions extends Component {
 						</Col>
 						<Col span={4}>
 							<div>
-								<img src={children1} height="50px" />
-								<img src={children2} height="50px" />
+								<img src={children1} height="50px" alt="img"/>
+								<img src={children2} height="50px" alt="img"/>
 							</div>
 						</Col>
 						<Col span={2}>
@@ -179,8 +177,8 @@ class IdentifyingDefinitions extends Component {
 						</Col>
 						<Col span={4}>
 							<div>
-								<img src={adult1} height="50px" />
-								<img src={adult2} height="50px" />
+								<img src={adult1} height="50px" alt="img"/>
+								<img src={adult2} height="50px" alt="img"/>
 							</div>
 						</Col>
 					</Row>

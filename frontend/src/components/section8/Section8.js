@@ -1,10 +1,9 @@
-import { Button, Divider, Typography, Row, Col } from "antd";
+import { Col, Divider, Row, Typography } from "antd";
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-
 import "../style/UniformStyle.css";
 import { NextButton } from "../utils/Utils";
+
 
 const { Title, Text, Paragraph } = Typography;
 

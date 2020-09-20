@@ -2,7 +2,7 @@ import { Button, Col, notification, Row } from "antd";
 import React, { Component } from "react";
 import ReactAudioPlayer from "react-audio-player";
 import { connect } from "react-redux";
-import FetchData from "../../FetchData";
+import FetchData from "../utils/FetchData";
 import Pic from "../../play.png";
 import "../style/UniformStyle.css";
 import { SectionBar } from "../utils/Utils";
@@ -99,17 +99,17 @@ class ComprehendingSentences extends Component {
 	};
 
 	render() {
-		const picture1 = eval("this.props.curState." + String(this.state.question) + ".picture1");
-		const picture2 = eval("this.props.curState." + String(this.state.question) + ".picture2");
-		const picture3 = eval("this.props.curState." + String(this.state.question) + ".picture3");
-		const picture4 = eval("this.props.curState." + String(this.state.question) + ".picture4");
-		const audio = eval("this.props.curState." + String(this.state.question) + ".audio");
+		const picture1 = this.props.curState[this.state.question].picture1;
+		const picture2 = this.props.curState[this.state.question].picture2;
+		const picture3 = this.props.curState[this.state.question].picture3;
+		const picture4 = this.props.curState[this.state.question].picture4;
+		const audio = this.props.curState[this.state.question].audio;
 
 		return (
 			<div className="comprehending_sentences">
 				<div className="main_context">
 					<div>
-						<img onClick={this.playAudio} src={Pic} height="54px" width="54px" />
+						<img onClick={this.playAudio} src={Pic} height="54px" width="54px" alt="img" />
 						<ReactAudioPlayer
 							style={{ display: this.state.showElem }}
 							src={audio}
@@ -123,6 +123,7 @@ class ComprehendingSentences extends Component {
 									src={picture1}
 									onClick={(e) => this.onClick(e, 1)}
 									style={{ borderStyle: this.state.borderStyle[0] }}
+									alt="img"
 								/>
 							</Col>
 
@@ -131,6 +132,7 @@ class ComprehendingSentences extends Component {
 									src={picture2}
 									onClick={(e) => this.onClick(e, 2)}
 									style={{ borderStyle: this.state.borderStyle[1] }}
+									alt="img"
 								/>
 							</Col>
 						</Row>
@@ -140,6 +142,7 @@ class ComprehendingSentences extends Component {
 									src={picture3}
 									onClick={(e) => this.onClick(e, 3)}
 									style={{ borderStyle: this.state.borderStyle[2] }}
+									alt="img"
 								/>
 							</Col>
 
@@ -148,6 +151,7 @@ class ComprehendingSentences extends Component {
 									src={picture4}
 									onClick={(e) => this.onClick(e, 4)}
 									style={{ borderStyle: this.state.borderStyle[3] }}
+									alt="img"
 								/>
 							</Col>
 						</Row>

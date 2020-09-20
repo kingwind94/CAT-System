@@ -19,6 +19,7 @@ export function TwoPictures(props) {
 						maxHeight: "500px",
 						maxWidth: "500px",
 					}}
+					alt="img"
 				/>
 			</Col>
 			<Col span={10}>
@@ -34,6 +35,7 @@ export function TwoPictures(props) {
 						maxHeight: "500px",
 						maxWidth: "500px",
 					}}
+					alt="img"
 				/>
 			</Col>
 		</Row>
@@ -45,20 +47,20 @@ export function FourPictures(props) {
 		<div>
 			<Row justify="space-around" gutter={[16, 24]}>
 				<Col span={10} offset={4}>
-					<img src={props.picture1} />
+					<img src={props.picture1} alt="img" />
 				</Col>
 
 				<Col span={10}>
-					<img src={props.picture2} />
+					<img src={props.picture2} alt="img" />
 				</Col>
 			</Row>
 			<Row justify="space-around" gutter={[16, 24]}>
 				<Col span={10} offset={4}>
-					<img src={props.picture3} />
+					<img src={props.picture3} alt="img" />
 				</Col>
 
 				<Col span={10}>
-					<img src={props.picture4} />
+					<img src={props.picture4} alt="img" />
 				</Col>
 			</Row>
 		</div>
@@ -113,6 +115,21 @@ export function NextButton(props) {
 					<Link to={props.link}>Next</Link>
 				</Button>
 			</div>
+		</div>
+	);
+}
+
+export function NextQuestionButton(props) {
+	return (
+		<div style={{ position: "absolute", bottom: "120px", right: "80px" }}>
+			<Button
+				danger
+				size="large"
+				onClick={props.getNextQuestion}
+				style={{ color: "green", borderColor: "green" }}
+			>
+				Next
+			</Button>
 		</div>
 	);
 }

@@ -4,7 +4,7 @@ import ReactAudioPlayer from "react-audio-player";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
 import { compose } from "redux";
-import FetchData from "../../FetchData";
+import FetchData from "../utils/FetchData";
 import Pic from "../../play.png";
 import { SectionBar } from "../utils/Utils";
 import "./Style.css";
@@ -99,10 +99,6 @@ class ConnectSentence extends Component {
 		// console.log("judgeOfAnswer: " + judgeOfAnswer);
 
 		await this.props.answerQuestionAns(judgeOfAnswer, this.state.question);
-		// console.log(this.props.curState.questionAns);
-		// console.log(this.props.curState.questionAnsSum);
-		// console.log(this.props.curState.questions);
-		// console.log(this.props.curState.questionSum);
 
 		let data = {
 			questionAns: this.props.curState.questionAns,
@@ -144,10 +140,10 @@ class ConnectSentence extends Component {
 
 		return (
 			<div className="connect_sentence">
-				<div style={{ paddingLeft: "5%", paddingRight: "5%", position: "absolute", top: "15%", width: "100%" }}>
+				<div style={{ paddingLeft: "10%", paddingRight: "10%", position: "absolute", top: "15%", width: "100%" }}>
 					<Row>
 						<div style={{ marginBottom: "5px", height: "50px" }}>
-							<img onClick={this.playAudio} src={Pic} height="54px" width="54px" />
+							<img onClick={this.playAudio} src={Pic} height="54px" width="54px" alt="img"/>
 							<ReactAudioPlayer
 								style={{ display: this.state.showElem, verticalAlign: "middle" }}
 								src={audio}

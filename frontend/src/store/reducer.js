@@ -28,7 +28,7 @@ export const defaultState = {
 			text5: "Finally, some students are still hungry after lunch, so each student should get more food.",
 			fullAnswer: ["35214"],
 			partAnswer: ["34215"],
-			lessAnswer: ["5", "1"],
+			lessAnswer: ["05010"],
 		},
 	},
 	Connect_pic_therefore_B: {

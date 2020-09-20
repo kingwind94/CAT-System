@@ -1,3 +1,8 @@
+.DragAndSwap {
+	height: 100%;
+	position: relative;
+}
+
 .DragAndDropApp {
 	display: flex;
 	flex-direction: row;
@@ -5,29 +10,44 @@
 	height: 60vh;
 }
 .texts {
-	background: grey;
+	background: white;
 	height: 100%;
-	width: 45%;
+	width: 50%;
 	margin: 10px;
 	display: flex;
 	flex-direction: column;
 }
 
 .answer {
-	background: grey;
+	background: lightgray;
 	height: 100%;
-	width: 45%;
+	width: 50%;
 	margin: 10px;
 	display: flex;
 	flex-direction: column;
+	border-style: solid;
 }
 
-.item {
-	background: greenyellow;
+.item1 {
+	background: white;
 	margin: 20px auto;
 	flex-grow: 1;
-	width: 80%;
+	width: 90%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	border-style: dotted;
+	text-align: center;
+}
+
+.item2 {
+	background: white;
+	margin: 20px auto;
+	flex-grow: 1;
+	width: 90%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-style: dotted;
+	text-align: center;
 }

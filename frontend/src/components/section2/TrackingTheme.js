@@ -1,7 +1,7 @@
 import { Button, notification, Radio, Typography } from "antd";
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import FetchData from "../../FetchData";
+import FetchData from "../utils/FetchData";
 import { SectionBar } from "../utils/Utils";
 import "./Style.css";
 

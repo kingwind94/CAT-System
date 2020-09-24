@@ -107,6 +107,7 @@ class ConnectPicture extends Component {
 				console.log(res);
 				// window.localStorage.question = firstUpperCase(String(res.nextQuestion));
 				if (res.nextQuestion === "") {
+					this.props.clearNumQuestions();
 					this.props.history.push("/section1_2");
 				} else {
 					this.setState({ question: firstUpperCase(res.nextQuestion) });
@@ -229,6 +230,12 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 				type: "ANSWER_QUESTION",
 				questionAns: questionAns,
 				question: question,
+			};
+			dispatch(action);
+		},
+		clearNumQuestions() {
+			const action = {
+				type: "CLEAR_NUM_QUESTION",
 			};
 			dispatch(action);
 		},

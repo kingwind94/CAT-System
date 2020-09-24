@@ -106,7 +106,7 @@ class ConnectSentence extends Component {
 			questions: this.props.curState.questions,
 			questionSum: this.props.curState.questionSum,
 			sectionName: SectionName,
-			numQuestions: this.props.curState.numQuestions - 4,
+			numQuestions: this.props.curState.numQuestions,
 		};
 
 		this.setState({
@@ -124,6 +124,7 @@ class ConnectSentence extends Component {
 			.then((res) => {
 				console.log(res);
 				if (res.nextQuestion === "") {
+					this.props.clearNumQuestions();
 					this.props.history.push("/section2");
 				} else {
 					this.setState({ question: firstUpperCase(res.nextQuestion) });
@@ -240,6 +241,12 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 				type: "ANSWER_QUESTION",
 				questionAns: questionAns,
 				question: question,
+			};
+			dispatch(action);
+		},
+		clearNumQuestions() {
+			const action = {
+				type: "CLEAR_NUM_QUESTION",
 			};
 			dispatch(action);
 		},

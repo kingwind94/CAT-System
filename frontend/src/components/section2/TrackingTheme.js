@@ -56,7 +56,7 @@ class TrackingTheme extends Component {
 		await FetchData("/UpdateCATAnswer/32", "PUT", catAns)
 			.then((res) => res.json())
 			.then((res) => {
-				// console.log(res);
+				console.log(res);
 			});
 
 		let judgeOfAnswer;
@@ -67,13 +67,9 @@ class TrackingTheme extends Component {
 		} else {
 			judgeOfAnswer = "w." + this.state.question;
 		}
-		// console.log("judgeOfAnswer: " + judgeOfAnswer);
+		console.log("judgeOfAnswer: " + judgeOfAnswer);
 
 		await this.props.answerQuestionAns(judgeOfAnswer, this.state.question);
-		// console.log(this.props.curState.questionAns);
-		// console.log(this.props.curState.questionAnsSum);
-		// console.log(this.props.curState.questions);
-		// console.log(this.props.curState.questionSum);
 
 		let data = {
 			questionAns: this.props.curState.questionAns,
@@ -81,7 +77,7 @@ class TrackingTheme extends Component {
 			questions: this.props.curState.questions,
 			questionSum: this.props.curState.questionSum,
 			sectionName: "ANAPHORA",
-			numQuestions: this.props.curState.numQuestions - 8,
+			numQuestions: this.props.curState.numQuestions,
 		};
 
 		this.setState({
@@ -92,12 +88,15 @@ class TrackingTheme extends Component {
 		await FetchData("/sumCorrectIncorrect", "PUT", data)
 			.then((res) => {
 				if (res.status === 200) {
+					console.log(res);
 					return res.json();
 				} else {
 				}
 			})
 			.then((res) => {
+				console.log(res);
 				if (res.nextQuestion === "") {
+					this.props.clearNumQuestions();
 					this.props.history.push("/section3");
 				} else {
 					this.setState({ question: firstUpperCase(res.nextQuestion) });
@@ -212,6 +211,12 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 				type: "ANSWER_QUESTION",
 				questionAns: questionAns,
 				question: question,
+			};
+			dispatch(action);
+		},
+		clearNumQuestions() {
+			const action = {
+				type: "CLEAR_NUM_QUESTION",
 			};
 			dispatch(action);
 		},

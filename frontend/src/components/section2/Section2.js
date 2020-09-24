@@ -119,7 +119,6 @@ class Section2 extends Component {
 }
 
 const mapStateToProps = (state) => {
-	console.log(state);
 	return {
 		sessionNum: state.sessionNum,
 		fontSize: state.fontSize,

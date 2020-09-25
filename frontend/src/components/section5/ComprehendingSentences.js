@@ -107,7 +107,7 @@ class ComprehendingSentences extends Component {
 
 		return (
 			<div className="comprehending_sentences">
-				<div className="main_context">
+				<div>
 					<div>
 						<img onClick={this.playAudio} src={Pic} height="54px" width="54px" alt="img" />
 						<ReactAudioPlayer

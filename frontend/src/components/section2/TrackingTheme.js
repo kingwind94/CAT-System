@@ -80,6 +80,8 @@ class TrackingTheme extends Component {
 			numQuestions: this.props.curState.numQuestions,
 		};
 
+		console.log(data);
+
 		this.setState({
 			value: -1,
 			radioColor: ["black", "black", "black"],

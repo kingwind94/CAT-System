@@ -108,8 +108,8 @@ class IdentifyingDefinitions extends Component {
 		const keyword = this.props.curState[this.state.question].keyword;
 
 		return (
-			<div className="identifying_definitions">
-				<div className="main_context">
+			<div className="identifying_definitions" style={{ fontSize: this.props.curState.fontSize }}>
+				<div style={{ position: "absolute", top: "5%", width: "100%" }}>
 					<Row>
 						<Col span={1} offset={1}>
 							A.
@@ -201,7 +201,7 @@ class IdentifyingDefinitions extends Component {
 				</div>
 
 				<div style={{ position: "absolute", bottom: "0px", width: "100%" }}>
-					<SectionBar numSection={5} />
+					<SectionBar numSection={6} />
 				</div>
 			</div>
 		);

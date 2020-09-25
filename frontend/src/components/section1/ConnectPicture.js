@@ -77,10 +77,6 @@ class ConnectPicture extends Component {
 		// console.log("judgeOfAnswer: " + judgeOfAnswer);
 
 		await this.props.answerQuestionAns(judgeOfAnswer, this.state.question);
-		// console.log(this.props.curState.questionAns);
-		// console.log(this.props.curState.questionAnsSum);
-		// console.log(this.props.curState.questions);
-		// console.log(this.props.curState.questionSum);
 
 		let data = {
 			questionAns: this.props.curState.questionAns,
@@ -124,7 +120,7 @@ class ConnectPicture extends Component {
 
 	render() {
 		let choice = this.props.curState[this.state.question].choice;
-		let questionText1 = this.props.curState[this.state.question].questionText1;
+		let questionText1 = this.props.curState[this.state.question].text1;
 		let questionText2 = this.props.curState[this.state.question].text2;
 		let picture1 = this.props.curState[this.state.question].picture1;
 		let picture2 = this.props.curState[this.state.question].picture2;

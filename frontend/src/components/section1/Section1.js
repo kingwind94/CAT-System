@@ -50,13 +50,13 @@ class Section1 extends Component {
 				<div>
 					<ul>
 						<li>
-							<Text style={{ color: "black" }}>First, read the sentences.</Text>
+							<Text className = "text_div" style={{ color: "black" }}>First, read the sentences.</Text>
 						</li>
 						<li>
-							<Text style={{ color: "black" }}>Then, click the option that best complete the sentences.</Text>
+							<Text className = "text_div" style={{ color: "black" }}>Then, click the option that best complete the sentences.</Text>
 						</li>
 						<li>
-							<Text style={{ color: "black" }}>Some sentences have pictures, others do not.</Text>
+							<Text className = "text_div" style={{ color: "black" }}>Some sentences have pictures, others do not.</Text>
 						</li>
 					</ul>
 				</div>
@@ -73,13 +73,13 @@ class Section1 extends Component {
 					<Row>
 						<Col span={2}></Col>
 						<Col span={20}>
-							<Text strong style={{ color: "black" }}>
+							<Text strong className = "text_div" style={{ color: "black" }}>
 								{questionText1}
 							</Text>
 							<Text underline strong style={{ color: "green" }}>
 								{this.state.blank}
 							</Text>
-							<Text strong style={{ color: "black" }}>
+							<Text strong className = "text_div" style={{ color: "black" }}>
 								{questionText2}
 							</Text>
 

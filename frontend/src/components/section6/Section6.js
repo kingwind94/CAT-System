@@ -28,27 +28,27 @@ class Section6 extends Component {
 				<div>
 					<ul>
 						<li style={{ fontSize: this.props.fontSize }}>
-							<Text style={{ color: "black" }}>
+							<Text className = "text_div" style={{ color: "black" }}>
 								First, read each definition and decide if it was written for children or adults.
 							</Text>
 						</li>
 						<li style={{ fontSize: this.props.fontSize }}>
-							<Text style={{ color: "black" }}>
+							<Text className = "text_div" style={{ color: "black" }}>
 								If you think the definition is for children, then click “children”; OR if you think the
 								definition is for adults, then click “adults”.
 							</Text>
 						</li>
 						<li style={{ fontSize: this.props.fontSize }}>
-							<Text style={{ color: "black" }}>
+							<Text className = "text_div" style={{ color: "black" }}>
 								Finally, from the three definitions choose the option that is best for a dictionary for
 								adults.
 							</Text>
 						</li>
 						<li style={{ fontSize: this.props.fontSize }}>
-							<Text style={{ color: "black" }}>Click only one option: A, B or C.</Text>
+							<Text className = "text_div" style={{ color: "black" }}>Click only one option: A, B or C.</Text>
 						</li>
 						<li style={{ fontSize: this.props.fontSize }}>
-							<Text style={{ color: "black" }}>There is no sample item for this section.</Text>
+							<Text className = "text_div" style={{ color: "black" }}>There is no sample item for this section.</Text>
 						</li>
 					</ul>
 				</div>

@@ -24,15 +24,15 @@ class Section4 extends Component {
 				<div>
 					<ul>
 						<li style={{ fontSize: this.props.fontSize }}>
-							<Text style={{ color: "black" }}>First, read the word before the sentence.</Text>
+							<Text className = "text_div" style={{ color: "black" }}>First, read the word before the sentence.</Text>
 						</li>
 						<li style={{ fontSize: this.props.fontSize }}>
-							<Text style={{ color: "black" }}>
+							<Text className = "text_div" style={{ color: "black" }}>
 								You need to change this word into a different form to complete the sentence.
 							</Text>
 						</li>
 						<li style={{ fontSize: this.props.fontSize }}>
-							<Text style={{ color: "black" }}>
+							<Text className = "text_div" style={{ color: "black" }}>
 								When you are ready, type changed word inside the green box.
 							</Text>
 						</li>

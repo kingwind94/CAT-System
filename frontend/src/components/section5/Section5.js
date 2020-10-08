@@ -29,15 +29,15 @@ class Section5 extends Component {
 				<div>
 					<ul>
 						<li style={{ fontSize: this.props.fontSize }}>
-							<Text style={{ color: "black" }}>
+							<Text className = "text_div" style={{ color: "black" }}>
 								First, click the PLAY button below to listen to a sentence.
 							</Text>
 						</li>
 						<li style={{ fontSize: this.props.fontSize }}>
-							<Text style={{ color: "black" }}>You will hear the sentence three times.</Text>
+							<Text className = "text_div" style={{ color: "black" }}>You will hear the sentence three times.</Text>
 						</li>
 						<li style={{ fontSize: this.props.fontSize }}>
-							<Text style={{ color: "black" }}>
+							<Text className = "text_div" style={{ color: "black" }}>
 								Then, you need to select the picture that goes with that sentence.
 							</Text>
 						</li>

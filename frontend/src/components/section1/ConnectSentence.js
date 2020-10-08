@@ -154,7 +154,7 @@ class ConnectSentence extends Component {
 					</Row>
 					<Row>
 						<div style={{ fontSize: this.props.curState.fontSize, margin: "10px" }}>
-							<Text style={{ color: "black" }}>{questionText1}</Text>
+							<Text className = "text_div" style={{ color: "black" }}>{questionText1}</Text>
 							<Text strong style={{ color: "black" }}>
 								{questionText2}
 							</Text>

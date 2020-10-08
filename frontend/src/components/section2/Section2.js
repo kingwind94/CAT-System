@@ -34,12 +34,12 @@ class Section2 extends Component {
 				<div>
 					<ul>
 						<li style={{ fontSize: this.props.fontSize }}>
-							<Text style={{ color: "black" }}>
+							<Text className = "text_div" style={{ color: "black" }}>
 								First, read the text and pay attention to the underlined word or words.
 							</Text>
 						</li>
 						<li style={{ fontSize: this.props.fontSize }}>
-							<Text style={{ color: "black" }}>
+							<Text className = "text_div" style={{ color: "black" }}>
 								Then, click the option that refers to the same person, thing or event as the underlined
 								word or words in the text.
 							</Text>

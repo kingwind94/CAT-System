@@ -34,15 +34,15 @@ class Section7 extends Component {
 				<div>
 					<ul>
 						<li style={{ fontSize: this.props.fontSize }}>
-							<Text style={{ color: "black" }}>First, read the situation in the green box.</Text>
+							<Text className = "text_div" style={{ color: "black" }}>First, read the situation in the green box.</Text>
 						</li>
 						<li style={{ fontSize: this.props.fontSize }}>
-							<Text style={{ color: "black" }}>
+							<Text className = "text_div" style={{ color: "black" }}>
 								Then, read what each person says and decide how sure the person is abut what they say.
 							</Text>
 						</li>
 						<li style={{ fontSize: this.props.fontSize }}>
-							<Text style={{ color: "black" }}>Finally, click the appropriate box.</Text>
+							<Text className = "text_div" style={{ color: "black" }}>Finally, click the appropriate box.</Text>
 						</li>
 					</ul>
 				</div>

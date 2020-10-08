@@ -7,6 +7,7 @@ ul {
 	float: right;
 }
 
+<<<<<<< HEAD
 .green-text {
 	margin-top: 10px;
 	margin-bottom: 30px;
@@ -16,4 +17,8 @@ ul {
 	height: 100%;
 	position: relative;
 	margin: 0px 100px 0px 100px
+=======
+.text_div {
+	color: black
+>>>>>>> 984026ca27e04146da3330503d6236f48434a57e
 }

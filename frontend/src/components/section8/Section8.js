@@ -24,13 +24,13 @@ class Section8 extends Component {
 				<div>
 					<ul>
 						<li style={{ fontSize: this.props.fontSize }}>
-							<Text style={{ color: "black" }}>First, read or listen the newspaper’s idea.</Text>
+							<Text className = "text_div" style={{ color: "black" }}>First, read or listen the newspaper’s idea.</Text>
 						</li>
 						<li style={{ fontSize: this.props.fontSize }}>
-							<Text style={{ color: "black" }}>Then, read or listen to each student’s sentence.</Text>
+							<Text className = "text_div" style={{ color: "black" }}>Then, read or listen to each student’s sentence.</Text>
 						</li>
 						<li style={{ fontSize: this.props.fontSize }}>
-							<Text style={{ color: "black" }}>
+							<Text className = "text_div" style={{ color: "black" }}>
 								Finally, choose the option that best describes what each student is saying or writing.
 							</Text>
 						</li>

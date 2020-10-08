@@ -3,11 +3,11 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import "../style/UniformStyle.css";
 import { NextButton } from "../utils/Utils";
-
+import { SectionBar, NextQuestionButton } from "../utils/Utils";
 
 const { Title, Text, Paragraph } = Typography;
 
-class Section8 extends Component {
+class UnderstandingResponses extends Component {
 	constructor(props) {
 		super();
 		this.state = {
@@ -16,31 +16,8 @@ class Section8 extends Component {
 	}
 	render() {
 		return (
-			<div style={{ padding: "30px", fontSize: this.props.fontSize }}>
-				<Title level={3} align="left">
-					SECTION 8: UNDERSTANDING RESPONSES
-				</Title>
-				<Divider />
+			<div className="main-context-div " style={{ fontSize: this.props.fontSize }}>
 				<div>
-					<ul>
-						<li style={{ fontSize: this.props.fontSize }}>
-							<Text style={{ color: "black" }}>First, read or listen the newspaper’s idea.</Text>
-						</li>
-						<li style={{ fontSize: this.props.fontSize }}>
-							<Text style={{ color: "black" }}>Then, read or listen to each student’s sentence.</Text>
-						</li>
-						<li style={{ fontSize: this.props.fontSize }}>
-							<Text style={{ color: "black" }}>
-								Finally, choose the option that best describes what each student is saying or writing.
-							</Text>
-						</li>
-					</ul>
-				</div>
-				<div style={{ marginTop: "40px" }}>
-					<Title level={4} align="left">
-						SAMPLE ITEMS
-					</Title>
-					<Divider />
 					<Row>
 						<div>
 							<Paragraph strong>Newspaper:</Paragraph>
@@ -55,7 +32,11 @@ class Section8 extends Component {
 						</div>
 					</Row>
 				</div>
-				<NextButton link="/section8_1" />
+                
+				<NextQuestionButton getNextQuestion={this.getNextQuestion} />
+				<div style={{ position: "absolute", bottom: "0px", width: "100%" }}>
+					<SectionBar numSection={8} />
+				</div>
 			</div>
 		);
 	}
@@ -77,4 +58,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 	};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Section8);
+export default connect(mapStateToProps, mapDispatchToProps)(UnderstandingResponses);

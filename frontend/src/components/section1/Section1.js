@@ -61,7 +61,7 @@ class Section1 extends Component {
 					</ul>
 				</div>
 
-				<div>
+				<div style={{ marginTop: "40px" }}>
 					<Title level={4} align="left">
 						SAMPLE ITEM
 					</Title>

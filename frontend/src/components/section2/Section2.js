@@ -4,18 +4,24 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "../style/UniformStyle.css";
 
-
 const { Title, Text, Paragraph } = Typography;
 
 class Section2 extends Component {
 	constructor(props) {
-		super(props);
+		super();
 
 		this.state = {
 			value: -1,
 			radioColor: ["black", "black", "black"],
 		};
 	}
+
+	onChange = (e) => {
+		this.setState({
+			value: e.target.value,
+		});
+	};
+
 	render() {
 		const choice = ["water", "heats", "land"];
 

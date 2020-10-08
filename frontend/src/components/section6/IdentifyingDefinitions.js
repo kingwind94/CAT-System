@@ -210,7 +210,7 @@ class IdentifyingDefinitions extends Component {
 const mapStateToProps = (state) => {
 	return {
 		fontSize: state.fontSize,
-		curState: state,
+		curState: state.DEFINITIONS_AWARENESS,
 	};
 };
 

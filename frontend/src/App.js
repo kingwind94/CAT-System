@@ -18,7 +18,9 @@ import Section5 from "./components/section5/Section5";
 import IdentifyingDefinitions from "./components/section6/IdentifyingDefinitions";
 import Section6 from "./components/section6/Section6";
 import Section7 from "./components/section7/Section7";
+import SureOrUnsure from "./components/section7/SureOrUnsure";
 import Section8 from "./components/section8/Section8";
+import UnderstandingResponses from "./components/section8/UnderstandingResponses";
 
 const { Content } = Layout;
 
@@ -55,7 +57,9 @@ class App extends Component {
 								<Route path="/section6" component={Section6}></Route>
 								<Route path="/section6_1" component={IdentifyingDefinitions}></Route>
 								<Route path="/section7" component={Section7}></Route>
+								<Route path="/section7_1" component={SureOrUnsure}></Route>
 								<Route path="/section8" component={Section8}></Route>
+								<Route path="/section8_1" component={UnderstandingResponses}></Route>
 							</div>
 						</Content>
 					</Layout>

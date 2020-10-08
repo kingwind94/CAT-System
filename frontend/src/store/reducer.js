@@ -440,6 +440,7 @@ export const defaultState = {
 		answer: 3,
 		audio: "../Site/audio/Anaphora_financialfallout.mp3",
 	},
+	// Section 4
 	Morpho_activity: {
 		text1: "The children are very",
 		text2: "",
@@ -613,6 +614,7 @@ export const defaultState = {
 		answer: ["abundant", "abundent", "abundint", "abundunt"],
 		audio: "../Site/audio/Morpho_abundant.mp3",
 	},
+	// Section 5
 	Syntax_pic_1: {
 		picture1: require("../Site/Images/Comprehending_S_Syntax_pic_1a.JPG"),
 		picture2: require("../Site/Images/Comprehending_S_Syntax_pic_1b.JPG"),
@@ -621,14 +623,89 @@ export const defaultState = {
 		audio: "../Site/audio/Syntax_pic_1.mp3",
 		answer: 2,
 	},
-	def_aware_umbrella: {
-		text1:
-			"An umbrella is what you use so you do not get wet in the rain; it has fabric over a frame that you can fold.",
-		text2: "An umbrella is something that stops the rain and it has some fabric over a type of frame that folds.",
-		text3:
-			"An umbrella is an object that provides protection from the rain, made of fabric stretched over a folding frame.",
-		keyword: "Umbrella",
-		answer: [1, 1, 2],
+	// Section 6
+	DEFINITIONS_AWARENESS: {
+		def_aware_umbrella: {
+			text1:
+				"An umbrella is what you use so you do not get wet in the rain; it has fabric over a frame that you can fold.",
+			text2:
+				"An umbrella is something that stops the rain and it has some fabric over a type of frame that folds.",
+			text3:
+				"An umbrella is an object that provides protection from the rain, made of fabric stretched over a folding frame.",
+			keyword: "Umbrella",
+			answer: [1, 1, 2, 3],
+			audio: "../Site/audio/def_aware_umbrella.mp3",
+		},
+		def_aware_clown: {
+			text1: "A clown is someone with funny clothes that makes lots of jokes to make adults and children laugh.",
+			text2: "A clown is when you dress funny and you make lots of jokes for people to laugh.",
+			text3: "A clown is an actor who wears odd clothes and entertains people using jokes and tricks.",
+			keyword: "Clown",
+			answer: [1, 1, 2, 3],
+			audio: "../Site/audio/def_aware_clown.mp3",
+		},
+		def_aware_debate: {
+			text1: "A debate is a discussion of two or more opposing viewpoints.",
+			text2: "A debate is when you argue about something with others.",
+			text3: "A debate is a thing where people talk and discuss their opinions.",
+			keyword: "Debate",
+			answer: [2, 1, 1, 1],
+			audio: "../Site/audio/def_aware_debate.mp3",
+		},
+		def_aware_holiday: {
+			text1:
+				"A holiday is some time when most adults stop working and they remember or celebrate a person or something else.",
+			text2:
+				"A holiday is a day on which usual work is suspended in honor or celebration of some person or event.",
+			text3:
+				"A holiday is when you do not have to go to work because you are remembering or celebrating someone or something.",
+			keyword: "Holiday",
+			answer: [1, 2, 1, 2],
+			audio: "../Site/audio/def_aware_holiday.mp3",
+		},
+		def_aware_concert: {
+			text1: "A concert is a musical performance given in public.",
+			text2: "A concert is where you go to listen to music with other people.",
+			text3: "A concert is somewhere people go to hear music with others.",
+			keyword: "Concert",
+			answer: [2, 1, 2, 1],
+			audio: "../Site/audio/def_aware_concert.mp3",
+		},
+		def_aware_confusion: {
+			text1: "Confusion is what you feel when you do not know what is going on.",
+			text2: "Confusion is the state of being uncertain or unclear about something.",
+			text3: "Confusion is when people don’t know what to do.",
+			keyword: "Confusion",
+			answer: [1, 2, 1, 2],
+			audio: "../Site/audio/def_aware_confusion.mp3",
+		},
+	},
+	// Section 7
+	EPISTEMIC_MARKERS: {
+		rock_from_space: {
+			title1: "The Rock is from Space: Sure or Unsure?",
+			title2: "Is the rock from space? How sure is each scientist?",
+			text1:
+				"The scientists ran tests to see if a rock came from space. Based on the results of their tests, some scientists are very sure the rock is from the space and other scientists have doubts. After reading what each scientist said, you decide how sure each scientist is!",
+		},
+		epis_impossible: {
+			text1: "It is impossible that the rock is from space.",
+			answer: 4,
+			audio: "../Site/audio/epis_impossible.mp3",
+		},
+	},
+	// Section 8
+	METALINGUISTIC: {
+		meta_supportclaim: {
+			newspaper: "Newspaper:",
+			idea: "Students need recess to have fun and relax at school.",
+			people: "Paul said: ",
+			idea: "I agree. In addition, recess is an important time to make friends.",
+			ask: "Paul is giving …",
+			img: "",
+			options: ["a counterclaim", "some evidence", "a conclusion", "another supporting claim"],
+			answer: 4,
+		},
 	},
 };
 

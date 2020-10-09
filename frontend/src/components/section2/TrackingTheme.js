@@ -2,8 +2,7 @@ import { Button, notification, Radio, Typography } from "antd";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import FetchData from "../utils/FetchData";
-import { SectionBar } from "../utils/Utils";
-import "./Style.css";
+import { SectionBar, NextQuestionButton } from "../utils/Utils";
 
 const { Title, Text, Paragraph } = Typography;
 
@@ -114,8 +113,8 @@ class TrackingTheme extends Component {
 		const audio = this.props.curState[this.state.question].audio;
 
 		return (
-			<div className="tracking_themes">
-				<div style={{ position: "absolute", top: "10%", width: "100%" }}>
+			<div className="main-context-div" style={{ fontSize: this.props.curState.fontSize }}>
+				<div className="tracking_theme">
 					<div
 						style={{
 							fontSize: "large",
@@ -179,7 +178,7 @@ class TrackingTheme extends Component {
 								</Radio>
 							</Radio.Group>
 						</div>
-						<div style={{ marginTop: "20px", float: "right" }}>
+						{/* <div style={{ marginTop: "20px", float: "right" }}>
 							<Button
 								danger
 								size={this.props.curState.fontSize}
@@ -188,9 +187,11 @@ class TrackingTheme extends Component {
 							>
 								Next
 							</Button>
-						</div>
+						</div> */}
 					</div>
 				</div>
+
+				<NextQuestionButton getNextQuestion={this.getNextQuestion} />
 
 				<div style={{ position: "absolute", bottom: "0px", width: "100%" }}>
 					<SectionBar numSection={2} />

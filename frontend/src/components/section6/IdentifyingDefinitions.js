@@ -2,9 +2,8 @@ import { Button, Col, notification, Row } from "antd";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import FetchData from "../utils/FetchData";
-import "../style/UniformStyle.css";
-import { SectionBar } from "../utils/Utils";
-import "./Style.css";
+
+import { SectionBar, NextQuestionButton } from "../utils/Utils";
 
 const openNotification = () => {
 	notification.open({
@@ -108,8 +107,8 @@ class IdentifyingDefinitions extends Component {
 		const keyword = this.props.curState[this.state.question].keyword;
 
 		return (
-			<div className="identifying_definitions" style={{ fontSize: this.props.curState.fontSize }}>
-				<div style={{ position: "absolute", top: "5%", width: "100%" }}>
+			<div className="main-context-div" style={{ fontSize: this.props.fontSize }}>
+				<div className="identifying_definition">
 					<Row>
 						<Col span={1} offset={1}>
 							A.
@@ -121,7 +120,7 @@ class IdentifyingDefinitions extends Component {
 						<Col span={4}>
 							<div>
 								<img src={children1} height="50px" alt="img" />
-								<img src={children2} height="50px" alt="img"/>
+								<img src={children2} height="50px" alt="img" />
 							</div>
 						</Col>
 						<Col span={2}>
@@ -129,8 +128,8 @@ class IdentifyingDefinitions extends Component {
 						</Col>
 						<Col span={4}>
 							<div>
-								<img src={adult1} height="50px" alt="img"/>
-								<img src={adult2} height="50px" alt="img"/>
+								<img src={adult1} height="50px" alt="img" />
+								<img src={adult2} height="50px" alt="img" />
 							</div>
 						</Col>
 					</Row>
@@ -144,8 +143,8 @@ class IdentifyingDefinitions extends Component {
 						</Col>
 						<Col span={4}>
 							<div>
-								<img src={children1} height="50px" alt="img"/>
-								<img src={children2} height="50px" alt="img"/>
+								<img src={children1} height="50px" alt="img" />
+								<img src={children2} height="50px" alt="img" />
 							</div>
 						</Col>
 						<Col span={2}>
@@ -153,8 +152,8 @@ class IdentifyingDefinitions extends Component {
 						</Col>
 						<Col span={4}>
 							<div>
-								<img src={adult1} height="50px" alt="img"/>
-								<img src={adult2} height="50px" alt="img"/>
+								<img src={adult1} height="50px" alt="img" />
+								<img src={adult2} height="50px" alt="img" />
 							</div>
 						</Col>
 					</Row>
@@ -168,8 +167,8 @@ class IdentifyingDefinitions extends Component {
 						</Col>
 						<Col span={4}>
 							<div>
-								<img src={children1} height="50px" alt="img"/>
-								<img src={children2} height="50px" alt="img"/>
+								<img src={children1} height="50px" alt="img" />
+								<img src={children2} height="50px" alt="img" />
 							</div>
 						</Col>
 						<Col span={2}>
@@ -177,8 +176,8 @@ class IdentifyingDefinitions extends Component {
 						</Col>
 						<Col span={4}>
 							<div>
-								<img src={adult1} height="50px" alt="img"/>
-								<img src={adult2} height="50px" alt="img"/>
+								<img src={adult1} height="50px" alt="img" />
+								<img src={adult2} height="50px" alt="img" />
 							</div>
 						</Col>
 					</Row>
@@ -188,7 +187,7 @@ class IdentifyingDefinitions extends Component {
 						adults.
 					</Row>
 
-					<div className="button_div">
+					{/* <div className="button_div">
 						<Button
 							danger
 							size={this.props.curState.fontSize}
@@ -197,8 +196,9 @@ class IdentifyingDefinitions extends Component {
 						>
 							Next
 						</Button>
-					</div>
+					</div> */}
 				</div>
+				<NextQuestionButton getNextQuestion={this.getNextQuestion} />
 
 				<div style={{ position: "absolute", bottom: "0px", width: "100%" }}>
 					<SectionBar numSection={6} />

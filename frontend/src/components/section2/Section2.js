@@ -2,7 +2,7 @@ import { Button, Divider, Radio, Typography } from "antd";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import "../style/UniformStyle.css";
+
 
 const { Title, Text, Paragraph } = Typography;
 
@@ -26,7 +26,7 @@ class Section2 extends Component {
 		const choice = ["water", "heats", "land"];
 
 		return (
-			<div style={{ padding: "30px", fontSize: this.props.fontSize }}>
+			<div className="main-context-div" style={{ fontSize: this.props.fontSize }}>
 				<Title level={3} align="left">
 					SECTION 2: TRACKING THEMES
 				</Title>

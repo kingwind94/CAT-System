@@ -2,7 +2,7 @@ import { Button, Divider, Typography } from "antd";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import "../style/UniformStyle.css";
+
 import { FourPictures } from "../utils/Utils";
 
 const { Title, Text, Paragraph } = Typography;
@@ -21,7 +21,7 @@ class Section5 extends Component {
 		const picture4 = require("../../Site/Images/Comprehending_S_Example_4.JPG");
 
 		return (
-			<div style={{ padding: "30px", fontSize: this.props.fontSize }}>
+			<div className="main-context-div" style={{ fontSize: this.props.fontSize }}>
 				<Title level={3} align="left">
 					SECTION 5: COMPREHENDING SENTENCES
 				</Title>

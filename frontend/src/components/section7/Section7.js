@@ -2,7 +2,7 @@ import { Button, Divider, Typography, Col, Row, Radio } from "antd";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import "../style/UniformStyle.css";
+
 
 const { Title, Text, Paragraph } = Typography;
 
@@ -26,7 +26,7 @@ class Section7 extends Component {
 		const img2 = require("../../Site/Images/sure_or_unsure_ex2.png");
 
 		return (
-			<div style={{ padding: "30px", fontSize: this.props.fontSize }}>
+			<div className="main-context-div" style={{ fontSize: this.props.fontSize }}>
 				<Title level={3} align="left">
 					SECTION 7: SURE OR UNSURE
 				</Title>
@@ -62,7 +62,7 @@ class Section7 extends Component {
 					</Text>
 				</div>
 
-				{this.state.sampleItem == 1 ? (
+				{this.state.sampleItem === 1 ? (
 					<div>
 						Friend 1 thinks:
 						<Row>
@@ -103,7 +103,7 @@ class Section7 extends Component {
 
 				<div style={{ marginLeft: "5%", marginTop: "40px" }}>
 					<div style={{ marginTop: "20px", float: "right" }}>
-						{this.state.sampleItem == 1 ? (
+						{this.state.sampleItem === 1 ? (
 							<Button
 								danger
 								style={{ color: "green", borderColor: "green" }}

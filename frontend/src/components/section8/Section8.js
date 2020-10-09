@@ -1,7 +1,6 @@
 import { Col, Divider, Row, Typography } from "antd";
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import "../style/UniformStyle.css";
 import { NextButton } from "../utils/Utils";
 
 
@@ -16,7 +15,7 @@ class Section8 extends Component {
 	}
 	render() {
 		return (
-			<div style={{ padding: "30px", fontSize: this.props.fontSize }}>
+			<div className="main-context-div" style={{ fontSize: this.props.fontSize }}>
 				<Title level={3} align="left">
 					SECTION 8: UNDERSTANDING RESPONSES
 				</Title>
@@ -55,6 +54,7 @@ class Section8 extends Component {
 						</div>
 					</Row>
 				</div>
+				
 				<NextButton link="/section8_1" />
 			</div>
 		);

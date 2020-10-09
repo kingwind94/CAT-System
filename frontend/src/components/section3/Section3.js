@@ -4,15 +4,14 @@ import { connect } from "react-redux";
 import { Divider } from "antd";
 import { Link } from "react-router-dom";
 
-import DragAndDrop from "./DragAndDrop";
-import "../style/UniformStyle.css";
+
 
 const { Title, Text, Paragraph } = Typography;
 
 class Section3 extends Component {
 	render() {
 		return (
-			<div>
+			<div className="main-context-div" style={{ fontSize: this.props.fontSize }}>
 				<Card style={{ height: 400 }}>
 					<Typography>
 						<Title level={3} align="left">

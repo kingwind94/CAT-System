@@ -6,8 +6,7 @@ import { withRouter } from "react-router";
 import { compose } from "redux";
 import FetchData from "../utils/FetchData";
 import Pic from "../../play.png";
-import { SectionBar, TwoPictures } from "../utils/Utils";
-import "./Style.css";
+import { SectionBar, TwoPictures, NextQuestionButton } from "../utils/Utils";
 
 const { Text } = Typography;
 
@@ -24,7 +23,7 @@ const openNotification = () => {
 
 class ConnectPicture extends Component {
 	constructor(props) {
-		super(props);
+		super();
 
 		this.state = {
 			value: -1,
@@ -100,8 +99,6 @@ class ConnectPicture extends Component {
 				}
 			})
 			.then((res) => {
-				console.log(res);
-				// window.localStorage.question = firstUpperCase(String(res.nextQuestion));
 				if (res.nextQuestion === "") {
 					this.props.clearNumQuestions();
 					this.props.history.push("/section1_2");
@@ -127,14 +124,14 @@ class ConnectPicture extends Component {
 		let audio = this.props.curState[this.state.question].audio;
 
 		return (
-			<div className="connect_picture" style={{ fontSize: this.props.curState.fontSize }}>
-				<div style={{ position: "absolute", top: "0%", width: "100%" }}>
+			<div className="main-context-div" style={{ fontSize: this.props.curState.fontSize }}>
+				<div className="connect_picture">
 					<TwoPictures picture1={picture1} picture2={picture2} />
 					<Divider />
 					<Row>
 						<Col span={22} offset={1}>
 							<div style={{ marginBottom: "5px", height: "50px" }}>
-								<img onClick={this.playAudio} src={Pic} height="54px" width="54px" alt="img"/>
+								<img onClick={this.playAudio} src={Pic} height="54px" width="54px" alt="img" />
 								<ReactAudioPlayer
 									style={{ display: this.state.showElem, verticalAlign: "middle" }}
 									src={audio}
@@ -192,7 +189,7 @@ class ConnectPicture extends Component {
 								</Radio.Group>
 							</div>
 
-							<div style={{ marginTop: "40px", float: "right" }}>
+							{/* <div style={{ marginTop: "40px", float: "right" }}>
 								<Button
 									size="large"
 									danger
@@ -201,10 +198,13 @@ class ConnectPicture extends Component {
 								>
 									Next
 								</Button>
-							</div>
+							</div> */}
 						</Col>
 					</Row>
 				</div>
+
+				<NextQuestionButton getNextQuestion={this.getNextQuestion} />
+
 				<div style={{ position: "absolute", bottom: "0px", width: "100%" }}>
 					<SectionBar numSection={1} />
 				</div>

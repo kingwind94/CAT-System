@@ -1,7 +1,6 @@
 import { Col, Divider, Row, Typography } from "antd";
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import "../style/UniformStyle.css";
 import { NextButton } from "../utils/Utils";
 import { SectionBar, NextQuestionButton } from "../utils/Utils";
 
@@ -17,7 +16,7 @@ class UnderstandingResponses extends Component {
 	render() {
 		return (
 			<div className="main-context-div " style={{ fontSize: this.props.fontSize }}>
-				<div>
+				<div className="understanding_responses">
 					<Row>
 						<div>
 							<Paragraph strong>Newspaper:</Paragraph>

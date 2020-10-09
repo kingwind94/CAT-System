@@ -1,20 +1,89 @@
 #root-container {
-	min-width: 1200px;
-	max-width: 2400px;
-	min-height: 100vh;
-	/* width: expression(document.body.clientWidth < 600? "600px": "auto"); */
+	/* min-width: 1200px;
+	max-width: 2400px; */
+	/* min-height: 100vh; */
 }
 
 .site-layout-content {
 	background: #fff;
 	padding: 24px;
-	height: 900px;
-	width: 1200px;
-	/* 
-	align-items: center;
-	justify-content: center; */
+	height: 1000px;
+	width: 1400px;
 }
 
 .section-bar {
 	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABZJREFUeNpi2r9//38gYGAEESAAEGAAasgJOgzOKCoAAAAASUVORK5CYII=);
+}
+
+ul {
+	list-style-type: square;
+}
+
+.button_div {
+	margin-top: 20px;
+	float: right;
+}
+
+.green-text {
+	margin-top: 10px;
+	margin-bottom: 30px;
+}
+
+.main-context-div {
+	height: 100%;
+	position: relative;
+	margin: 0px 100px 0px 100px;
+}
+
+.text_div {
+	color: black;
+}
+
+.connect_picture {
+	position: absolute;
+	top: 10%;
+	width: 100%;
+}
+
+.connect_sentence {
+	position: absolute;
+	top: 10%;
+	width: 100%;
+}
+
+.tracking_theme {
+	position: absolute;
+	top: 10%;
+	width: 100%;
+}
+
+/* style={{ paddingLeft: "10%", paddingRight: "10%", position: "absolute", top: "15%", width: "100%" }} */
+.breaking_words {
+	position: absolute;
+	top: 10%;
+	width: 100%;
+}
+
+.comprehending_sentences {
+	position: absolute;
+	top: 10%;
+	width: 100%;
+}
+
+.identifying_definition {
+	position: absolute;
+	top: 10%;
+	width: 100%;
+}
+
+.sure_or_unsure {
+	position: absolute;
+	top: 10%;
+	width: 100%;
+}
+
+.understanding_responses {
+	position: absolute;
+	top: 10%;
+	width: 100%;
 }

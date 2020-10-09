@@ -77,7 +77,6 @@ export function SectionBar(props) {
 				style={{
 					height: "32px",
 					width: "120px",
-					// backgroundColor: "grey",
 					marginRight: "5px",
 					display: "flex",
 					justifyContent: "center",

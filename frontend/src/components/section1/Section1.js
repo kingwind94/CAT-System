@@ -2,7 +2,6 @@ import { Button, Col, Divider, Radio, Row, Typography } from "antd";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import "../style/UniformStyle.css";
 import { TwoPictures } from "../utils/Utils";
 
 
@@ -42,7 +41,7 @@ class Section1 extends Component {
 		const audio = "../../Site/audio/Task_1_Connecting_Ideas_Directions.mp3";
 
 		return (
-			<div style={{ padding: "30px", fontSize: this.props.fontSize }}>
+			<div className="main-context-div" style={{ fontSize: this.props.fontSize }}>
 				<Title level={3} align="left">
 					SECTION 1: CONNECTING IDEAS
 				</Title>

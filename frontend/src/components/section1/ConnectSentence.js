@@ -6,9 +6,7 @@ import { withRouter } from "react-router";
 import { compose } from "redux";
 import FetchData from "../utils/FetchData";
 import Pic from "../../play.png";
-import { SectionBar } from "../utils/Utils";
-import "./Style.css";
-
+import { SectionBar, NextQuestionButton } from "../utils/Utils";
 
 const { Text } = Typography;
 
@@ -137,14 +135,14 @@ class ConnectSentence extends Component {
 		let choice = this.props.curState[this.state.question].choice;
 		let questionText1 = this.props.curState[this.state.question].text1;
 		let questionText2 = this.props.curState[this.state.question].text2;
-		let audio = this.props.curState[this.state.question].audio
+		let audio = this.props.curState[this.state.question].audio;
 
 		return (
-			<div className="connect_sentence">
-				<div style={{ paddingLeft: "10%", paddingRight: "10%", position: "absolute", top: "15%", width: "100%" }}>
+			<div className="main-context-div" style={{ fontSize: this.props.curState.fontSize }}>
+				<div className="connect_sentence">
 					<Row>
 						<div style={{ marginBottom: "5px", height: "50px" }}>
-							<img onClick={this.playAudio} src={Pic} height="54px" width="54px" alt="img"/>
+							<img onClick={this.playAudio} src={Pic} height="54px" width="54px" alt="img" />
 							<ReactAudioPlayer
 								style={{ display: this.state.showElem, verticalAlign: "middle" }}
 								src={audio}
@@ -154,7 +152,9 @@ class ConnectSentence extends Component {
 					</Row>
 					<Row>
 						<div style={{ fontSize: this.props.curState.fontSize, margin: "10px" }}>
-							<Text className = "text_div" style={{ color: "black" }}>{questionText1}</Text>
+							<Text className="text_div" style={{ color: "black" }}>
+								{questionText1}
+							</Text>
 							<Text strong style={{ color: "black" }}>
 								{questionText2}
 							</Text>
@@ -200,7 +200,7 @@ class ConnectSentence extends Component {
 						</div>
 					</Row>
 
-					<Row justify="end">
+					{/* <Row justify="end">
 						<div style={{ marginTop: "20px", float: "right" }}>
 							<Button
 								size={this.props.curState.fontSize}
@@ -211,8 +211,11 @@ class ConnectSentence extends Component {
 								Next
 							</Button>
 						</div>
-					</Row>
+					</Row> */}
 				</div>
+
+				<NextQuestionButton getNextQuestion={this.getNextQuestion} />
+
 				<div style={{ position: "absolute", bottom: "0px", width: "100%" }}>
 					<SectionBar numSection={1} />
 				</div>

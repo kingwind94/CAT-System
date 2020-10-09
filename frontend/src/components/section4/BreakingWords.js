@@ -3,10 +3,9 @@ import React, { Component } from "react";
 import ReactAudioPlayer from "react-audio-player";
 import { connect } from "react-redux";
 import Pic from "../../play.png";
-import "../style/UniformStyle.css";
+
 import FetchData from "../utils/FetchData";
 import { NextQuestionButton, SectionBar } from "../utils/Utils";
-import "./Style.css";
 
 const openNotification = () => {
 	notification.open({
@@ -105,10 +104,8 @@ class BreakingWords extends Component {
 		const audio = this.props.curState[this.state.question].audio;
 
 		return (
-			<div className="breaking_words">
-				<div
-					style={{ paddingLeft: "10%", paddingRight: "10%", position: "absolute", top: "15%", width: "100%" }}
-				>
+			<div className="main-context-div" style={{ fontSize: this.props.fontSize }}>
+				<div className="breaking_words">
 					<div style={{ marginBottom: "5px", height: "50px" }}>
 						<img onClick={this.playAudio} src={Pic} height="54px" width="54px" alt="img" />
 						<ReactAudioPlayer
@@ -119,7 +116,14 @@ class BreakingWords extends Component {
 					</div>
 					<Row style={{ fontSize: this.props.curState.fontSize }}>
 						<Col span={5}>
-							<div style={{ backgroundColor: "green", width: "160px", borderStyle: "dotted", textAlign: "center" }}>
+							<div
+								style={{
+									backgroundColor: "green",
+									width: "160px",
+									borderStyle: "dotted",
+									textAlign: "center",
+								}}
+							>
 								{keyword}{" "}
 							</div>
 						</Col>
@@ -129,6 +133,7 @@ class BreakingWords extends Component {
 						</Col>
 					</Row>
 				</div>
+
 				<NextQuestionButton getNextQuestion={this.getNextQuestion} />
 
 				<div style={{ position: "absolute", bottom: "0px", width: "100%" }}>

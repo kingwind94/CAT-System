@@ -196,7 +196,9 @@ class DragAndSwap extends Component {
 						))}
 					</div>
 				</div>
+
 				<NextQuestionButton getNextQuestion={this.getNextQuestion} />
+				
 				<div style={{ position: "absolute", bottom: "0px", width: "100%" }}>
 					<SectionBar numSection={3} />
 				</div>

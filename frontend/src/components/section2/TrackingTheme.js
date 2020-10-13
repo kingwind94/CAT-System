@@ -19,7 +19,7 @@ function firstUpperCase(s) {
 
 class TrackingTheme extends Component {
 	constructor(props) {
-		super(props);
+		super();
 
 		this.state = {
 			value: -1,
@@ -117,12 +117,10 @@ class TrackingTheme extends Component {
 				<div className="tracking_theme">
 					<div
 						style={{
-							fontSize: "large",
-							marginLeft: "5%",
 							backgroundColor: "lightgray",
-							width: "90%",
+							width: "100%",
 							height: "100px",
-							padding: "15px",
+							padding: "20px",
 						}}
 					>
 						<Paragraph strong style={{ color: "black" }}>
@@ -137,18 +135,19 @@ class TrackingTheme extends Component {
 						</Text>
 					</div>
 
-					<div style={{ marginLeft: "5%", marginTop: "40px" }}>
+					<div style={{ marginTop: "40px" }}>
 						<Paragraph style={{ color: "black" }}>In the text above,</Paragraph>
-						<Paragraph underline strong style={{ color: "black", textAlign: "center", fontSize: "large" }}>
+						<Paragraph underline strong style={{ color: "black", textAlign: "center" }}>
 							{keyword}
 						</Paragraph>
-						<Paragraph strong style={{ color: "black", textAlign: "center", fontSize: "large" }}>
+						<Paragraph strong style={{ color: "black", textAlign: "center" }}>
 							refers to:
 						</Paragraph>
+						
 						<div
 							style={{ margin: "40px", display: "flex", justifyContent: "center", alignItems: "center" }}
 						>
-							<Radio.Group onChange={this.onChange} size="large" value={this.state.value}>
+							<Radio.Group onChange={this.onChange} value={this.state.value}>
 								<Radio
 									style={{
 										color: this.state.radioColor[0],
@@ -178,16 +177,6 @@ class TrackingTheme extends Component {
 								</Radio>
 							</Radio.Group>
 						</div>
-						{/* <div style={{ marginTop: "20px", float: "right" }}>
-							<Button
-								danger
-								size={this.props.curState.fontSize}
-								onClick={this.getNextQuestion}
-								style={{ color: "green", borderColor: "green" }}
-							>
-								Next
-							</Button>
-						</div> */}
 					</div>
 				</div>
 

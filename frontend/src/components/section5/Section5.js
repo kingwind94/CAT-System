@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 import { FourPictures } from "../utils/Utils";
+import { NextButton } from "../utils/Utils";
 
 const { Title, Text, Paragraph } = Typography;
 
@@ -22,44 +23,39 @@ class Section5 extends Component {
 
 		return (
 			<div className="main-context-div" style={{ fontSize: this.props.fontSize }}>
-				<Title level={3} align="left">
-					SECTION 5: COMPREHENDING SENTENCES
-				</Title>
-				<Divider />
-				<div>
-					<ul>
-						<li style={{ fontSize: this.props.fontSize }}>
-							<Text className = "text_div" style={{ color: "black" }}>
-								First, click the PLAY button below to listen to a sentence.
-							</Text>
-						</li>
-						<li style={{ fontSize: this.props.fontSize }}>
-							<Text className = "text_div" style={{ color: "black" }}>You will hear the sentence three times.</Text>
-						</li>
-						<li style={{ fontSize: this.props.fontSize }}>
-							<Text className = "text_div" style={{ color: "black" }}>
-								Then, you need to select the picture that goes with that sentence.
-							</Text>
-						</li>
-					</ul>
-				</div>
-				<div style={{ marginTop: "40px" }}>
-					<Title level={4} align="left">
-						SAMPLE ITEMS
+				<div className="section">
+					<Title level={3} align="left">
+						SECTION 5: COMPREHENDING SENTENCES
 					</Title>
 					<Divider />
-				</div>
-				<div>
-					<FourPictures picture1={picture1} picture2={picture2} picture3={picture3} picture4={picture4} />
-				</div>
-
-				<div style={{ marginLeft: "5%", marginTop: "40px" }}>
-					<div style={{ marginTop: "20px", float: "right" }}>
-						<Button danger style={{ color: "green", borderColor: "green" }}>
-							<Link to="/section5_1">Next</Link>
-						</Button>
+					<div>
+						<ul>
+							<li>
+								<Text style={{ color: "black" }}>
+									First, click the PLAY button below to listen to a sentence.
+								</Text>
+							</li>
+							<li>
+								<Text style={{ color: "black" }}>You will hear the sentence three times.</Text>
+							</li>
+							<li>
+								<Text style={{ color: "black" }}>
+									Then, you need to select the picture that goes with that sentence.
+								</Text>
+							</li>
+						</ul>
+					</div>
+					<div style={{ marginTop: "40px" }}>
+						<Title level={4} align="left">
+							SAMPLE ITEMS
+						</Title>
+						<Divider />
+					</div>
+					<div>
+						<FourPictures picture1={picture1} picture2={picture2} picture3={picture3} picture4={picture4} />
 					</div>
 				</div>
+				<NextButton link="/section5_1" />
 			</div>
 		);
 	}

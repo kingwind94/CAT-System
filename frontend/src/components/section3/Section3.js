@@ -3,8 +3,7 @@ import { Card, Typography, Button } from "antd";
 import { connect } from "react-redux";
 import { Divider } from "antd";
 import { Link } from "react-router-dom";
-
-
+import { NextButton } from "../utils/Utils";
 
 const { Title, Text, Paragraph } = Typography;
 
@@ -12,47 +11,41 @@ class Section3 extends Component {
 	render() {
 		return (
 			<div className="main-context-div" style={{ fontSize: this.props.fontSize }}>
-				<Card style={{ height: 400 }}>
-					<Typography>
-						<Title level={3} align="left">
-							SECTION 3: ORGANIZING TEXT
-						</Title>
-						<Divider />
-
-						<Paragraph style={{ fontSize: "20px" }}>
-							<Text mark>Can you help Jim fix his essays?</Text>
+				<div className="section">
+					<Title level={3} align="left">
+						SECTION 3: ORGANIZING TEXT
+					</Title>
+					<Divider />
+					<div className="green-text">
+						<Paragraph>Can you help Jim fix his essays?</Paragraph>
+						<Paragraph>
+							Jim needs your help! All the sentences in his essay got out of order. Can you reorder his
+							essays?
 						</Paragraph>
-						<Paragraph style={{ fontSize: "20px" }}>
-							<Text mark>Jim needs your help! All the sentences in his essay got out of order. Can you reorder his essays?</Text>
-						</Paragraph>
+					</div>
 
+					<div style={{ marginTop: "40px" }}>
 						<ul>
-							<li style={{ fontSize: this.props.fontSize }}>
+							<li>
 								<Text>First, read the sentences.</Text>
 							</li>
-							<li style={{ fontSize: this.props.fontSize }}>
+							<li>
 								<Text>Then, drag and drop to reorder the sentences into an organized essay.</Text>
 							</li>
-							<li style={{ fontSize: this.props.fontSize }}>
+							<li>
 								<Text>Complete the first essay and then move to the next essay.</Text>
 							</li>
-							<li style={{ fontSize: this.props.fontSize }}>
+							<li>
 								<Text>Some essays have 4 sentences, others have 5 or 6 sentences.</Text>
 							</li>
-							<li style={{ fontSize: this.props.fontSize }}>
+							<li>
 								<Text strong>There is no sample item for this section.</Text>
 							</li>
 						</ul>
-					</Typography>
-					<Button
-						size={this.props.fontSize}
-						danger
-						// onClick={this.getNextQuestion}
-						style={{ color: "green", borderColor: "green" }}
-					>
-						<Link to="/section3DAD">Next</Link>
-					</Button>
-				</Card>
+					</div>
+				</div>
+
+				<NextButton link="/section3DAD" />
 			</div>
 		);
 	}

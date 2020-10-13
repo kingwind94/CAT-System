@@ -29,7 +29,7 @@ class App extends Component {
 		return (
 			<BrowserRouter>
 				<div id="root-container">
-					<Layout className="layout" style={{ minHeight: "100vh" }}>
+					<Layout  style={{ minHeight: "100vh", width:"100%" }}>
 						<Content style={{ margin: "50px auto" }}>
 							<div className="site-layout-content">
 								<div style={{ height: "20px" }}>

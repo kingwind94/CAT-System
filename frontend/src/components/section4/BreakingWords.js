@@ -114,7 +114,7 @@ class BreakingWords extends Component {
 							controls
 						></ReactAudioPlayer>
 					</div>
-					<Row style={{ fontSize: this.props.curState.fontSize }}>
+					<Row>
 						<Col span={5}>
 							<div
 								style={{

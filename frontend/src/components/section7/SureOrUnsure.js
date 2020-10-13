@@ -11,23 +11,31 @@ class SureOrUnsure extends Component {
 		super();
 		this.state = {
 			value: -1,
-			sampleItem: 1,
 		};
 	}
 
 	onChange = (e) => {
 		this.setState({
 			value: e.target.value,
+			partName: "",
+			question: "epis_impossible",
 		});
 	};
 
 	render() {
 		const img1 = require("../../Site/Images/sure_or_unsure_ex1.png");
 		const img2 = require("../../Site/Images/sure_or_unsure_ex2.png");
+		// const questionText1 = this.props.curState[this.state.question].text1;
+		// const keyword = this.props.curState[this.state.question].keyword;
+		// const audio = this.props.curState[this.state.question].audio;
 
 		return (
 			<div className="main-context-div" style={{ fontSize: this.props.fontSize }}>
 				<div className="sure_or_unsure">
+					<Title level={4} align="left">
+						SECTION 8: UNDERSTANDING RESPONSES
+					</Title>
+					<Divider />
 					<div className="green-text">
 						<Text>
 							A group of friends is trying to figure out if they will have a quiz tomorrow. Some friends
@@ -35,10 +43,10 @@ class SureOrUnsure extends Component {
 						</Text>
 					</div>
 
-					<div>
-						Friend 1 thinks:
+					<div style={{ marginTop: "40px" }}>
+						<Text style={{ color: "black" }}>Friend 1 thinks:</Text>
 						<Row>
-							<Col span={2} offset={1}>
+							<Col span={2} offset={0}>
 								<img src={img1} height="50px" alt="img" />
 							</Col>
 							<Col>
@@ -47,7 +55,7 @@ class SureOrUnsure extends Component {
 						</Row>
 					</div>
 
-					<div>
+					<div style={{ marginTop: "20px" }}>
 						<Text>For Friend {this.state.sampleItem}, will there be a quiz tomorrow?</Text>
 					</div>
 
@@ -59,14 +67,6 @@ class SureOrUnsure extends Component {
 							<Radio value={4}>NO</Radio>
 						</Radio.Group>
 					</div>
-
-					{/* <div style={{ marginLeft: "5%", marginTop: "40px" }}>
-						<div style={{ marginTop: "20px", float: "right" }}>
-							<Button danger style={{ color: "green", borderColor: "green" }}>
-								<Link to="/section7_1">Next</Link>
-							</Button>
-						</div>
-					</div> */}
 				</div>
 
 				<NextQuestionButton getNextQuestion={this.getNextQuestion} />
@@ -80,10 +80,9 @@ class SureOrUnsure extends Component {
 }
 
 const mapStateToProps = (state) => {
-	console.log(state);
 	return {
-		sessionNum: state.sessionNum,
 		fontSize: state.fontSize,
+		curState: state.EPISTEMIC_MARKERS,
 	};
 };
 

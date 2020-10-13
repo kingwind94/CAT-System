@@ -48,6 +48,7 @@ class DragAndSwap extends Component {
 		this.setState({
 			draggedTask: todo,
 		});
+		// console.log(todo)
 	};
 
 	onDragOver = (event) => {
@@ -58,13 +59,14 @@ class DragAndSwap extends Component {
 		const { textOptions, draggedTask } = this.state;
 		let sourceText = draggedTask.text;
 		let sourceId = draggedTask.textId;
+		console.log(sourceId)
 		let destText = textOptions[event.target.id - 1].text;
 		let destId = textOptions[event.target.id - 1].textId;
+		console.log(destId)
 		const newTextOptions = this.state.textOptions.slice(); //copy the array
-		newTextOptions[event.target.id - 1].text = sourceText; //execute the manipulations
-		newTextOptions[draggedTask.textId - 1].text = destText; //execute the manipulations
-		newTextOptions[event.target.id - 1].textId = sourceId;
-		newTextOptions[draggedTask.textId - 1].textId = destId;
+		//execute the manipulations
+		newTextOptions[event.target.id - 1].text = sourceText; 
+		newTextOptions[draggedTask.textId - 1].text = destText; 
 		this.setState({ textOptions: newTextOptions }); //set the new state
 	};
 

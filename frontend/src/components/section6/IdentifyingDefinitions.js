@@ -1,4 +1,4 @@
-import { Button, Col, notification, Row } from "antd";
+import { Button, Col, notification, Row, Radio } from "antd";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import FetchData from "../utils/FetchData";
@@ -25,6 +25,7 @@ class IdentifyingDefinitions extends Component {
 			question: "def_aware_umbrella",
 			borderStyle: ["none", "none", "none", "none"],
 			showElem: "none",
+			radioColor: ["black", "black", "black"],
 		};
 	}
 
@@ -33,6 +34,16 @@ class IdentifyingDefinitions extends Component {
 		let newBorderStyle = ["none", "none", "none", "none"];
 		newBorderStyle[val - 1] = "solid";
 		this.setState({ borderStyle: newBorderStyle });
+	};
+
+	onChange = (e) => {
+		this.setState({
+			selectOption: e.target.value,
+		});
+
+		let newRadioColor = ["black", "black", "black"];
+		newRadioColor[e.target.value] = "green";
+		this.setState({ radioColor: newRadioColor });
 	};
 
 	playAudio = () => {
@@ -109,7 +120,7 @@ class IdentifyingDefinitions extends Component {
 		return (
 			<div className="main-context-div" style={{ fontSize: this.props.fontSize }}>
 				<div className="identifying_definition">
-					<Row>
+					<Row style={{ paddingTop: "30px", paddingBottom: "30px" }}>
 						<Col span={1} offset={1}>
 							A.
 						</Col>
@@ -133,13 +144,13 @@ class IdentifyingDefinitions extends Component {
 							</div>
 						</Col>
 					</Row>
-					<Row>
+					<Row style={{ paddingTop: "30px", paddingBottom: "30px" }}>
 						<Col span={1} offset={1}>
-							A.
+							B.
 						</Col>
 						<Col span={8}>{questionText2}</Col>
 						<Col span={3} offset={1}>
-							<div>A was written for:</div>
+							<div>B was written for:</div>
 						</Col>
 						<Col span={4}>
 							<div>
@@ -157,13 +168,13 @@ class IdentifyingDefinitions extends Component {
 							</div>
 						</Col>
 					</Row>
-					<Row>
+					<Row style={{ paddingTop: "30px", paddingBottom: "30px" }}>
 						<Col span={1} offset={1}>
-							A.
+							C.
 						</Col>
 						<Col span={8}>{questionText3}</Col>
 						<Col span={3} offset={1}>
-							<div>A was written for:</div>
+							<div>C was written for:</div>
 						</Col>
 						<Col span={4}>
 							<div>
@@ -187,16 +198,37 @@ class IdentifyingDefinitions extends Component {
 						adults.
 					</Row>
 
-					{/* <div className="button_div">
-						<Button
-							danger
-							size={this.props.curState.fontSize}
-							onClick={this.getNextQuestion}
-							style={{ color: "green", borderColor: "green" }}
-						>
-							Next
-						</Button>
-					</div> */}
+					<div style={{ margin: "40px", display: "flex", justifyContent: "center", alignItems: "center" }}>
+						<Radio.Group onChange={this.onChange} size="large" value={this.state.selectOption}>
+							<Radio
+								style={{
+									color: this.state.radioColor[0],
+									fontSize: this.props.fontSize,
+								}}
+								value={0}
+							>
+								A
+							</Radio>
+							<Radio
+								style={{
+									color: this.state.radioColor[1],
+									fontSize: this.props.fontSize,
+								}}
+								value={1}
+							>
+								B
+							</Radio>
+							<Radio
+								style={{
+									color: this.state.radioColor[2],
+									fontSize: this.props.fontSize,
+								}}
+								value={2}
+							>
+								C
+							</Radio>
+						</Radio.Group>
+					</div>
 				</div>
 				<NextQuestionButton getNextQuestion={this.getNextQuestion} />
 

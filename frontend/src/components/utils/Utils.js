@@ -1,6 +1,8 @@
 import { Button, Col, Row } from "antd";
 import React from "react";
 import { Link } from "react-router-dom";
+import ReactAudioPlayer from "react-audio-player";
+import Pic from "../../play.png";
 import "../../index.css";
 
 export function TwoPictures(props) {
@@ -108,12 +110,10 @@ export function SectionBar(props) {
 
 export function NextButton(props) {
 	return (
-		<div style={{ marginLeft: "5%", marginTop: "40px" }}>
-			<div style={{ marginTop: "20px", float: "right" }}>
-				<Button danger style={{ color: "green", borderColor: "green" }}>
-					<Link to={props.link}>Next</Link>
-				</Button>
-			</div>
+		<div style={{ position: "absolute", bottom: "120px", right: "80px" }}>
+			<Button danger style={{ color: "green", borderColor: "green" }}>
+				<Link to={props.link}>Next</Link>
+			</Button>
 		</div>
 	);
 }
@@ -129,6 +129,19 @@ export function NextQuestionButton(props) {
 			>
 				Next
 			</Button>
+		</div>
+	);
+}
+
+export function AudioPlayer(props) {
+	return (
+		<div style={{ marginBottom: "5px", height: "50px" }}>
+			<img onClick={this.playAudio} src={Pic} height="54px" width="54px" alt="img" />
+			<ReactAudioPlayer
+				style={{ display: props.showElem, verticalAlign: "middle" }}
+				src={props.audio}
+				controls
+			></ReactAudioPlayer>
 		</div>
 	);
 }

@@ -4,8 +4,7 @@ import ReactAudioPlayer from "react-audio-player";
 import { connect } from "react-redux";
 import FetchData from "../utils/FetchData";
 import Pic from "../../play.png";
-import { SectionBar,NextQuestionButton } from "../utils/Utils";
-
+import { SectionBar, NextQuestionButton } from "../utils/Utils";
 
 const openNotification = () => {
 	notification.open({
@@ -106,7 +105,7 @@ class ComprehendingSentences extends Component {
 
 		return (
 			<div className="main-context-div" style={{ fontSize: this.props.fontSize }}>
-				<div className="comprehending_sentences"> 
+				<div className="comprehending_sentences">
 					<div>
 						<img onClick={this.playAudio} src={Pic} height="54px" width="54px" alt="img" />
 						<ReactAudioPlayer
@@ -155,17 +154,6 @@ class ComprehendingSentences extends Component {
 							</Col>
 						</Row>
 					</div>
-
-					{/* <div className="button_div">
-						<Button
-							danger
-							size={this.props.curState.fontSize}
-							onClick={this.getNextQuestion}
-							style={{ color: "green", borderColor: "green" }}
-						>
-							Next
-						</Button>
-					</div> */}
 				</div>
 
 				<NextQuestionButton getNextQuestion={this.getNextQuestion} />
@@ -180,7 +168,7 @@ class ComprehendingSentences extends Component {
 const mapStateToProps = (state) => {
 	return {
 		fontSize: state.fontSize,
-		curState: state,
+		curState: state.SYNTAX_PICTURES,
 	};
 };
 

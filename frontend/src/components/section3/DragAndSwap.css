@@ -1,14 +1,19 @@
 .DragAndSwap {
 	height: 100%;
 	position: relative;
+	margin: 0px 100px 0px 100px;
 }
 
 .DragAndDropApp {
+	position: absolute;
+	top: 5%;
+	width: 100%;
+	height: 70%;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
-	height: 70%;
 }
+
 .texts {
 	background: white;
 	height: 100%;

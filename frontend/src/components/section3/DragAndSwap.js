@@ -28,14 +28,14 @@ class DragAndSwap extends Component {
 	}
 
 	componentDidMount() {
-		const questionText = this.props.curState[this.state.question];
+		const questionText = this.props.curState.Anagram[this.state.question];
 		const numOfOptions = questionText.numOfText;
 		const textOptions = [];
 		for (let i = 1; i <= numOfOptions; i++) {
-			textOptions.push({ textId: i, text: questionText["text" + i] });
+			textOptions.push({ textId: i, text: questionText["text" + i], ansId: i });
 		}
 		for (let i = 1; i <= numOfOptions; i++) {
-			textOptions.push({ textId: numOfOptions + i, text: "" });
+			textOptions.push({ textId: numOfOptions + i, text: "", ansId: numOfOptions + i });
 		}
 		this.setState({
 			numOfOptions: numOfOptions,
@@ -58,60 +58,91 @@ class DragAndSwap extends Component {
 	onDrop = (event) => {
 		const { textOptions, draggedTask } = this.state;
 		let sourceText = draggedTask.text;
-		let sourceId = draggedTask.textId;
-		console.log(sourceId)
 		let destText = textOptions[event.target.id - 1].text;
-		let destId = textOptions[event.target.id - 1].textId;
-		console.log(destId)
+		let sourceAnsId = draggedTask.ansId;
+		let destAnsId = textOptions[event.target.id - 1].ansId;
 		const newTextOptions = this.state.textOptions.slice(); //copy the array
 		//execute the manipulations
-		newTextOptions[event.target.id - 1].text = sourceText; 
-		newTextOptions[draggedTask.textId - 1].text = destText; 
+		newTextOptions[event.target.id - 1].text = sourceText;
+		newTextOptions[draggedTask.textId - 1].text = destText;
+		newTextOptions[event.target.id - 1].ansId = sourceAnsId;
+		newTextOptions[draggedTask.textId - 1].ansId = destAnsId;
 		this.setState({ textOptions: newTextOptions }); //set the new state
+		// this.state.textOptions.forEach((element) => console.log(element.ansId));
 	};
 
 	getNextQuestion = async (e) => {
 		const curTextOptions = this.state.textOptions;
 		const numOfOptions = this.state.numOfOptions;
-		let curTextId = [];
-		for (let idx in curTextOptions) {
-			curTextId.push(curTextOptions[idx].textId);
+		let curAnsId = [];
+		for (let idx = numOfOptions; idx < 2 * numOfOptions; idx++) {
+			curAnsId.push(curTextOptions[idx].ansId);
 		}
-		curTextId = curTextId.slice(numOfOptions);
 		let ans = "";
-		for (let idx in curTextId) {
-			if (curTextId[idx] > numOfOptions) {
+		for (let idx in curAnsId) {
+			if (curAnsId[idx] > numOfOptions) {
 				openNotification();
 				return;
 			}
-			ans = ans + curTextId[idx];
+			ans = ans + curAnsId[idx];
 		}
 
-		let catAns = {
+		let recordAns = {
 			question: this.state.question,
 			answer: ans,
 		};
-		await FetchData("/UpdateCATAnswer/32", "PUT", catAns)
+		await FetchData("/UpdateCATAnswer/32", "PUT", recordAns)
 			.then((res) => res.json())
 			.then((res) => {
 				// console.log(res);
 			});
 
-		const questionText = this.props.curState[this.state.question];
+		// Get question texts and ans
+		const questionText = this.props.curState.Anagram[this.state.question];
 
+		// full credit
 		const fullAnswer = questionText.fullAnswer;
-		const partAnswer = questionText.partAnswer;
+		// 2/3 credit
+		let partAnswer = [];
+		if ("partAnswer" in questionText) {
+			partAnswer = questionText.partAnswer;
+		}
+		// 1/3 credit
 		let lessAnswer = [];
 		if ("lessAnswer" in questionText) {
 			lessAnswer = questionText.lessAnswer;
 		}
 
-		let judgeOfAnswer;
+		// judge student's answer
+		let judgeOfAnswer = "";
 		if (fullAnswer.includes(ans)) {
 			judgeOfAnswer = "r." + this.state.question;
-		} else if (partAnswer.includes(ans)) {
-			judgeOfAnswer = "si." + this.state.question;
-		} else if (lessAnswer.length > 0) {
+		} else if (partAnswer.length > 0) {
+			if (partAnswer.includes(ans)) {
+				judgeOfAnswer = "si." + this.state.question;
+			} else {
+				let gainTwoPoint = false;
+				for (let idx in partAnswer) {
+					let flag = true;
+					const partAns = partAnswer[idx];
+					for (let i = 0; i < partAns.length; i++) {
+						if (partAns.charAt(i) === "0") continue;
+						if (partAns.charAt(i) !== ans.charAt(i)) {
+							flag = false;
+							break;
+						}
+					}
+					if (flag) {
+						gainTwoPoint = true;
+						break;
+					}
+				}
+				if (gainTwoPoint) {
+					judgeOfAnswer = "si." + this.state.question;
+				}
+			}
+		}
+		if (judgeOfAnswer !== "" && lessAnswer.length > 0) {
 			let gainOnePoint = false;
 			for (let idx in lessAnswer) {
 				let flag = true;
@@ -137,6 +168,8 @@ class DragAndSwap extends Component {
 			judgeOfAnswer = "w." + this.state.question;
 		}
 
+		console.log(judgeOfAnswer);
+
 		await this.props.answerQuestionAns(judgeOfAnswer, this.state.question);
 
 		let data = {
@@ -148,14 +181,18 @@ class DragAndSwap extends Component {
 			numQuestions: this.props.curState.numQuestions,
 		};
 
+		console.log(data);
+
 		await FetchData("/sumCorrectIncorrect", "PUT", data)
 			.then((res) => res.json())
 			.then((res) => {
 				console.log(res);
 				if (res.nextQuestion === "") {
+					this.props.clearNumQuestions();
 					this.props.history.push("/section4");
 				} else {
 					this.setState({ question: firstUpperCase(res.nextQuestion) });
+					this.componentDidMount();
 				}
 			});
 	};
@@ -200,7 +237,7 @@ class DragAndSwap extends Component {
 				</div>
 
 				<NextQuestionButton getNextQuestion={this.getNextQuestion} />
-				
+
 				<div style={{ position: "absolute", bottom: "0px", width: "100%" }}>
 					<SectionBar numSection={3} />
 				</div>
@@ -212,7 +249,7 @@ class DragAndSwap extends Component {
 const mapStateToProps = (state) => {
 	return {
 		fontSize: state.fontSize,
-		curState: state.Anagram,
+		curState: state,
 	};
 };
 

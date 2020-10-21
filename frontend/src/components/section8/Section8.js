@@ -53,7 +53,7 @@ class Section8 extends Component {
 							<div>
 								<ul>
 									<li>
-										<Text style={{ color: "black" }}>
+										<Text className="text_div" style={{ color: "green" }}>
 											First, read or listen the newspaper’s idea.
 										</Text>
 									</li>

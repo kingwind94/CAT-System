@@ -540,7 +540,7 @@ export const defaultState = {
 		answer: 3,
 		audio: "../Site/audio/Anaphora_olympicgames.mp3",
 	},
-	Anaphora_covered: {
+	Anaphora_chemical: {
 		text1:
 			"Mars’ red color comes from a chemical in its soil. When this chemical touches oxygen, it rusts and becomes red in color. How exactly the entire planet came to be covered in this red soil is a subject of debate among scientists. Some believe that",
 		keyword: "this process",

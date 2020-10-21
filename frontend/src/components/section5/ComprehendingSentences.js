@@ -52,16 +52,22 @@ class ComprehendingSentences extends Component {
 			question: this.state.question,
 			answer: this.state.selectOption,
 		};
-		await FetchData("/UpdateCATAnswer/32", "PUT", catAns).then((res) => res.json());
+		await FetchData("/UpdateCATAnswer/32", "PUT", catAns)
+			.then((res) => res.json())
+			.then((res) => {
+				// console.log(res);
+			});
 
 		let judgeOfAnswer;
-		const correctAns = eval("this.props.curState." + String(this.state.question) + ".answer");
+		const correctAns = this.props.curState.SYNTAX_PICTURES[this.state.question].answer;
 
 		if (correctAns === this.state.selectOption) {
 			judgeOfAnswer = "r." + this.state.question;
 		} else {
 			judgeOfAnswer = "w." + this.state.question;
 		}
+
+		console.log(judgeOfAnswer)
 
 		await this.props.answerQuestionAns(judgeOfAnswer, this.state.question);
 
@@ -97,11 +103,11 @@ class ComprehendingSentences extends Component {
 	};
 
 	render() {
-		const picture1 = this.props.curState[this.state.question].picture1;
-		const picture2 = this.props.curState[this.state.question].picture2;
-		const picture3 = this.props.curState[this.state.question].picture3;
-		const picture4 = this.props.curState[this.state.question].picture4;
-		const audio = this.props.curState[this.state.question].audio;
+		const picture1 = this.props.curState.SYNTAX_PICTURES[this.state.question].picture1;
+		const picture2 = this.props.curState.SYNTAX_PICTURES[this.state.question].picture2;
+		const picture3 = this.props.curState.SYNTAX_PICTURES[this.state.question].picture3;
+		const picture4 = this.props.curState.SYNTAX_PICTURES[this.state.question].picture4;
+		const audio = this.props.curState.SYNTAX_PICTURES[this.state.question].audio;
 
 		return (
 			<div className="main-context-div" style={{ fontSize: this.props.fontSize }}>
@@ -168,7 +174,7 @@ class ComprehendingSentences extends Component {
 const mapStateToProps = (state) => {
 	return {
 		fontSize: state.fontSize,
-		curState: state.SYNTAX_PICTURES,
+		curState: state,
 	};
 };
 

@@ -9,7 +9,7 @@ import { NextQuestionButton, SectionBar } from "../utils/Utils";
 
 const openNotification = () => {
 	notification.open({
-		message: "You should choose an option to go next.",
+		message: "You should type an answer to go next.",
 		duration: 2.5,
 	});
 };
@@ -63,6 +63,8 @@ class BreakingWords extends Component {
 		} else {
 			judgeOfAnswer = "w." + this.state.question;
 		}
+
+		console.log(judgeOfAnswer)
 
 		await this.props.answerQuestionAns(judgeOfAnswer, this.state.question);
 

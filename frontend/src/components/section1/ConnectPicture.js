@@ -189,16 +189,6 @@ class ConnectPicture extends Component {
 								</Radio.Group>
 							</div>
 
-							{/* <div style={{ marginTop: "40px", float: "right" }}>
-								<Button
-									size="large"
-									danger
-									onClick={this.getNextQuestion}
-									style={{ color: "green", borderColor: "green" }}
-								>
-									Next
-								</Button>
-							</div> */}
 						</Col>
 					</Row>
 				</div>

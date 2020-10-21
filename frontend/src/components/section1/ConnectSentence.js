@@ -232,13 +232,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
 	return {
-		fontSizeDispatch(size) {
-			const action = {
-				type: "update_fontSize",
-				value: size,
-			};
-			dispatch(action);
-		},
 		answerQuestionAns(questionAns, question) {
 			const action = {
 				type: "ANSWER_QUESTION",

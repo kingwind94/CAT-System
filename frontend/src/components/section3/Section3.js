@@ -1,8 +1,6 @@
+import { Divider, Typography } from "antd";
 import React, { Component } from "react";
-import { Card, Typography, Button } from "antd";
 import { connect } from "react-redux";
-import { Divider } from "antd";
-import { Link } from "react-router-dom";
 import { NextButton } from "../utils/Utils";
 
 const { Title, Text, Paragraph } = Typography;

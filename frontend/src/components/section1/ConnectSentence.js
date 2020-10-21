@@ -1,12 +1,12 @@
-import { Button, notification, Radio, Row, Typography } from "antd";
+import { notification, Radio, Row, Typography } from "antd";
 import React, { Component } from "react";
 import ReactAudioPlayer from "react-audio-player";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
 import { compose } from "redux";
-import FetchData from "../utils/FetchData";
 import Pic from "../../play.png";
-import { SectionBar, NextQuestionButton } from "../utils/Utils";
+import FetchData from "../utils/FetchData";
+import { NextQuestionButton, SectionBar } from "../utils/Utils";
 
 const { Text } = Typography;
 

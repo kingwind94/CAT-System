@@ -1,34 +1,96 @@
-import { Col, Divider, Row, Typography, Button, Radio } from "antd";
+import { Col, Radio, Row, Typography, notification } from "antd";
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { SectionBar, NextQuestionButton } from "../utils/Utils";
+import { NextQuestionButton, SectionBar } from "../utils/Utils";
+import FetchData from "../utils/FetchData";
 
 const { Title, Text, Paragraph } = Typography;
+
+const openNotification = () => {
+	notification.open({
+		message: "You should choose an option to go next.",
+		duration: 2.5,
+	});
+};
 
 class UnderstandingResponses extends Component {
 	constructor(props) {
 		super();
 		this.state = {
-			value: -1,
+			selectOption: -1,
 			question: "meta_disagreeing",
 		};
 	}
 
 	onChange = (e) => {
 		this.setState({
-			value: e.target.value,
+			selectOption: e.target.value,
 		});
 	};
 
+	getNextQuestion = async (e) => {
+		if (this.state.selectOption === -1) {
+			openNotification();
+			return;
+		}
+
+		let catAns = {
+			question: this.state.question,
+			answer: this.state.selectOption,
+		};
+		await FetchData("/UpdateCATAnswer/32", "PUT", catAns).then((res) => res.json());
+
+		let judgeOfAnswer;
+		const correctAns = this.props.curState.METALINGUISTIC[this.state.question].answer;
+
+		if (correctAns === this.state.selectOption) {
+			judgeOfAnswer = "r." + this.state.question;
+		} else {
+			judgeOfAnswer = "w." + this.state.question;
+		}
+
+		await this.props.answerQuestionAns(judgeOfAnswer, this.state.question);
+
+		let data = {
+			questionAns: this.props.curState.questionAns,
+			questionAnsSum: this.props.curState.questionAnsSum,
+			questions: this.props.curState.questions,
+			questionSum: this.props.curState.questionSum,
+			sectionName: "METALINGUISTIC",
+			numQuestions: this.props.curState.numQuestions,
+		};
+
+		this.setState({
+			selectOption: -1,
+		});
+
+		await FetchData("/sumCorrectIncorrect", "PUT", data)
+			.then((res) => {
+				if (res.status === 200) {
+					return res.json();
+				} else {
+				}
+			})
+			.then((res) => {
+				console.log(res);
+				if (res.nextQuestion === "") {
+					this.props.clearNumQuestions();
+					this.props.history.push("/");
+				} else {
+					this.setState({ question: res.nextQuestion.toLowerCase() });
+				}
+			});
+	};
+
 	render() {
-		const newspaper = this.props.curState[this.state.question].newspaper;
-		const news = this.props.curState[this.state.question].news;
-		const people = this.props.curState[this.state.question].people;
-		const idea = this.props.curState[this.state.question].idea;
-		const ask = this.props.curState[this.state.question].ask;
-		const img = require("../../Site/section8_images/" + this.props.curState[this.state.question].img);
-		const options = this.props.curState[this.state.question].options;
-		const answer = this.props.curState[this.state.question].answer;
+		const newspaper = this.props.curState.METALINGUISTIC[this.state.question].newspaper;
+		const news = this.props.curState.METALINGUISTIC[this.state.question].news;
+		const people = this.props.curState.METALINGUISTIC[this.state.question].people;
+		const idea = this.props.curState.METALINGUISTIC[this.state.question].idea;
+		const ask = this.props.curState.METALINGUISTIC[this.state.question].ask;
+		const img = require("../../Site/section8_images/" +
+			this.props.curState.METALINGUISTIC[this.state.question].img);
+		const options = this.props.curState.METALINGUISTIC[this.state.question].options;
 
 		const bubble = require("../../Site/section8_images/meta_speechbubble.png");
 		const paper = require("../../Site/section8_images/meta_newspaper.png");
@@ -44,13 +106,14 @@ class UnderstandingResponses extends Component {
 			<div className="main-context-div " style={{ fontSize: this.props.fontSize }}>
 				<div className="understanding_responses">
 					<Row>
-						<div style={{
-									color: "black",
-									backgroundImage: `url(${paper})`,
-									backgroundSize: "100% 100%",
-									padding: "40px",
-
-								}}>
+						<div
+							style={{
+								color: "black",
+								backgroundImage: `url(${paper})`,
+								backgroundSize: "100% 100%",
+								padding: "40px",
+							}}
+						>
 							<Paragraph strong>{newspaper}</Paragraph>
 							<Paragraph>{news}</Paragraph>
 						</div>
@@ -74,7 +137,7 @@ class UnderstandingResponses extends Component {
 							</div>
 							<Paragraph>{ask}</Paragraph>
 
-							<Radio.Group onChange={this.onChange} value={this.state.value}>
+							<Radio.Group onChange={this.onChange} value={this.state.selectOption}>
 								{options.map((option, index) => (
 									<Radio style={radioStyle} key={index} value={index + 1}>
 										{option}
@@ -95,17 +158,27 @@ class UnderstandingResponses extends Component {
 }
 
 const mapStateToProps = (state) => {
-	console.log(state);
 	return {
 		fontSize: state.fontSize,
-		curState: state.METALINGUISTIC,
+		curState: state,
 	};
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
 	return {
-		dispatch1: () => {
-			dispatch();
+		answerQuestionAns(questionAns, question) {
+			const action = {
+				type: "ANSWER_QUESTION",
+				questionAns: questionAns,
+				question: question,
+			};
+			dispatch(action);
+		},
+		clearNumQuestions() {
+			const action = {
+				type: "CLEAR_NUM_QUESTION",
+			};
+			dispatch(action);
 		},
 	};
 };

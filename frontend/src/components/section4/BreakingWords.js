@@ -1,11 +1,11 @@
-import { notification, Row, Col } from "antd";
+import { Col, notification, Row } from "antd";
 import React, { Component } from "react";
 import ReactAudioPlayer from "react-audio-player";
 import { connect } from "react-redux";
 import Pic from "../../play.png";
-
 import FetchData from "../utils/FetchData";
 import { NextQuestionButton, SectionBar } from "../utils/Utils";
+
 
 const openNotification = () => {
 	notification.open({

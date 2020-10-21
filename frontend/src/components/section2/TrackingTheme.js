@@ -1,8 +1,8 @@
-import { Button, notification, Radio, Typography } from "antd";
+import { notification, Radio, Typography } from "antd";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import FetchData from "../utils/FetchData";
-import { SectionBar, NextQuestionButton } from "../utils/Utils";
+import { NextQuestionButton, SectionBar } from "../utils/Utils";
 
 const { Title, Text, Paragraph } = Typography;
 

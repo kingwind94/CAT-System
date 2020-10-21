@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { TwoPictures } from "../utils/Utils";
-import { NextButton } from "../utils/Utils";
 
 const { Title, Text } = Typography;
 

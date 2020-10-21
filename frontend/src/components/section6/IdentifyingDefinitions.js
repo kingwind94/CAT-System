@@ -1,9 +1,11 @@
-import { Button, Col, notification, Row, Radio } from "antd";
+import { Col, notification, Radio, Row, Typography } from "antd";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import FetchData from "../utils/FetchData";
+import { NextQuestionButton, SectionBar } from "../utils/Utils";
 
-import { SectionBar, NextQuestionButton } from "../utils/Utils";
+
+const { Title, Text, Paragraph } = Typography;
 
 const openNotification = () => {
 	notification.open({
@@ -22,19 +24,15 @@ class IdentifyingDefinitions extends Component {
 
 		this.state = {
 			selectOption: -1,
+			optionA: -1,
+			optionB: -1,
+			optionC: -1,
 			question: "def_aware_umbrella",
 			borderStyle: ["none", "none", "none", "none"],
 			showElem: "none",
 			radioColor: ["black", "black", "black"],
 		};
 	}
-
-	onClick = (e, val) => {
-		this.setState({ selectOption: 1 });
-		let newBorderStyle = ["none", "none", "none", "none"];
-		newBorderStyle[val - 1] = "solid";
-		this.setState({ borderStyle: newBorderStyle });
-	};
 
 	onChange = (e) => {
 		this.setState({
@@ -65,9 +63,9 @@ class IdentifyingDefinitions extends Component {
 		await FetchData("/UpdateCATAnswer/32", "PUT", catAns).then((res) => res.json());
 
 		let judgeOfAnswer;
-		const correctAns = eval("this.props.curState." + String(this.state.question) + ".answer");
+		const correctAns = this.props.curState.DEFINITIONS_AWARENESS[this.state.question].answer;
 
-		if (correctAns === this.state.selectOption) {
+		if (correctAns[3] === this.state.selectOption) {
 			judgeOfAnswer = "r." + this.state.question;
 		} else {
 			judgeOfAnswer = "w." + this.state.question;
@@ -80,7 +78,7 @@ class IdentifyingDefinitions extends Component {
 			questionAnsSum: this.props.curState.questionAnsSum,
 			questions: this.props.curState.questions,
 			questionSum: this.props.curState.questionSum,
-			sectionName: "SYNTAX_PICTURES",
+			sectionName: "DEFINITIONS_AWARENESS",
 			numQuestions: this.props.curState.numQuestions,
 		};
 
@@ -99,9 +97,9 @@ class IdentifyingDefinitions extends Component {
 				console.log(res);
 				if (res.nextQuestion === "") {
 					this.props.clearNumQuestions();
-					this.props.history.push("/section6");
+					this.props.history.push("/section7");
 				} else {
-					this.setState({ question: firstUpperCase(res.nextQuestion) });
+					this.setState({ question: res.nextQuestion.toLowerCase() });
 				}
 			});
 	};
@@ -111,27 +109,42 @@ class IdentifyingDefinitions extends Component {
 		const adult2 = require("../../Site/Images/Adult2.png");
 		const children1 = require("../../Site/Images/children1.png");
 		const children2 = require("../../Site/Images/children2.png");
-		const audio = this.props.curState[this.state.question].audio;
-		const questionText1 = this.props.curState[this.state.question].text1;
-		const questionText2 = this.props.curState[this.state.question].text2;
-		const questionText3 = this.props.curState[this.state.question].text3;
-		const keyword = this.props.curState[this.state.question].keyword;
+		const audio = this.props.curState.DEFINITIONS_AWARENESS[this.state.question].audio;
+		const questionText1 = this.props.curState.DEFINITIONS_AWARENESS[this.state.question].text1;
+		const questionText2 = this.props.curState.DEFINITIONS_AWARENESS[this.state.question].text2;
+		const questionText3 = this.props.curState.DEFINITIONS_AWARENESS[this.state.question].text3;
+		const keyword = this.props.curState.DEFINITIONS_AWARENESS[this.state.question].keyword;
 
 		return (
 			<div className="main-context-div" style={{ fontSize: this.props.fontSize }}>
 				<div className="identifying_definition">
+					<Title level={3} align="middle">
+						{keyword}
+					</Title>
+					{/* Row A */}
 					<Row style={{ paddingTop: "30px", paddingBottom: "30px" }}>
 						<Col span={1} offset={1}>
-							A.
+							<Text strong>A.</Text>
 						</Col>
 						<Col span={8}>{questionText1}</Col>
 						<Col span={3} offset={1}>
-							<div>A was written for:</div>
+							<div>
+								<Text strong>A </Text> was written for:
+							</div>
 						</Col>
 						<Col span={4}>
 							<div>
 								<img src={children1} height="50px" alt="img" />
 								<img src={children2} height="50px" alt="img" />
+							</div>
+							<div>
+								<Radio
+									style={{ fontSize: this.props.fontSize }}
+									checked={this.state.optionA === 1}
+									onClick={() => this.setState({ optionA: 1 })}
+								>
+									children
+								</Radio>
 							</div>
 						</Col>
 						<Col span={2}>
@@ -142,20 +155,41 @@ class IdentifyingDefinitions extends Component {
 								<img src={adult1} height="50px" alt="img" />
 								<img src={adult2} height="50px" alt="img" />
 							</div>
+							<div>
+								<Radio
+									style={{ fontSize: this.props.fontSize }}
+									checked={this.state.optionA === 2}
+									onClick={() => this.setState({ optionA: 2 })}
+								>
+									adult
+								</Radio>
+							</div>
 						</Col>
 					</Row>
+					{/* Row B */}
 					<Row style={{ paddingTop: "30px", paddingBottom: "30px" }}>
 						<Col span={1} offset={1}>
-							B.
+							<Text strong>B.</Text>
 						</Col>
 						<Col span={8}>{questionText2}</Col>
 						<Col span={3} offset={1}>
-							<div>B was written for:</div>
+							<div>
+								<Text strong>B </Text> was written for:
+							</div>
 						</Col>
 						<Col span={4}>
 							<div>
 								<img src={children1} height="50px" alt="img" />
 								<img src={children2} height="50px" alt="img" />
+							</div>
+							<div>
+								<Radio
+									style={{ fontSize: this.props.fontSize }}
+									checked={this.state.optionB === 1}
+									onClick={() => this.setState({ optionB: 1 })}
+								>
+									children
+								</Radio>
 							</div>
 						</Col>
 						<Col span={2}>
@@ -166,20 +200,41 @@ class IdentifyingDefinitions extends Component {
 								<img src={adult1} height="50px" alt="img" />
 								<img src={adult2} height="50px" alt="img" />
 							</div>
+							<div>
+								<Radio
+									style={{ fontSize: this.props.fontSize }}
+									checked={this.state.optionB === 2}
+									onClick={() => this.setState({ optionB: 2 })}
+								>
+									adult
+								</Radio>
+							</div>
 						</Col>
 					</Row>
+					{/* Row C */}
 					<Row style={{ paddingTop: "30px", paddingBottom: "30px" }}>
 						<Col span={1} offset={1}>
-							C.
+							<Text strong>C.</Text>
 						</Col>
 						<Col span={8}>{questionText3}</Col>
 						<Col span={3} offset={1}>
-							<div>C was written for:</div>
+							<div>
+								<Text strong>C </Text> was written for:
+							</div>
 						</Col>
 						<Col span={4}>
 							<div>
 								<img src={children1} height="50px" alt="img" />
 								<img src={children2} height="50px" alt="img" />
+							</div>
+							<div>
+								<Radio
+									style={{ fontSize: this.props.fontSize }}
+									checked={this.state.optionC === 1}
+									onClick={() => this.setState({ optionC: 1 })}
+								>
+									children
+								</Radio>
 							</div>
 						</Col>
 						<Col span={2}>
@@ -190,15 +245,23 @@ class IdentifyingDefinitions extends Component {
 								<img src={adult1} height="50px" alt="img" />
 								<img src={adult2} height="50px" alt="img" />
 							</div>
+							<div>
+								<Radio
+									style={{ fontSize: this.props.fontSize }}
+									checked={this.state.optionC === 2}
+									onClick={() => this.setState({ optionC: 2 })}
+								>
+									adult
+								</Radio>
+							</div>
 						</Col>
 					</Row>
-
 					<Row>
 						Of the three options above, choose the definition of {keyword} that was most likely written for
 						adults.
 					</Row>
-
 					<div style={{ margin: "40px", display: "flex", justifyContent: "center", alignItems: "center" }}>
+						<div> Click ony one: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 						<Radio.Group onChange={this.onChange} size="large" value={this.state.selectOption}>
 							<Radio
 								style={{
@@ -242,7 +305,7 @@ class IdentifyingDefinitions extends Component {
 const mapStateToProps = (state) => {
 	return {
 		fontSize: state.fontSize,
-		curState: state.DEFINITIONS_AWARENESS,
+		curState: state,
 	};
 };
 

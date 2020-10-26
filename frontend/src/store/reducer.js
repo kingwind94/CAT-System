@@ -531,7 +531,7 @@ export const defaultState = {
 		answer: 1,
 		audio: "../Site/audio/Anaphora_earth.mp3",
 	},
-	Anaphora_sportingevents: {
+	Anaphora_olympicgames: {
 		text1:
 			"During the Olympic Games, countries from around the world send athletes to compete in various sporting events.",
 		keyword: "These competitions",

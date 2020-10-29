@@ -9,7 +9,8 @@ var cors = require("cors");
 app.use(
 	cors({
 		credentials: true,
-		origin: "http://hbs-310s-it-xxx.times.uh.edu",
+		// origin: "http://hbs-310s-it-xxx.times.uh.edu",
+		origin: "http://localhost:3000",
 		exposedHeaders: ["Origin", "X-Requested-With", "Content-Type, Accept"],
 	})
 );
@@ -62,23 +63,23 @@ app.put("/UpdateCATAnswer/:id?", function (req, res) {
 
 require("./routes/nextQuestion")(app);
 
-app.get("/", function (req, res) {
-	var sql = require("mssql");
+// app.get("/", function (req, res) {
+// 	var sql = require("mssql");
 
-	// config for your database
-	// connect to your database
-	sql.connect(config, function (err) {
-		// if (err) console.log(err);
-		// create Request object
-		var request = new sql.Request();
-		// query to the database and get the records
-		request.query("select * from Student_Information", function (err, recordset) {
-			// if (err) console.log(err);
-			// send records as a response
-			res.send(recordset);
-		});
-	});
-});
+// 	// config for your database
+// 	// connect to your database
+// 	sql.connect(config, function (err) {
+// 		// if (err) console.log(err);
+// 		// create Request object
+// 		var request = new sql.Request();
+// 		// query to the database and get the records
+// 		request.query("select * from Student_Information", function (err, recordset) {
+// 			// if (err) console.log(err);
+// 			// send records as a response
+// 			res.send(recordset);
+// 		});
+// 	});
+// });
 
 var server = app.listen(5000, function () {
 	console.log("Server is running..");

@@ -3,7 +3,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import FetchData from "../utils/FetchData";
 import { NextQuestionButton, SectionBar } from "../utils/Utils";
-
+import Pic from "../../play.png";
+import ReactAudioPlayer from "react-audio-player";
 
 const { Title, Text, Paragraph } = Typography;
 
@@ -121,6 +122,14 @@ class IdentifyingDefinitions extends Component {
 					<Title level={3} align="middle">
 						{keyword}
 					</Title>
+					<div style={{ marginBottom: "5px", height: "50px" }}>
+						<img onClick={this.playAudio} src={Pic} height="54px" width="54px" alt="img" />
+						<ReactAudioPlayer
+							style={{ display: this.state.showElem, verticalAlign: "middle" }}
+							src={audio}
+							controls
+						></ReactAudioPlayer>
+					</div>
 					{/* Row A */}
 					<Row style={{ paddingTop: "30px", paddingBottom: "30px" }}>
 						<Col span={1} offset={1}>

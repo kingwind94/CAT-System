@@ -25,7 +25,7 @@ const SectionName = "CONNECTIVES_SENTENCES";
 
 class ConnectSentence extends Component {
 	constructor(props) {
-		super(props);
+		super();
 		this.state = {
 			bodyText: "",
 			blank: "________________",

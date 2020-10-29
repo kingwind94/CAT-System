@@ -2,6 +2,8 @@ import { Col, Divider, Row, Typography } from "antd";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { NextButton } from "../utils/Utils";
+import Pic from "../../play.png";
+import ReactAudioPlayer from "react-audio-player";
 
 const { Title, Text, Paragraph } = Typography;
 
@@ -11,9 +13,18 @@ class Section4 extends Component {
 
 		this.state = {
 			value: -1,
+			showElem: "none",
 		};
 	}
+
+	playAudio = () => {
+		this.setState({
+			showElem: "inline",
+		});
+	};
 	render() {
+		const audio = "../../Site/audio/Task_4_Breaking_words_Directions.mp3";
+
 		return (
 			<div className="main-context-div" style={{ fontSize: this.props.fontSize }}>
 				<div className="section">
@@ -39,6 +50,14 @@ class Section4 extends Component {
 					<div style={{ marginTop: "40px" }}>
 						<Title level={4}>SAMPLE ITEMS</Title>
 						<Divider />
+						<div style={{ marginBottom: "5px", height: "50px" }}>
+							<img onClick={this.playAudio} src={Pic} height="54px" width="54px" alt="img" />
+							<ReactAudioPlayer
+								style={{ display: this.state.showElem, verticalAlign: "middle" }}
+								src={audio}
+								controls
+							></ReactAudioPlayer>
+						</div>
 					</div>
 					<div>
 						<Row style={{ marginTop: "20px" }}>

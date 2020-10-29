@@ -2,6 +2,8 @@ import { Button, Divider, Radio, Typography } from "antd";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import Pic from "../../play.png";
+import ReactAudioPlayer from "react-audio-player";
 
 const { Title, Text, Paragraph } = Typography;
 
@@ -12,6 +14,7 @@ class Section2 extends Component {
 		this.state = {
 			value: -1,
 			radioColor: ["black", "black", "black"],
+			showElem: "none",
 		};
 	}
 
@@ -21,8 +24,15 @@ class Section2 extends Component {
 		});
 	};
 
+	playAudio = () => {
+		this.setState({
+			showElem: "inline",
+		});
+	};
+
 	render() {
 		const choice = ["water", "heats", "land"];
+		const audio = "../../Site/audio/Task_2_Tracking_themes_Directions.mp3";
 
 		return (
 			<div className="main-context-div" style={{ fontSize: this.props.fontSize }}>
@@ -52,12 +62,19 @@ class Section2 extends Component {
 						</Title>
 						<Divider />
 					</div>
+					<div style={{ marginBottom: "5px", height: "50px" }}>
+						<img onClick={this.playAudio} src={Pic} height="54px" width="54px" alt="img" />
+						<ReactAudioPlayer
+							style={{ display: this.state.showElem, verticalAlign: "middle" }}
+							src={audio}
+							controls
+						></ReactAudioPlayer>
+					</div>
 					<div
 						style={{
 							fontSize: "large",
-							marginLeft: "5%",
 							backgroundColor: "lightgray",
-							width: "90%",
+							width: "100%",
 							height: "100px",
 							padding: "15px",
 						}}
@@ -74,7 +91,7 @@ class Section2 extends Component {
 						</Text>
 					</div>
 
-					<div style={{ marginLeft: "5%", marginTop: "40px" }}>
+					<div style={{ marginTop: "40px" }}>
 						<Paragraph style={{ color: "black" }}>In the text above,</Paragraph>
 						<Paragraph underline strong style={{ color: "black", textAlign: "center", fontSize: "large" }}>
 							It

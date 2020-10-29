@@ -3,6 +3,9 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { NextQuestionButton, SectionBar } from "../utils/Utils";
 import FetchData from "../utils/FetchData";
+import Pic from "../../play.png";
+import ReactAudioPlayer from "react-audio-player";
+
 const { Title, Text, Paragraph } = Typography;
 
 const openNotification = () => {
@@ -18,8 +21,15 @@ class SureOrUnsure extends Component {
 		this.state = {
 			selectOption: -1,
 			question: "epis_impossible",
+			showElem: "none",
 		};
 	}
+
+	playAudio = () => {
+		this.setState({
+			showElem: "inline",
+		});
+	};
 
 	onChange = (e) => {
 		this.setState({
@@ -90,6 +100,7 @@ class SureOrUnsure extends Component {
 		const audio = this.props.curState.EPISTEMIC_MARKERS[this.state.question].audio;
 		const description = this.props.curState.EPISTEMIC_MARKERS[this.state.question].description;
 		const curDescription = this.props.curState.EPISTEMIC_MARKERS[description];
+		const bubble = require("../../Site/section8_images/meta_speechbubble.png");
 
 		return (
 			<div className="main-context-div" style={{ fontSize: this.props.fontSize }}>
@@ -107,12 +118,31 @@ class SureOrUnsure extends Component {
 
 					<div style={{ marginTop: "40px" }}>
 						<Text style={{ color: "black" }}>{questionText0}</Text>
+						<span style={{ marginBottom: "5px", height: "50px" }}>
+							<img onClick={this.playAudio} src={Pic} height="54px" width="54px" alt="img" />
+							<ReactAudioPlayer
+								style={{ display: this.state.showElem, verticalAlign: "middle" }}
+								src={audio}
+								controls
+							></ReactAudioPlayer>
+						</span>
 						<Row>
 							<Col span={2} offset={0}>
 								<img src={img1} height="80px" alt="img" />
 							</Col>
+
 							<Col>
-								<Text> {questionText1}</Text>
+								<div
+									style={{
+										color: "black",
+										backgroundImage: `url(${bubble})`,
+										backgroundSize: "100% 100%",
+										padding: "20px",
+										paddingLeft: "50px",
+									}}
+								>
+									{questionText1}
+								</div>
 							</Col>
 						</Row>
 					</div>

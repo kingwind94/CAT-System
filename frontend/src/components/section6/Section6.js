@@ -2,6 +2,8 @@ import { Divider, Typography } from "antd";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { NextButton } from "../utils/Utils";
+import Pic from "../../play.png";
+import ReactAudioPlayer from "react-audio-player";
 
 const { Title, Text, Paragraph } = Typography;
 
@@ -10,9 +12,19 @@ class Section6 extends Component {
 		super();
 		this.state = {
 			value: -1,
+			showElem: "none",
 		};
 	}
+
+	playAudio = () => {
+		this.setState({
+			showElem: "inline",
+		});
+	};
+
 	render() {
+		const audio = "../../Site/audio/Task_6_Identifying_Definitions_Directions.mp3";
+
 		return (
 			<div className="main-context-div" style={{ fontSize: this.props.fontSize }}>
 				<div className="section">
@@ -54,6 +66,14 @@ class Section6 extends Component {
 								<Text style={{ color: "black" }}>There is no sample item for this section.</Text>
 							</li>
 						</ul>
+					</div>
+					<div style={{ marginBottom: "5px", height: "50px" }}>
+						<img onClick={this.playAudio} src={Pic} height="54px" width="54px" alt="img" />
+						<ReactAudioPlayer
+							style={{ display: this.state.showElem, verticalAlign: "middle" }}
+							src={audio}
+							controls
+						></ReactAudioPlayer>
 					</div>
 				</div>
 				<NextButton link="/section6_1" />

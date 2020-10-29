@@ -2,6 +2,8 @@ import { Button, Col, Divider, Radio, Row, Typography } from "antd";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import Pic from "../../play.png";
+import ReactAudioPlayer from "react-audio-player";
 
 const { Title, Text, Paragraph } = Typography;
 
@@ -11,6 +13,7 @@ class Section7 extends Component {
 		this.state = {
 			value: -1,
 			sampleItem: 1,
+			showElem: "none",
 		};
 	}
 
@@ -20,9 +23,17 @@ class Section7 extends Component {
 		});
 	};
 
+	playAudio = () => {
+		this.setState({
+			showElem: "inline",
+		});
+	};
+
 	render() {
 		const img1 = require("../../Site/Images/sure_or_unsure_ex1.png");
 		const img2 = require("../../Site/Images/sure_or_unsure_ex2.png");
+		const bubble = require("../../Site/section8_images/meta_speechbubble.png");
+		const audio = "../../Site/audio/Task_7_Sure_or_Unsure_Directions.mp3";
 
 		return (
 			<div className="main-context-div" style={{ fontSize: this.props.fontSize }}>
@@ -55,6 +66,14 @@ class Section7 extends Component {
 						<Text strong style={{ color: "black" }}>
 							There is a quiz tomorrow: Sure or Unsure?
 						</Text>
+						<span style={{ marginBottom: "5px", height: "50px" }}>
+							<img onClick={this.playAudio} src={Pic} height="54px" width="54px" alt="img" />
+							<ReactAudioPlayer
+								style={{ display: this.state.showElem, verticalAlign: "middle" }}
+								src={audio}
+								controls
+							></ReactAudioPlayer>
+						</span>
 						<Divider />
 					</div>
 
@@ -73,7 +92,17 @@ class Section7 extends Component {
 									<img src={img1} height="50px" alt="img" />
 								</Col>
 								<Col>
-									<Text style={{ color: "black" }}> Yes, there will be a quiz tomorrow.</Text>
+									<div
+										style={{
+											color: "black",
+											backgroundImage: `url(${bubble})`,
+											backgroundSize: "100% 100%",
+											padding: "20px",
+											paddingLeft: "50px",
+										}}
+									>
+										Yes, there will be a quiz tomorrow.
+									</div>
 								</Col>
 							</Row>
 						</div>
@@ -85,7 +114,17 @@ class Section7 extends Component {
 									<img src={img2} height="50px" alt="img" />
 								</Col>
 								<Col>
-									<Text style={{ color: "black" }}> We will for sure not have a quiz tomorrow.</Text>
+									<div
+										style={{
+											color: "black",
+											backgroundImage: `url(${bubble})`,
+											backgroundSize: "100% 100%",
+											padding: "20px",
+											paddingLeft: "50px",
+										}}
+									>
+										We will for sure not have a quiz tomorrow.
+									</div>
 								</Col>
 							</Row>
 						</div>

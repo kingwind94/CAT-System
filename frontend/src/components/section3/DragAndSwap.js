@@ -1,9 +1,13 @@
-import { notification } from "antd";
+import { notification, Typography } from "antd";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import FetchData from "../utils/FetchData";
 import { NextQuestionButton, SectionBar } from "../utils/Utils";
+import Pic from "../../play.png";
+import ReactAudioPlayer from "react-audio-player";
 import "./DragAndSwap.css";
+
+const { Title, Text, Paragraph } = Typography;
 
 function firstUpperCase(s) {
 	return s.replace(/^\S/, (s) => s.toUpperCase());
@@ -24,6 +28,9 @@ class DragAndSwap extends Component {
 			numOfOptions: 0,
 			textOptions: [],
 			draggedTask: {},
+			title: "",
+			showElem: "none",
+			audio: "",
 		};
 	}
 
@@ -40,6 +47,8 @@ class DragAndSwap extends Component {
 		this.setState({
 			numOfOptions: numOfOptions,
 			textOptions: textOptions,
+			title: questionText.title,
+			audio: questionText.audio,
 		});
 	}
 
@@ -197,11 +206,28 @@ class DragAndSwap extends Component {
 			});
 	};
 
+	playAudio = () => {
+		this.setState({
+			showElem: "inline",
+		});
+	};
+
 	render() {
 		const { textOptions, numOfOptions } = this.state;
 
 		return (
 			<div className="DragAndSwap">
+				<Title level={3} align="middle">
+					{this.state.title}
+				</Title>
+				<div style={{ marginBottom: "5px", height: "50px" }}>
+					<img onClick={this.playAudio} src={Pic} height="54px" width="54px" alt="img" />
+					<ReactAudioPlayer
+						style={{ display: this.state.showElem, verticalAlign: "middle" }}
+						src={this.state.audio}
+						controls
+					></ReactAudioPlayer>
+				</div>
 				<div className="DragAndDropApp">
 					<div className="texts">
 						{textOptions.slice(0, numOfOptions).map((option) => (

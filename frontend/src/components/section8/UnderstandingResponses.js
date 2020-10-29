@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { NextQuestionButton, SectionBar } from "../utils/Utils";
 import FetchData from "../utils/FetchData";
+import Pic from "../../play.png";
+import ReactAudioPlayer from "react-audio-player";
 
 const { Title, Text, Paragraph } = Typography;
 
@@ -19,8 +21,15 @@ class UnderstandingResponses extends Component {
 		this.state = {
 			selectOption: -1,
 			question: "meta_disagreeing",
+			showElem: "none",
 		};
 	}
+
+	playAudio = () => {
+		this.setState({
+			showElem: "inline",
+		});
+	};
 
 	onChange = (e) => {
 		this.setState({
@@ -91,6 +100,7 @@ class UnderstandingResponses extends Component {
 		const img = require("../../Site/section8_images/" +
 			this.props.curState.METALINGUISTIC[this.state.question].img);
 		const options = this.props.curState.METALINGUISTIC[this.state.question].options;
+		const audio = this.props.curState.METALINGUISTIC[this.state.question].audio;
 
 		const bubble = require("../../Site/section8_images/meta_speechbubble.png");
 		const paper = require("../../Site/section8_images/meta_newspaper.png");
@@ -105,6 +115,14 @@ class UnderstandingResponses extends Component {
 		return (
 			<div className="main-context-div " style={{ fontSize: this.props.fontSize }}>
 				<div className="understanding_responses">
+					<div style={{ marginBottom: "5px", height: "50px" }}>
+						<img onClick={this.playAudio} src={Pic} height="54px" width="54px" alt="img" />
+						<ReactAudioPlayer
+							style={{ display: this.state.showElem, verticalAlign: "middle" }}
+							src={audio}
+							controls
+						></ReactAudioPlayer>
+					</div>
 					<Row>
 						<div
 							style={{

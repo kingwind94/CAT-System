@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import FetchData from "../utils/FetchData";
 import { NextQuestionButton, SectionBar } from "../utils/Utils";
+import Pic from "../../play.png";
+import ReactAudioPlayer from "react-audio-player";
 
 const { Title, Text, Paragraph } = Typography;
 
@@ -37,6 +39,12 @@ class TrackingTheme extends Component {
 		let newRadioColor = ["black", "black", "black"];
 		newRadioColor[e.target.value] = "green";
 		this.setState({ radioColor: newRadioColor });
+	};
+
+	playAudio = () => {
+		this.setState({
+			showElem: "inline",
+		});
 	};
 
 	getNextQuestion = async (e) => {
@@ -115,6 +123,14 @@ class TrackingTheme extends Component {
 		return (
 			<div className="main-context-div" style={{ fontSize: this.props.curState.fontSize }}>
 				<div className="tracking_theme">
+					<div style={{ marginBottom: "5px", height: "50px" }}>
+						<img onClick={this.playAudio} src={Pic} height="54px" width="54px" alt="img" />
+						<ReactAudioPlayer
+							style={{ display: this.state.showElem, verticalAlign: "middle" }}
+							src={audio}
+							controls
+						></ReactAudioPlayer>
+					</div>
 					<div
 						style={{
 							backgroundColor: "lightgray",
@@ -143,7 +159,7 @@ class TrackingTheme extends Component {
 						<Paragraph strong style={{ color: "black", textAlign: "center" }}>
 							refers to:
 						</Paragraph>
-						
+
 						<div
 							style={{ margin: "40px", display: "flex", justifyContent: "center", alignItems: "center" }}
 						>

@@ -51,53 +51,53 @@ async function sumCorrectIncorrect(req, res) {
 	}
 }
 
-const sumRaschThetaRow = (req, res) => {
-	const raschQuestions = req.headers.raschQuestions;
-	const raschQuestionsSum = req.headers.raschQuestionsSum;
-	const theta = returnValue;
-	mssql.connect(config, function (err) {
-		if (err) {
-			return callback(err);
-		} else var request = new mssql.Request();
-		request.input("RaschQuestions", mssql.NVarChar, raschQuestions);
-		request.input("RaschQuestionsSum", mssql.NVarChar, raschQuestionsSum);
-		request.input("theta", mssql.Decimal, theta);
+// const sumRaschThetaRow = (req, res) => {
+// 	const raschQuestions = req.headers.raschQuestions;
+// 	const raschQuestionsSum = req.headers.raschQuestionsSum;
+// 	const theta = returnValue;
+// 	mssql.connect(config, function (err) {
+// 		if (err) {
+// 			return callback(err);
+// 		} else var request = new mssql.Request();
+// 		request.input("RaschQuestions", mssql.NVarChar, raschQuestions);
+// 		request.input("RaschQuestionsSum", mssql.NVarChar, raschQuestionsSum);
+// 		request.input("theta", mssql.Decimal, theta);
 
-		request.execute("dbo.SumCorrectIncorrectRow", function (err, recordsets, returnValue) {
-			if (err) {
-				console.log(err);
-			} else var str = JSON.stringify(recordsets);
-			res.send(str); //send to front_end
-			console.log(str);
-			console.log("hhh");
-			console.log(theta);
-		});
-	});
-};
+// 		request.execute("dbo.SumCorrectIncorrectRow", function (err, recordsets, returnValue) {
+// 			if (err) {
+// 				console.log(err);
+// 			} else var str = JSON.stringify(recordsets);
+// 			res.send(str); //send to front_end
+// 			console.log(str);
+// 			console.log("hhh");
+// 			console.log(theta);
+// 		});
+// 	});
+// };
 
-const selectNextQuestion = (req, res) => {
-	const task = req.headers.task;
-	const prevQuestion = req.headers.prevQuestion;
-	const theta = req.headers.theta;
-	mssql.connect(config, function (err) {
-		if (err) {
-			return callback(err);
-		} else var request = new mssql.Request();
-		request.input("task", mssql.NVarChar, task);
-		request.input("prevQuestions", mssql.NVarChar, prevQuestion);
-		request.input("bValue", mssql.Decimal, theta);
-		request.output("name", mssql.NChar);
+// const selectNextQuestion = (req, res) => {
+// 	const task = req.headers.task;
+// 	const prevQuestion = req.headers.prevQuestion;
+// 	const theta = req.headers.theta;
+// 	mssql.connect(config, function (err) {
+// 		if (err) {
+// 			return callback(err);
+// 		} else var request = new mssql.Request();
+// 		request.input("task", mssql.NVarChar, task);
+// 		request.input("prevQuestions", mssql.NVarChar, prevQuestion);
+// 		request.input("bValue", mssql.Decimal, theta);
+// 		request.output("name", mssql.NChar);
 
-		request.execute("dbo.SelectNextQuestion", function (err, recordsets, returnValue) {
-			if (err) {
-				console.log(err);
-			} else res.send(recordsets);
-		});
-	});
-};
+// 		request.execute("dbo.SelectNextQuestion", function (err, recordsets, returnValue) {
+// 			if (err) {
+// 				console.log(err);
+// 			} else res.send(recordsets);
+// 		});
+// 	});
+// };
 
 module.exports = (app) => {
-	app.get("/sumRaschThetaRow", sumRaschThetaRow);
-	app.get("/selectNextQuestion", selectNextQuestion);
+	// app.get("/sumRaschThetaRow", sumRaschThetaRow);
+	// app.get("/selectNextQuestion", selectNextQuestion);
 	app.put("/sumCorrectIncorrect", sumCorrectIncorrect);
 };

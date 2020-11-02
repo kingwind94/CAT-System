@@ -1,6 +1,6 @@
 async function fetchData(url, method, data = {}) {
     // Default options are marked with *
-    url = "http://localhost:5000" + url;
+    // url = "http://localhost:5000" + url;
     let response;
     if (method === "GET") {
         response = await fetch(url, {

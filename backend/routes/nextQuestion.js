@@ -31,10 +31,10 @@ async function sumCorrectIncorrect(req, res) {
 
 		console.log(result2.recordset[0].result);
 		let sumRaschVal = result2.recordset[0].result;
-		if (sumRaschVal > 6.25 || numQuestions >= 4) {
-			res.send({ nextQuestion: "" });
-			return;
-		}
+		// if (sumRaschVal > 6.25 || numQuestions >= 4) {
+		// 	res.send({ nextQuestion: "" });
+		// 	return;
+		// }
 
 		let result3 = await pool
 			.request()

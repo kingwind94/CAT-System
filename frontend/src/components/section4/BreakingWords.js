@@ -120,7 +120,7 @@ class BreakingWords extends Component {
 						<Col span={5}>
 							<div
 								style={{
-									backgroundColor: "green",
+									backgroundColor: "lightgreen",
 									width: "160px",
 									borderStyle: "dotted",
 									textAlign: "center",

@@ -41,7 +41,7 @@ class Section7 extends Component {
 					<Title level={3} align="left">
 						SECTION 7: SURE OR UNSURE
 					</Title>
-					<Divider />
+					<Divider style={{ margin: "10px" }} />
 					<div>
 						<ul>
 							<li>
@@ -59,7 +59,7 @@ class Section7 extends Component {
 						</ul>
 					</div>
 
-					<div style={{ marginTop: "40px" }}>
+					<div style={{ marginTop: "20px" }}>
 						<Title level={4} align="left">
 							SAMPLE ITEM {this.state.sampleItem}
 						</Title>

@@ -47,15 +47,15 @@ class Section8 extends Component {
 					<Title level={3} align="left">
 						SECTION 8: UNDERSTANDING RESPONSES
 					</Title>
-					<Divider />
-					<div style={{ marginBottom: "5px", height: "50px" }}>
+					<Divider style={{ margin: "10px" }} />
+					{/* <div style={{ marginBottom: "5px", height: "50px" }}>
 						<img onClick={this.playAudio} src={Pic} height="54px" width="54px" alt="img" />
 						<ReactAudioPlayer
 							style={{ display: this.state.showElem, verticalAlign: "middle" }}
 							src={audio}
 							controls
 						></ReactAudioPlayer>
-					</div>
+					</div> */}
 
 					{this.state.sampleItem === 1 ? (
 						<div className="green-text">
@@ -71,7 +71,7 @@ class Section8 extends Component {
 							<div>
 								<ul>
 									<li>
-										<Text className="text_div" style={{ color: "green" }}>
+										<Text style={{ color: "black" }}>
 											First, read or listen the newspaper’s idea.
 										</Text>
 									</li>
@@ -88,7 +88,7 @@ class Section8 extends Component {
 									</li>
 								</ul>
 							</div>
-							<div style={{ marginTop: "40px" }}>
+							<div style={{ marginTop: "20px" }}>
 								<Title level={4} align="left">
 									SAMPLE ITEM
 								</Title>

@@ -69,7 +69,7 @@ class Section3 extends Component {
 					</div>
 				</div>
 
-				<NextButton link="/section3DAD" />
+				<NextButton link="/section3_1" />
 			</div>
 		);
 	}

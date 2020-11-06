@@ -1,13 +1,13 @@
 #root-container {
-	min-width: 1600px;
-	min-height: 100vh;
+	/* min-width: 1600px; */
+	height: 100vh;
 }
 
 .site-layout-content {
 	background: #fff;
 	padding: 24px;
-	height: 900px;
-	width: 1300px;
+	height: 700px;
+	width: 1200px;
 }
 
 .section-bar {
@@ -66,30 +66,30 @@ ul {
 
 .comprehending_sentences {
 	position: absolute;
-	top: 10%;
+	top: 5%;
 	width: 100%;
 }
 
 .identifying_definition {
 	position: absolute;
-	top: 5%;
+	top: 0%;
 	width: 100%;
 }
 
 .sure_or_unsure {
 	position: absolute;
-	top: 10%;
+	top: 5%;
 	width: 100%;
 }
 
 .understanding_responses {
 	position: absolute;
-	top: 10%;
+	top: 0%;
 	width: 100%;
 }
 
 .section {
 	position: absolute;
-	top: 5%;
+	top: 2%;
 	width: 100%;
 }

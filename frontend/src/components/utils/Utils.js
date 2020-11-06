@@ -12,7 +12,7 @@ export function TwoPictures(props) {
 				<img
 					src={props.picture1}
 					width="100%"
-					height="360px"
+					height="260px"
 					style={{
 						position: "relative",
 						left: "50%",
@@ -28,7 +28,7 @@ export function TwoPictures(props) {
 				<img
 					src={props.picture2}
 					width="100%"
-					height="360px"
+					height="260px"
 					style={{
 						position: "relative",
 						left: "50%",
@@ -48,21 +48,21 @@ export function FourPictures(props) {
 	return (
 		<div>
 			<Row justify="space-around" gutter={[16, 24]}>
-				<Col span={10} offset={4}>
-					<img src={props.picture1} alt="img" />
+				<Col span={10} offset={2}>
+					<img height="150px" src={props.picture1} alt="img" />
 				</Col>
 
 				<Col span={10}>
-					<img src={props.picture2} alt="img" />
+					<img height="150px" src={props.picture2} alt="img" />
 				</Col>
 			</Row>
 			<Row justify="space-around" gutter={[16, 24]}>
-				<Col span={10} offset={4}>
-					<img src={props.picture3} alt="img" />
+				<Col span={10} offset={2}>
+					<img height="150px" src={props.picture3} alt="img" />
 				</Col>
 
 				<Col span={10}>
-					<img src={props.picture4} alt="img" />
+					<img height="150px" src={props.picture4} alt="img" />
 				</Col>
 			</Row>
 		</div>
@@ -110,7 +110,7 @@ export function SectionBar(props) {
 
 export function NextButton(props) {
 	return (
-		<div style={{ position: "absolute", bottom: "120px", right: "80px" }}>
+		<div style={{ position: "absolute", bottom: "50px", right: "80px" }}>
 			<Button danger style={{ color: "green", borderColor: "green" }}>
 				<Link to={props.link}>Next</Link>
 			</Button>
@@ -120,10 +120,9 @@ export function NextButton(props) {
 
 export function NextQuestionButton(props) {
 	return (
-		<div style={{ position: "absolute", bottom: "120px", right: "80px" }}>
+		<div style={{ position: "absolute", bottom: "50px", right: "80px" }}>
 			<Button
 				danger
-				size="large"
 				onClick={props.getNextQuestion}
 				style={{ color: "green", borderColor: "green" }}
 			>

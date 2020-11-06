@@ -29,7 +29,7 @@ class Section4 extends Component {
 			<div className="main-context-div" style={{ fontSize: this.props.fontSize }}>
 				<div className="section">
 					<Title level={3}>SECTION 4: BREAKING WORDS</Title>
-					<Divider />
+					<Divider style={{ margin: "10px" }} />
 					<div>
 						<ul>
 							<li>
@@ -61,7 +61,7 @@ class Section4 extends Component {
 					</div>
 					<div>
 						<Row style={{ marginTop: "20px" }}>
-							<Col span={4} offset={2}>
+							<Col span={4} offset={0}>
 								<Text strong style={{ color: "black" }}>
 									driver
 								</Text>
@@ -74,7 +74,7 @@ class Section4 extends Component {
 							</Col>
 						</Row>
 						<Row style={{ marginTop: "20px" }}>
-							<Col span={4} offset={2}>
+							<Col span={4} offset={0}>
 								<Text strong style={{ color: "black" }}>
 									improvement
 								</Text>

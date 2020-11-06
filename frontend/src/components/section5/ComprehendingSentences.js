@@ -30,7 +30,7 @@ class ComprehendingSentences extends Component {
 	}
 
 	onClick = (e, val) => {
-		this.setState({ selectOption: 1 });
+		this.setState({ selectOption: val });
 		let newBorderStyle = ["none", "none", "none", "none"];
 		newBorderStyle[val - 1] = "solid";
 		this.setState({ borderStyle: newBorderStyle });
@@ -82,6 +82,7 @@ class ComprehendingSentences extends Component {
 
 		this.setState({
 			selectOption: -1,
+			borderStyle: ["none", "none", "none", "none"],
 		});
 
 		await FetchData("/sumCorrectIncorrect", "PUT", data)

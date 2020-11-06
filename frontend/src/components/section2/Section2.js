@@ -2,8 +2,9 @@ import { Button, Divider, Radio, Typography } from "antd";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import Pic from "../../play.png";
 import ReactAudioPlayer from "react-audio-player";
+import Pic from "../../play.png";
+import { NextButton } from "../utils/Utils";
 
 const { Title, Text, Paragraph } = Typography;
 
@@ -40,7 +41,7 @@ class Section2 extends Component {
 					<Title level={3} align="left">
 						SECTION 2: TRACKING THEMES
 					</Title>
-					<Divider />
+					<Divider style={{ margin: "10px" }} />
 					<div>
 						<ul>
 							<li>
@@ -56,7 +57,7 @@ class Section2 extends Component {
 							</li>
 						</ul>
 					</div>
-					<div style={{ marginTop: "40px" }}>
+					<div style={{ marginTop: "20px" }}>
 						<Title level={4} align="left">
 							SAMPLE ITEM
 						</Title>
@@ -72,7 +73,6 @@ class Section2 extends Component {
 					</div>
 					<div
 						style={{
-							fontSize: "large",
 							backgroundColor: "lightgray",
 							width: "100%",
 							height: "100px",
@@ -91,7 +91,7 @@ class Section2 extends Component {
 						</Text>
 					</div>
 
-					<div style={{ marginTop: "40px" }}>
+					<div style={{ marginTop: "20px" }}>
 						<Paragraph style={{ color: "black" }}>In the text above,</Paragraph>
 						<Paragraph underline strong style={{ color: "black", textAlign: "center", fontSize: "large" }}>
 							It
@@ -100,7 +100,7 @@ class Section2 extends Component {
 							refers to:
 						</Paragraph>
 						<div
-							style={{ margin: "40px", display: "flex", justifyContent: "center", alignItems: "center" }}
+							style={{ margin: "20px", display: "flex", justifyContent: "center", alignItems: "center" }}
 						>
 							<Radio.Group onChange={this.onChange} size="large" value={this.state.value}>
 								<Radio
@@ -132,13 +132,9 @@ class Section2 extends Component {
 								</Radio>
 							</Radio.Group>
 						</div>
-						<div style={{ marginTop: "20px", float: "right" }}>
-							<Button danger style={{ color: "green", borderColor: "green" }}>
-								<Link to="/section2_1">Next</Link>
-							</Button>
-						</div>
 					</div>
 				</div>
+				<NextButton link="/section2_1" />
 			</div>
 		);
 	}

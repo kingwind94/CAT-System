@@ -35,7 +35,7 @@ class Section5 extends Component {
 					<Title level={3} align="left">
 						SECTION 5: COMPREHENDING SENTENCES
 					</Title>
-					<Divider />
+					<Divider style={{ margin: "10px" }} />
 					<div>
 						<ul>
 							<li>
@@ -53,11 +53,11 @@ class Section5 extends Component {
 							</li>
 						</ul>
 					</div>
-					<div style={{ marginTop: "40px" }}>
+					<div style={{ marginTop: "20px" }}>
 						<Title level={4} align="left">
 							SAMPLE ITEMS
 						</Title>
-						<Divider />
+						<Divider style={{ margin: "10px" }} />
 						<div style={{ marginBottom: "5px", height: "50px" }}>
 							<img onClick={this.playAudio} src={Pic} height="54px" width="54px" alt="img" />
 							<ReactAudioPlayer

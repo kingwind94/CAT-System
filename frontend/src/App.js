@@ -29,8 +29,8 @@ class App extends Component {
 		return (
 			<BrowserRouter>
 				<div id="root-container">
-					<Layout  style={{ minHeight: "100vh", width:"100%" }}>
-						<Content style={{ margin: "50px auto" }}>
+					<Layout  style={{ minHeight: "80vh", width:"100%" }}>
+						<Content style={{ margin: "10px auto" }}>
 							<div className="site-layout-content">
 								<div style={{ height: "20px" }}>
 									<FontColorsOutlined
@@ -49,7 +49,7 @@ class App extends Component {
 								<Route path="/section2" component={Section2}></Route>
 								<Route path="/section2_1" component={TrackingTheme}></Route>
 								<Route path="/section3" component={Section3}></Route>
-								<Route path="/section3DAD" component={DragAndSwap}></Route>
+								<Route path="/section3_1" component={DragAndSwap}></Route>
 								<Route path="/section4" component={Section4}></Route>
 								<Route path="/section4_1" component={BreakingWords}></Route>
 								<Route path="/section5" component={Section5}></Route>

@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { TwoPictures } from "../utils/Utils";
+import { NextButton } from "../utils/Utils";
 
 const { Title, Text } = Typography;
 
@@ -44,7 +45,7 @@ class Section1 extends Component {
 					<Title level={3} align="left">
 						SECTION 1: CONNECTING IDEAS
 					</Title>
-					<Divider />
+					<Divider style={{ margin: "10px" }} />
 					<div>
 						<ul>
 							<li>
@@ -65,7 +66,7 @@ class Section1 extends Component {
 						</ul>
 					</div>
 
-					<div style={{ marginTop: "40px" }}>
+					<div style={{ marginTop: "20px" }}>
 						<Title level={4} align="left">
 							SAMPLE ITEM
 						</Title>
@@ -73,10 +74,9 @@ class Section1 extends Component {
 						<TwoPictures picture1={picture1} picture2={picture2} />
 					</div>
 
-					<div style={{ marginTop: "20px" }}>
+					<div style={{ marginTop: "10px" }}>
 						<Row>
-							<Col span={2}></Col>
-							<Col span={20}>
+							<Col span={20} offset={2}>
 								<Text strong className="text_div" style={{ color: "black" }}>
 									{questionText1}
 								</Text>
@@ -127,16 +127,11 @@ class Section1 extends Component {
 										</Radio>
 									</Radio.Group>
 								</div>
-
-								<div style={{ marginTop: "20px", float: "right" }}>
-									<Button danger style={{ color: "green", borderColor: "green" }}>
-										<Link to="/section1_1">Next</Link>
-									</Button>
-								</div>
 							</Col>
 						</Row>
 					</div>
 				</div>
+				<NextButton link="/section1_1" />
 			</div>
 		);
 	}

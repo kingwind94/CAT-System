@@ -7,7 +7,7 @@ import Pic from "../../play.png";
 import ReactAudioPlayer from "react-audio-player";
 import "./DragAndSwap.css";
 
-const { Title, Text, Paragraph } = Typography;
+const { Title } = Typography;
 
 function firstUpperCase(s) {
 	return s.replace(/^\S/, (s) => s.toUpperCase());
@@ -220,7 +220,7 @@ class DragAndSwap extends Component {
 				<Title level={3} align="middle">
 					{this.state.title}
 				</Title>
-				<div style={{ height: "50px", position:"absolute", top:"2%" }}>
+				<div style={{ height: "50px", position: "absolute", top: "2%" }}>
 					<img onClick={this.playAudio} src={Pic} height="54px" width="54px" alt="img" />
 					<ReactAudioPlayer
 						style={{ display: this.state.showElem, verticalAlign: "middle" }}

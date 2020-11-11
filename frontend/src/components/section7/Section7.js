@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 import Pic from "../../play.png";
 import ReactAudioPlayer from "react-audio-player";
 
-const { Title, Text, Paragraph } = Typography;
+const { Title, Text } = Typography;
 
 class Section7 extends Component {
 	constructor(props) {
-		super();
+		super(props);
 		this.state = {
 			value: -1,
 			sampleItem: 1,

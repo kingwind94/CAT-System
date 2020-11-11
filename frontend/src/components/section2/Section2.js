@@ -1,8 +1,7 @@
-import { Button, Divider, Radio, Typography } from "antd";
+import { Divider, Radio, Typography } from "antd";
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import ReactAudioPlayer from "react-audio-player";
+import { connect } from "react-redux";
 import Pic from "../../play.png";
 import { NextButton } from "../utils/Utils";
 

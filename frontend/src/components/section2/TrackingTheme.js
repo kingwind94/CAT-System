@@ -6,7 +6,7 @@ import { NextQuestionButton, SectionBar } from "../utils/Utils";
 import Pic from "../../play.png";
 import ReactAudioPlayer from "react-audio-player";
 
-const { Title, Text, Paragraph } = Typography;
+const { Text, Paragraph } = Typography;
 
 const openNotification = () => {
 	notification.open({

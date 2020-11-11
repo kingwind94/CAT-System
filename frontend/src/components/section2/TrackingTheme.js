@@ -135,20 +135,17 @@ class TrackingTheme extends Component {
 						style={{
 							backgroundColor: "lightgray",
 							width: "100%",
-							height: "100px",
+							// height: "100px",
 							padding: "20px",
 						}}
 					>
 						<Paragraph strong style={{ color: "black" }}>
 							{questionText1}{" "}
-						</Paragraph>
-						<Text underline strong style={{ color: "green" }}>
-							{keyword}
-						</Text>
-						<Text strong style={{ color: "black" }}>
-							{" "}
+							<Text underline strong style={{ color: "green" }}>
+								{keyword}
+							</Text>{" "}
 							{questionText2}
-						</Text>
+						</Paragraph>
 					</div>
 
 					<div style={{ marginTop: "40px" }}>

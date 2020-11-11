@@ -71,6 +71,9 @@ class Section4 extends Component {
 									Children are too young to{" "}
 								</Text>
 								<input onChange={this.onChange} />
+								<Text strong style={{ color: "black" }}>
+									.
+								</Text>
 							</Col>
 						</Row>
 						<Row style={{ marginTop: "20px" }}>
@@ -84,6 +87,9 @@ class Section4 extends Component {
 									My teacher wants my spelling to{" "}
 								</Text>
 								<input onChange={this.onChange} />
+								<Text strong style={{ color: "black" }}>
+									.
+								</Text>
 							</Col>
 						</Row>
 					</div>

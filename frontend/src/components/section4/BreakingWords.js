@@ -108,7 +108,7 @@ class BreakingWords extends Component {
 		return (
 			<div className="main-context-div" style={{ fontSize: this.props.fontSize }}>
 				<div className="breaking_words">
-					<div style={{ marginBottom: "5px", height: "50px" }}>
+					<div style={{ marginBottom: "25px", height: "50px" }}>
 						<img onClick={this.playAudio} src={Pic} height="54px" width="54px" alt="img" />
 						<ReactAudioPlayer
 							style={{ display: this.state.showElem, verticalAlign: "middle" }}

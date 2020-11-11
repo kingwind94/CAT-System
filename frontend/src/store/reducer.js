@@ -16,6 +16,7 @@ export const defaultState = {
 			text4: "For example, kids can do a lot of exercise during recess.",
 			fullAnswer: ["2413"],
 			partAnswer: ["2314"],
+			audio: "../Site/audio/Anagram_recess.mp3",
 		},
 		Anagram_lunches: {
 			title: "Healthier School Lunches",
@@ -29,6 +30,7 @@ export const defaultState = {
 			fullAnswer: ["35214"],
 			partAnswer: ["34215"],
 			lessAnswer: ["05010"],
+			audio: "../Site/audio/Anagram_lunches.mp3",
 		},
 		Anagram_uniforms: {
 			title: "School uniforms solve many problems",
@@ -44,6 +46,7 @@ export const defaultState = {
 			fullAnswer: ["465123"],
 			partAnswer: ["456123"],
 			lessAnswer: ["060100"],
+			audio: "../Site/audio/Anagram_uniforms.mp3",
 		},
 		Anagram_gender_B: {
 			title: "Separate classrooms for boys and girls?",
@@ -61,6 +64,7 @@ export const defaultState = {
 			fullAnswer: ["621354"],
 			partAnswer: ["521364", "421365"],
 			lessAnswer: ["601000"],
+			audio: "../Site/audio/Anagram_gender_B.mp3",
 		},
 		Anagram_gender_A: {
 			title: "Separate classrooms for boys and girls?",
@@ -75,6 +79,7 @@ export const defaultState = {
 			fullAnswer: ["654321", "653421"],
 			partAnswer: ["564321", "563421"],
 			lessAnswer: ["600001"],
+			audio: "../Site/audio/Anagram_gender_A.mp3",
 		},
 		Anagram_catsordogs: {
 			title: "Cats or dogs?",
@@ -83,6 +88,7 @@ export const defaultState = {
 			text2: "That is why dogs are the best pets.",
 			text3: "Some people say that cats are the best pets, but dogs are better pets.",
 			fullAnswer: ["231"],
+			audio: "../Site/audio/Anagram_catsordogs.mp3",
 		},
 		Anagram_swimming: {
 			title: "Swimming",
@@ -91,6 +97,7 @@ export const defaultState = {
 			text2: "That is why I believe that swimming is safe.",
 			text3: "Some people say that swimming in the lake is scary, but it is safe.",
 			fullAnswer: ["231"],
+			audio: "../Site/audio/Anagram_swimming.mp3",
 		},
 		Anagram_rain: {
 			title: "Rain",
@@ -100,6 +107,7 @@ export const defaultState = {
 			text3: "I think that there should be no school when it rains outside.",
 			text4: "Also, it is very hard to keep your backpack dry when it is raining.",
 			fullAnswer: ["2413"],
+			audio: "../Site/audio/Anagram_rain.mp3",
 		},
 		Anagram_salad: {
 			title: "Salad",
@@ -109,6 +117,7 @@ export const defaultState = {
 			text3: "As a result, salad is filled with lots of vitamins. ",
 			text4: "This is why salad is a healthy food.",
 			fullAnswer: ["1324"],
+			audio: "../Site/audio/Anagram_salad.mp3",
 		},
 		Anagram_naptime: {
 			title: "Naptime!",
@@ -119,6 +128,7 @@ export const defaultState = {
 			text3: "Another reason is that having good rest will make students remember more during the day.",
 			text4: "First, many students have to stay up late working on homework so they do not get enough sleep.",
 			fullAnswer: ["1432"],
+			audio: "../Site/audio/Anagram_naptime.mp3",
 		},
 		Anagram_books: {
 			title: "Books!",
@@ -131,6 +141,7 @@ export const defaultState = {
 			text5:
 				"In conclusion, books are better than movies because they give readers a chance to use their imagination to think about new ideas.",
 			fullAnswer: ["34215"],
+			audio: "../Site/audio/Anagram_books.mp3",
 		},
 		Anagram_cooking: {
 			title: "Cooking!",
@@ -147,6 +158,7 @@ export const defaultState = {
 			fullAnswer: ["143265", "135264"],
 			partAnswer: ["100260"],
 			lessAnswer: ["100060"],
+			audio: "../Site/audio/Anagram_cooking.mp3",
 		},
 		Anagram_pets: {
 			title: "Pets at school",
@@ -163,6 +175,7 @@ export const defaultState = {
 			fullAnswer: ["631245", "653412"],
 			partAnswer: ["600045", "600012", "630200", "650400"],
 			lessAnswer: ["601000"],
+			audio: "../Site/audio/Anagram_pets.mp3",
 		},
 		Anagram_bikesorcars: {
 			title: "Bicycles or cars!!",
@@ -178,6 +191,7 @@ export const defaultState = {
 			text6: "I think that using a bicycle is better than driving a car.",
 			fullAnswer: ["524631", "534621", "423651"],
 			lessAnswer: ["000601"],
+			audio: "../Site/audio/Anagram_bikesorcars.mp3",
 		},
 		Anagram_cellphones: {
 			title: "Cell Phones!",
@@ -194,6 +208,7 @@ export const defaultState = {
 			text6: "I think that students should be allowed to use cell phones during school.",
 			fullAnswer: ["456321", "236541"],
 			lessAnswer: ["006001"],
+			audio: "../Site/audio/Anagram_cellphones.mp3",
 		},
 	},
 
@@ -609,7 +624,7 @@ export const defaultState = {
 	// Section 4
 	Morpho_activity: {
 		text1: "The children are very",
-		text2: "",
+		text2: ".",
 		keyword: "activity",
 		answer: ["active", "activ"],
 		audio: "../Site/audio/Morpho_activity.mp3",
@@ -623,91 +638,91 @@ export const defaultState = {
 	},
 	Morpho_civility: {
 		text1: "The children should be",
-		text2: "",
+		text2: ".",
 		keyword: "civility",
 		answer: ["civilized", "civilysed", "civilised", "civil"],
 		audio: "../Site/audio/Morpho_civility.mp3",
 	},
 	Morpho_categorical: {
 		text1: "These words go in the same",
-		text2: "",
+		text2: ".",
 		keyword: "categorical",
 		answer: ["categorie", "catagory", "catigory", "categore", "catagorie", "category"],
 		audio: "../Site/audio/Morpho_categorical.mp3",
 	},
 	Morpho_complexity: {
 		text1: "The problem is",
-		text2: "",
+		text2: ".",
 		keyword: "complexity",
 		answer: ["complex"],
 		audio: "../Site/audio/Morpho_complexity.mp3",
 	},
 	Morpho_beneficial: {
 		text1: "Good health is a",
-		text2: "",
+		text2: ".",
 		keyword: "beneficial",
 		answer: ["benifit", "benefit"],
 		audio: "../Site/audio/Morpho_beneficial.mp3",
 	},
 	Morpho_durability: {
 		text1: "This suitcase is",
-		text2: "",
+		text2: ".",
 		keyword: "durability",
 		answer: ["duruble", "durabul", "durible", "durable"],
 		audio: "../Site/audio/Morpho_durability.mp3",
 	},
 	Morpho_contribution: {
 		text1: "How will you",
-		text2: "",
+		text2: "?",
 		keyword: "contribution",
 		answer: ["contribute"],
 		audio: "../Site/audio/Morpho_contribution.mp3",
 	},
 	Morpho_optional: {
 		text1: "What is the other",
-		text2: "",
+		text2: "?",
 		keyword: "optional",
 		answer: ["option"],
 		audio: "../Site/audio/Morpho_optional.mp3",
 	},
 	Morpho_cultural: {
 		text1: "He studies their",
-		text2: "",
+		text2: ".",
 		keyword: "cultural",
 		answer: ["cultures", "culture"],
 		audio: "../Site/audio/Morpho_cultural.mp3",
 	},
 	Morpho_invasion: {
 		text1: "The aliens were ready to",
-		text2: "",
+		text2: ".",
 		keyword: "invasion",
 		answer: ["invaid", "invade", "invaed", "invade"],
 		audio: "../Site/audio/Morpho_invasion.mp3",
 	},
 	Morpho_topical: {
 		text1: "She is thinking about a new",
-		text2: "",
+		text2: ".",
 		keyword: "topical",
 		answer: ["topic"],
 		audio: "../Site/audio/Morpho_topical.mp3",
 	},
 	Morpho_availability: {
 		text1: "The video will soon be",
-		text2: "",
+		text2: ".",
 		keyword: "availability",
 		answer: ["availuble", "availible", "availeble", "availoble", "available"],
 		audio: "../Site/audio/Morpho_availability.mp3",
 	},
 	Morpho_expansion: {
 		text1: "The business will",
-		text2: "",
+		text2: ".",
 		keyword: "expansion",
 		answer: ["expand"],
 		audio: "../Site/audio/Morpho_expansion.mp3",
 	},
 	Morpho_discrimination: {
 		text1: "He works hard not to",
-		text2: "",
+		text2: ".",
 		keyword: "discrimination",
 		answer: [
 			"discriminate",
@@ -723,14 +738,14 @@ export const defaultState = {
 	},
 	Morpho_division: {
 		text1: "The cake is hard to",
-		text2: "",
+		text2: ".",
 		keyword: "division",
 		answer: ["divide", "divied"],
 		audio: "../Site/audio/Morpho_division.mp3",
 	},
 	Morpho_possession: {
 		text1: "How many toys do you",
-		text2: "",
+		text2: "?",
 		keyword: "possession",
 		answer: ["posess", "pozess", "poses", "pozes"],
 		audio: "../Site/audio/Morpho_possession.mp3",
@@ -744,7 +759,7 @@ export const defaultState = {
 	},
 	Morpho_astronomical: {
 		text1: "He loves to learn about",
-		text2: "",
+		text2: ".",
 		keyword: "astronomical",
 		answer: [
 			"astronomy",
@@ -761,14 +776,14 @@ export const defaultState = {
 	},
 	Morpho_responsive: {
 		text1: "She raised her hand to give her",
-		text2: "",
+		text2: ".",
 		keyword: "responsive",
 		answer: ["response", "respons", "responce"],
 		audio: "../Site/audio/Morpho_responsive.mp3",
 	},
 	Morpho_scandalous: {
 		text1: "The missing car keys caused a large",
-		text2: "",
+		text2: ".",
 		keyword: "scandalous",
 		answer: ["scandal", "scandel", "scandil", "scandol", "scandul"],
 		audio: "../Site/audio/Morpho_scandalous.mp3",
@@ -1154,6 +1169,7 @@ export const defaultState = {
 			img: "meta_supportclaim.png",
 			options: ["a counterclaim", "some evidence", "a conclusion", "another supporting claim"],
 			answer: 4,
+			audio: "../Site/audio/meta_supportclaim.mp3",
 		},
 		meta_contradictingA: {
 			newspaper: "Newspaper:",
@@ -1169,6 +1185,7 @@ export const defaultState = {
 				"misrepresenting with the newspaper's idea",
 			],
 			answer: 3,
+			audio: "../Site/audio/meta_contradictingA.mp3",
 		},
 		meta_paraphrase: {
 			newspaper: "Newspaper:",
@@ -1179,6 +1196,7 @@ export const defaultState = {
 			img: "meta_paraphrase.png",
 			options: ["an overstatement", "a paraphrase ", "a contradiction", "a misinterpretation"],
 			answer: 2,
+			audio: "../Site/audio/meta_paraphrase.mp3",
 		},
 		meta_disagreeing: {
 			newspaper: "Newspaper:",
@@ -1194,6 +1212,7 @@ export const defaultState = {
 				"disagreeing with the newspaper's idea",
 			],
 			answer: 4,
+			audio: "../Site/audio/meta_disagreeing.mp3",
 		},
 		meta_quoting: {
 			newspaper: "Newspaper:",
@@ -1209,6 +1228,7 @@ export const defaultState = {
 				"exaggerating the newspaper's idea ",
 			],
 			answer: 2,
+			audio: "../Site/audio/meta_quoting.mp3",
 		},
 		meta_counterclaim: {
 			newspaper: "Newspaper:",
@@ -1219,6 +1239,7 @@ export const defaultState = {
 			img: "meta_counterclaim.png",
 			options: ["a counterclaim ", "a recommendation ", "a paraphrase", "a supporting claim"],
 			answer: 1,
+			audio: "../Site/audio/meta_counterclaim.mp3",
 		},
 		meta_precise: {
 			newspaper: "Newspaper:",
@@ -1234,6 +1255,7 @@ export const defaultState = {
 				"a precise  statement",
 			],
 			answer: 4,
+			audio: "../Site/audio/meta_precise.mp3",
 		},
 		meta_generalize: {
 			newspaper: "Newspaper:",
@@ -1244,6 +1266,7 @@ export const defaultState = {
 			img: "meta_generalize.png",
 			options: ["an understatement", "a generalization", "a hypothesis", "a contradiction "],
 			answer: 2,
+			audio: "../Site/audio/meta_generalize.mp3",
 		},
 		meta_citing: {
 			newspaper: "Newspaper:",
@@ -1259,6 +1282,7 @@ export const defaultState = {
 				"misinterpreting the newspaper's idea",
 			],
 			answer: 2,
+			audio: "../Site/audio/meta_citing.mp3",
 		},
 		meta_contradictory: {
 			newspaper: "Newspaper:",
@@ -1275,6 +1299,7 @@ export const defaultState = {
 				"persuasive statements",
 			],
 			answer: 2,
+			audio: "../Site/audio/meta_contradictory.mp3",
 		},
 		meta_exaggeration: {
 			newspaper: "Newspaper:",
@@ -1285,6 +1310,7 @@ export const defaultState = {
 			img: "meta_exaggeration.png",
 			options: ["a disagreement ", "an exaggeration  ", "a clarification", "an explanation "],
 			answer: 2,
+			audio: "../Site/audio/meta_exaggeration.mp3",
 		},
 		meta_example: {
 			newspaper: "Newspaper:",
@@ -1295,6 +1321,7 @@ export const defaultState = {
 			img: "meta_example.png",
 			options: ["an example", "a rebuttal ", "a contrast", "a summary "],
 			answer: 1,
+			audio: "../Site/audio/meta_example.mp3",
 		},
 		meta_generalization: {
 			newspaper: "Newspaper:",
@@ -1305,6 +1332,7 @@ export const defaultState = {
 			img: "meta_generalization.png",
 			options: ["an evaluation ", "a generalization  ", "a recommendation", "a contradiction "],
 			answer: 2,
+			audio: "../Site/audio/meta_generalization.mp3",
 		},
 		meta_contradictingB: {
 			newspaper: "Newspaper:",
@@ -1320,6 +1348,7 @@ export const defaultState = {
 				"underscoring the newspaper's idea ",
 			],
 			answer: 2,
+			audio: "../Site/audio/meta_contradictingB.mp3",
 		},
 		meta_countering: {
 			newspaper: "Newspaper:",
@@ -1335,6 +1364,7 @@ export const defaultState = {
 				"countering the newspaper's idea ",
 			],
 			answer: 4,
+			audio: "../Site/audio/meta_countering.mp3",
 		},
 		meta_position: {
 			newspaper: "Newspaper:",
@@ -1345,6 +1375,7 @@ export const defaultState = {
 			img: "meta_position.png",
 			options: ["a source ", "an explanation ", "a definition ", "a position "],
 			answer: 4,
+			audio: "../Site/audio/meta_position.mp3",
 		},
 		meta_confirming: {
 			newspaper: "Newspaper:",
@@ -1360,6 +1391,7 @@ export const defaultState = {
 				"misrepresenting the newspaper's idea ",
 			],
 			answer: 1,
+			audio: "../Site/audio/meta_confirming.mp3",
 		},
 		meta_inconsistent: {
 			newspaper: "Newspaper:",
@@ -1375,6 +1407,7 @@ export const defaultState = {
 				"inconsistent information  ",
 			],
 			answer: 4,
+			audio: "../Site/audio/meta_inconsistent.mp3",
 		},
 		meta_fallacy: {
 			newspaper: "Newspaper:",
@@ -1385,6 +1418,7 @@ export const defaultState = {
 			img: "meta_fallacy.png",
 			options: ["a fallacy ", "an understatement ", "a paraphrase ", "a citation "],
 			answer: 1,
+			audio: "../Site/audio/meta_fallacy.mp3",
 		},
 	},
 };

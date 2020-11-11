@@ -85,6 +85,9 @@ class IdentifyingDefinitions extends Component {
 
 		this.setState({
 			selectOption: -1,
+			optionA: -1,
+			optionB: -1,
+			optionC: -1,
 		});
 
 		await FetchData("/sumCorrectIncorrect", "PUT", data)

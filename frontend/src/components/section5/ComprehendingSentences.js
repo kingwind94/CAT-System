@@ -36,12 +36,6 @@ class ComprehendingSentences extends Component {
 		this.setState({ borderStyle: newBorderStyle });
 	};
 
-	playAudio = () => {
-		this.setState({
-			showElem: "inline",
-		});
-	};
-
 	getNextQuestion = async (e) => {
 		if (this.state.selectOption === -1) {
 			openNotification();
@@ -114,11 +108,12 @@ class ComprehendingSentences extends Component {
 			<div className="main-context-div" style={{ fontSize: this.props.fontSize }}>
 				<div className="comprehending_sentences">
 					<div>
-						<img onClick={this.playAudio} src={Pic} height="54px" width="54px" alt="img" />
+						<img src={Pic} height="54px" width="54px" alt="img" />
 						<ReactAudioPlayer
 							style={{ display: this.state.showElem }}
 							src={audio}
 							controls
+							autoPlay={true}
 						></ReactAudioPlayer>
 					</div>
 					<div>

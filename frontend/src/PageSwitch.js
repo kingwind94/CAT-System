@@ -56,7 +56,7 @@ class PageSwitch extends React.Component {
 		return (
 			<Switch>
 				<Route path="/login" component={LoginComponent}></Route>
-				<Route exact path="/" render={() => <Redirect to="/Section1" />}></Route>
+				<Route exact path="/" render={() => <Redirect to="/section1" />}></Route>
                 <Route path="/section1" component={Section1}></Route>
 				<Route path="/section1_1" component={ConnectPicture}></Route>
 				<Route path="/section1_2" component={ConnectSentence}></Route>

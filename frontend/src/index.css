@@ -1,5 +1,6 @@
 #root-container {
 	/* min-width: 1600px; */
+	min-height: 800px;
 	height: 100vh;
 }
 

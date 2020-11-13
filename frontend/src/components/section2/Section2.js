@@ -1,11 +1,18 @@
-import { Divider, Radio, Typography } from "antd";
+import { Divider, Radio, Typography, notification } from "antd";
 import React, { Component } from "react";
 import ReactAudioPlayer from "react-audio-player";
 import { connect } from "react-redux";
 import Pic from "../../play.png";
-import { NextButton } from "../utils/Utils";
+import { NextQuestionButton } from "../utils/Utils";
 
 const { Title, Text, Paragraph } = Typography;
+
+const openNotification = () => {
+	notification.open({
+		message: "You should choose an option to go next.",
+		duration: 2.5,
+	});
+};
 
 class Section2 extends Component {
 	constructor(props) {
@@ -28,6 +35,15 @@ class Section2 extends Component {
 		this.setState({
 			showElem: "inline",
 		});
+	};
+
+	onClickNext = (e) => {
+		e.preventDefault();
+		if (this.state.value === -1) {
+			openNotification();
+			return;
+		}
+		this.props.history.push("/section2_1");
 	};
 
 	render() {
@@ -60,7 +76,7 @@ class Section2 extends Component {
 						<Title level={4} align="left">
 							SAMPLE ITEM
 						</Title>
-						<Divider />
+						<Divider style={{ margin: "10px" }} />
 					</div>
 					<div style={{ marginBottom: "5px", height: "50px" }}>
 						<img onClick={this.playAudio} src={Pic} height="54px" width="54px" alt="img" />
@@ -133,7 +149,8 @@ class Section2 extends Component {
 						</div>
 					</div>
 				</div>
-				<NextButton link="/section2_1" />
+
+				<NextQuestionButton getNextQuestion={this.onClickNext} />
 			</div>
 		);
 	}

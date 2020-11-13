@@ -127,7 +127,7 @@ class ConnectPicture extends Component {
 			<div className="main-context-div" style={{ fontSize: this.props.curState.fontSize }}>
 				<div className="connect_picture">
 					<TwoPictures picture1={picture1} picture2={picture2} />
-					<Divider />
+					<Divider style={{ margin: "10px" }} />
 					<Row>
 						<Col span={22} offset={1}>
 							<div style={{ marginBottom: "5px", height: "50px" }}>

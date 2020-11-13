@@ -8,7 +8,7 @@ import { NextQuestionButton, SectionBar } from "../utils/Utils";
 
 const openNotification = () => {
 	notification.open({
-		message: "You should choose an option to go next.",
+		message: "You should select an image to go next.",
 		duration: 2.5,
 	});
 };

@@ -10,14 +10,14 @@ const { Title, Text } = Typography;
 
 const openNotification = () => {
 	notification.open({
-		message: "You should choose an option to go next.",
+		message: "You should select an option to go next.",
 		duration: 2.5,
 	});
 };
 
 class SureOrUnsure extends Component {
 	constructor(props) {
-		super();
+		super(props);
 		this.state = {
 			selectOption: -1,
 			question: "epis_impossible",
@@ -92,8 +92,7 @@ class SureOrUnsure extends Component {
 	};
 
 	render() {
-		const img1 = require("../../Site/Images/sure_or_unsure_ex1.png");
-		const img2 = require("../../Site/Images/sure_or_unsure_ex2.png");
+		const img1 = require("../../Site/Images/" + this.props.curState.EPISTEMIC_MARKERS[this.state.question].img);
 		const questionText0 = this.props.curState.EPISTEMIC_MARKERS[this.state.question].text0;
 		const questionText1 = this.props.curState.EPISTEMIC_MARKERS[this.state.question].text1;
 		const questionText2 = this.props.curState.EPISTEMIC_MARKERS[this.state.question].text2;
@@ -108,7 +107,7 @@ class SureOrUnsure extends Component {
 					<Title level={3} align="left">
 						{curDescription.title1}
 					</Title>
-					<Divider />
+					<Divider style={{ margin: "10px" }} />
 					<div className="green-text">
 						<Title level={4} align="left">
 							{curDescription.title2}

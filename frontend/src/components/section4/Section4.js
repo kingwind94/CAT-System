@@ -1,4 +1,4 @@
-import { Col, Divider, Row, Typography } from "antd";
+import { Col, Divider, Row, Typography, notification } from "antd";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { NextButton } from "../utils/Utils";
@@ -7,12 +7,18 @@ import ReactAudioPlayer from "react-audio-player";
 
 const { Title, Text, Paragraph } = Typography;
 
+const openNotification = () => {
+	notification.open({
+		message: "You should type an answer to go next.",
+		duration: 2.5,
+	});
+};
+
 class Section4 extends Component {
 	constructor(props) {
 		super();
 
 		this.state = {
-			value: -1,
 			showElem: "none",
 		};
 	}
@@ -49,7 +55,7 @@ class Section4 extends Component {
 					</div>
 					<div style={{ marginTop: "40px" }}>
 						<Title level={4}>SAMPLE ITEMS</Title>
-						<Divider />
+						<Divider style={{ margin: "10px" }} />
 						<div style={{ marginBottom: "5px", height: "50px" }}>
 							<img onClick={this.playAudio} src={Pic} height="54px" width="54px" alt="img" />
 							<ReactAudioPlayer
@@ -101,7 +107,6 @@ class Section4 extends Component {
 }
 
 const mapStateToProps = (state) => {
-	console.log(state);
 	return {
 		fontSize: state.fontSize,
 	};

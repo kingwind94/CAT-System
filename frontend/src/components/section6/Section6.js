@@ -31,7 +31,7 @@ class Section6 extends Component {
 					<Title level={3} align="left">
 						SECTION 6: IDENTIFYING DEFINITIONS
 					</Title>
-					<Divider />
+					<Divider style={{ margin: "10px" }} />
 					<div className="green-text">
 						<Paragraph style={{ color: "black" }}>Maria is writing a dictionary for adults.</Paragraph>
 						<Paragraph style={{ color: "black" }}>

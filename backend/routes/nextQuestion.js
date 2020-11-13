@@ -3,7 +3,7 @@ var config = require("../config");
 var bodyParser = require("body-parser");
 
 async function sumCorrectIncorrect(req, res) {
-	console.log(req.body);
+	// console.log(req.body);
 	const questionAns = req.body.questionAns;
 	const questionAnsSum = req.body.questionAnsSum;
 	const questions = req.body.questions;
@@ -20,7 +20,7 @@ async function sumCorrectIncorrect(req, res) {
 			.execute("dbo.SumCorrectIncorrectRow");
 
 		let ThetaValue = result1.recordset[0].Theta;
-		console.log("ThetaValue: " + ThetaValue);
+		// console.log("ThetaValue: " + ThetaValue);
 
 		let result2 = await pool
 			.request()
@@ -29,7 +29,7 @@ async function sumCorrectIncorrect(req, res) {
 			.input("theta", mssql.Decimal, ThetaValue)
 			.execute("dbo.SumRaschThetaRow");
 
-		console.log(result2.recordset[0].result);
+		// console.log(result2.recordset[0].result);
 		let sumRaschVal = result2.recordset[0].result;
 		// if (sumRaschVal > 6.25 || numQuestions >= 4) {
 		// 	res.send({ nextQuestion: "" });

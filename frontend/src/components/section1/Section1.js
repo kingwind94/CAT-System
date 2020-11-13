@@ -1,9 +1,16 @@
-import { Col, Divider, Radio, Row, Typography } from "antd";
+import { Col, Divider, Radio, Row, Typography, notification } from "antd";
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { NextButton, TwoPictures } from "../utils/Utils";
+import { NextQuestionButton, TwoPictures } from "../utils/Utils";
 
 const { Title, Text } = Typography;
+
+const openNotification = () => {
+	notification.open({
+		message: "You should choose an option to go next.",
+		duration: 2.5,
+	});
+};
 
 class Section1 extends Component {
 	constructor(props) {
@@ -27,6 +34,15 @@ class Section1 extends Component {
 		let newRadioColor = ["black", "black", "black", "black"];
 		newRadioColor[e.target.value] = "green";
 		this.setState({ radioColor: newRadioColor });
+	};
+
+	onClickNext = (e) => {
+		e.preventDefault();
+		if (this.state.value === -1) {
+			openNotification();
+			return;
+		}
+		this.props.history.push("/section1_1");
 	};
 
 	render() {
@@ -68,7 +84,7 @@ class Section1 extends Component {
 						<Title level={4} align="left">
 							SAMPLE ITEM
 						</Title>
-						<Divider />
+						<Divider style={{ margin: "10px" }} />
 						<TwoPictures picture1={picture1} picture2={picture2} />
 					</div>
 
@@ -129,7 +145,8 @@ class Section1 extends Component {
 						</Row>
 					</div>
 				</div>
-				<NextButton link="/section1_1" />
+
+				<NextQuestionButton getNextQuestion={this.onClickNext} />
 			</div>
 		);
 	}

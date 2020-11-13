@@ -1,11 +1,19 @@
-import { Button, Col, Divider, Radio, Row, Typography } from "antd";
+import { Button, Col, Divider, Radio, Row, Typography, notification } from "antd";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Pic from "../../play.png";
 import ReactAudioPlayer from "react-audio-player";
+import { NextQuestionButton } from "../utils/Utils";
 
 const { Title, Text, Paragraph } = Typography;
+
+const openNotification = () => {
+	notification.open({
+		message: "You should select an option to go next.",
+		duration: 2.5,
+	});
+};
 
 class Section8 extends Component {
 	constructor(props) {
@@ -29,10 +37,20 @@ class Section8 extends Component {
 		});
 	};
 
+	onClickNext = (e) => {
+		e.preventDefault();
+		if (this.state.value === -1) {
+			openNotification();
+			return;
+		}
+		this.props.history.push("/section8_1");
+	};
+
 	render() {
 		const img1 = require("../../Site/section8_images/meta_example.png");
 		const bubble = require("../../Site/section8_images/meta_speechbubble.png");
 		const audio = "../../Site/audio/Task_8_Understanding_Responses_Directions.mp3";
+		const paper = require("../../Site/section8_images/meta_newspaper.png");
 
 		const radioStyle = {
 			display: "block",
@@ -92,17 +110,20 @@ class Section8 extends Component {
 								<Title level={4} align="left">
 									SAMPLE ITEM
 								</Title>
-								<Divider />
-
-								<div>
-									<Paragraph strong style={{ color: "black" }}>
-										Newspaper:
-									</Paragraph>
-									<Paragraph style={{ color: "black" }}>
-										Students need recess to play and relax at school.
-									</Paragraph>
-								</div>
-
+								<Divider style={{ margin: "10px" }} />
+								<Row>
+									<div
+										style={{
+											color: "black",
+											backgroundImage: `url(${paper})`,
+											backgroundSize: "100% 100%",
+											padding: "40px",
+										}}
+									>
+										<Paragraph strong>Newspaper:</Paragraph>
+										<Paragraph>Students need recess to play and relax at school.</Paragraph>
+									</div>
+								</Row>
 								<Row>
 									<Col span={2} offset={0}>
 										<img src={img1} height="80px" alt="img" />
@@ -149,8 +170,8 @@ class Section8 extends Component {
 					)}
 				</div>
 
-				<div style={{ position: "absolute", bottom: "120px", right: "80px" }}>
-					{this.state.sampleItem === 1 ? (
+				{this.state.sampleItem === 1 ? (
+					<div style={{ position: "absolute", bottom: "50px", right: "80px" }}>
 						<Button
 							danger
 							style={{ color: "green", borderColor: "green" }}
@@ -160,12 +181,13 @@ class Section8 extends Component {
 						>
 							Next
 						</Button>
-					) : (
-						<Button danger style={{ color: "green", borderColor: "green" }}>
-							<Link to="/section8_1">Next</Link>
-						</Button>
-					)}
-				</div>
+					</div>
+				) : (
+					// <Button danger style={{ color: "green", borderColor: "green" }}>
+					// 	<Link to="/section8_1">Next</Link>
+					// </Button>
+					<NextQuestionButton getNextQuestion={this.onClickNext} />
+				)}
 			</div>
 		);
 	}

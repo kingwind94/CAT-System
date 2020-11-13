@@ -958,6 +958,7 @@ export const defaultState = {
 			answer: 4,
 			audio: "../Site/audio/epis_impossible.mp3",
 			description: "rock_from_space",
+			img: "epis_impossible.jpg",
 		},
 		epis_certainly: {
 			text0: "The scientist thinks:",
@@ -966,6 +967,7 @@ export const defaultState = {
 			answer: 1,
 			audio: "../Site/audio/epis_certainly.mp3",
 			description: "rock_from_space",
+			img: "epis_certainly.jpg",
 		},
 		epis_unlikely: {
 			text0: "The scientist thinks:",
@@ -974,6 +976,7 @@ export const defaultState = {
 			answer: 3,
 			audio: "../Site/audio/epis_unlikely.mp3",
 			description: "rock_from_space",
+			img: "epis_unlikely.png",
 		},
 		epis_unquestion: {
 			text0: "The scientist thinks:",
@@ -982,6 +985,7 @@ export const defaultState = {
 			answer: 1,
 			audio: "../Site/audio/epis_unquestion.mp3",
 			description: "rock_from_space",
+			img: "epis_unquestion.jpg",
 		},
 		epis_suggest: {
 			text0: "The scientist thinks:",
@@ -990,6 +994,7 @@ export const defaultState = {
 			answer: 2,
 			audio: "../Site/audio/epis_suggest.mp3",
 			description: "rock_from_space",
+			img: "epis_suggest.png",
 		},
 		epis_possible: {
 			text0: "The scientist thinks:",
@@ -998,6 +1003,7 @@ export const defaultState = {
 			answer: 4,
 			audio: "../Site/audio/epis_possible.mp3",
 			description: "rock_from_space",
+			img: "epis_possible.jpg",
 		},
 		epis_obvious: {
 			text0: "The scientist thinks:",
@@ -1006,6 +1012,7 @@ export const defaultState = {
 			answer: 1,
 			audio: "../Site/audio/epis_obvious.mp3",
 			description: "rock_from_space",
+			img: "epis_obvious.jpg",
 		},
 		epis_possiblebutunlikely: {
 			text0: "The scientist thinks:",
@@ -1014,6 +1021,7 @@ export const defaultState = {
 			answer: 3,
 			audio: "../Site/audio/epis_possiblebutunlikely.mp3",
 			description: "rock_from_space",
+			img: "epis_possiblebutunlikely.png",
 		},
 		epis_probably: {
 			text0: "The scientist thinks:",
@@ -1022,6 +1030,7 @@ export const defaultState = {
 			answer: 2,
 			audio: "../Site/audio/epis_probably.mp3",
 			description: "rock_from_space",
+			img: "epis_probably.png",
 		},
 		epis_presumably: {
 			text0: "The scientist thinks:",
@@ -1030,6 +1039,7 @@ export const defaultState = {
 			answer: 2,
 			audio: "../Site/audio/epis_presumably.mp3",
 			description: "rock_from_space",
+			img: "epis_presumably.jpg",
 		},
 		epis_conclusively: {
 			text0: "The scientist thinks:",
@@ -1038,6 +1048,7 @@ export const defaultState = {
 			answer: 1,
 			audio: "../Site/audio/epis_conclusively.mp3",
 			description: "rock_from_space",
+			img: "epis_conclusively.jpg",
 		},
 		epis_acc_appears: {
 			text0: "The scientist thinks:",
@@ -1046,6 +1057,7 @@ export const defaultState = {
 			answer: 2,
 			audio: "../Site/audio/epis_acc_appears.mp3",
 			description: "rock_from_space",
+			img: "epis_acc_appears.png",
 		},
 		epis_acc_presumably: {
 			text0: "The scientist thinks:",
@@ -1054,6 +1066,7 @@ export const defaultState = {
 			answer: 2,
 			audio: "../Site/audio/epis_acc_presumably.mp3",
 			description: "rock_from_space",
+			img: "epis_acc_presumably.jpg",
 		},
 		epis_acc_certainlynot: {
 			text0: "The scientist thinks:",
@@ -1062,6 +1075,7 @@ export const defaultState = {
 			answer: 4,
 			audio: "../Site/audio/epis_acc_certainlynot.mp3",
 			description: "rock_from_space",
+			img: "epis_acc_certainlynot.jpg",
 		},
 		epis_acc_conclusively: {
 			text0: "The scientist thinks:",
@@ -1070,6 +1084,7 @@ export const defaultState = {
 			answer: 1,
 			audio: "../Site/audio/epis_acc_conclusively.mp3",
 			description: "rock_from_space",
+			img: "epis_acc_conclusively.jpg",
 		},
 		epis_acc_suggest: {
 			text0: "The scientist thinks:",
@@ -1078,6 +1093,7 @@ export const defaultState = {
 			answer: 2,
 			audio: "../Site/audio/epis_acc_suggest.mp3",
 			description: "rock_from_space",
+			img: "epis_acc_suggest.png",
 		},
 		epis_acc_unquestion: {
 			text0: "The scientist thinks:",
@@ -1086,6 +1102,7 @@ export const defaultState = {
 			answer: 1,
 			audio: "../Site/audio/epis_acc_unquestion.mp3",
 			description: "rock_from_space",
+			img: "epis_acc_unquestion.jpg",
 		},
 		epis_acc_unlikelybut: {
 			text0: "The scientist thinks:",
@@ -1094,6 +1111,7 @@ export const defaultState = {
 			answer: 3,
 			audio: "../Site/audio/epis_acc_unlikelybut.mp3",
 			description: "rock_from_space",
+			img: "epis_acc_unlikelybut.png",
 		},
 		is_Jessie_coming: {
 			title1: "Is Jessie Coming to school today?: Sure or Unsure?",
@@ -1108,6 +1126,7 @@ export const defaultState = {
 			answer: 2,
 			audio: "../Site/audio/epis_soc_probably.mp3",
 			description: "is_Jessie_coming",
+			img: "epis_soc_probably.png",
 		},
 		epis_soc_impossible: {
 			text0: "Jessie's friend thinks:",
@@ -1116,6 +1135,7 @@ export const defaultState = {
 			answer: 4,
 			audio: "../Site/audio/epis_soc_impossible.mp3",
 			description: "is_Jessie_coming",
+			img: "epis_soc_impossible.png",
 		},
 		epis_soc_certainly: {
 			text0: "Jessie's friend thinks:",
@@ -1124,6 +1144,7 @@ export const defaultState = {
 			answer: 1,
 			audio: "../Site/audio/epis_soc_certainly.mp3",
 			description: "is_Jessie_coming",
+			img: "epis_soc_certainly.png",
 		},
 		epis_soc_unlikely: {
 			text0: "Jessie's friend thinks:",
@@ -1132,6 +1153,7 @@ export const defaultState = {
 			answer: 3,
 			audio: "../Site/audio/epis_soc_unlikely.mp3",
 			description: "is_Jessie_coming",
+			img: "epis_soc_unlikely.jpg",
 		},
 		epis_soc_seems: {
 			text0: "Jessie's friend thinks:",
@@ -1140,6 +1162,7 @@ export const defaultState = {
 			answer: 2,
 			audio: "../Site/audio/epis_soc_seems.mp3",
 			description: "is_Jessie_coming",
+			img: "epis_soc_seems.jpg",
 		},
 		epis_soc_apparently: {
 			text0: "Jessie's friend thinks:",
@@ -1148,6 +1171,7 @@ export const defaultState = {
 			answer: 2,
 			audio: "../Site/audio/epis_soc_apparently.mp3",
 			description: "is_Jessie_coming",
+			img: "epis_soc_apparently.jpg",
 		},
 		epis_soc_possible: {
 			text0: "Jessie's friend thinks:",
@@ -1156,6 +1180,7 @@ export const defaultState = {
 			answer: 3,
 			audio: "../Site/audio/epis_soc_possible.mp3",
 			description: "is_Jessie_coming",
+			img: "epis_soc_possible.png",
 		},
 	},
 	// Section 8

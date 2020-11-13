@@ -10,7 +10,7 @@ const { Paragraph } = Typography;
 
 const openNotification = () => {
 	notification.open({
-		message: "You should choose an option to go next.",
+		message: "You should select an option to go next.",
 		duration: 2.5,
 	});
 };

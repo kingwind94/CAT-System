@@ -63,7 +63,7 @@ class TrackingTheme extends Component {
 		await FetchData("/UpdateCATAnswer/32", "PUT", catAns)
 			.then((res) => res.json())
 			.then((res) => {
-				console.log(res);
+				// console.log(res);
 			});
 
 		let judgeOfAnswer;
@@ -74,7 +74,7 @@ class TrackingTheme extends Component {
 		} else {
 			judgeOfAnswer = "w." + this.state.question;
 		}
-		console.log("judgeOfAnswer: " + judgeOfAnswer);
+		// console.log("judgeOfAnswer: " + judgeOfAnswer);
 
 		await this.props.answerQuestionAns(judgeOfAnswer, this.state.question);
 
@@ -87,7 +87,7 @@ class TrackingTheme extends Component {
 			numQuestions: this.props.curState.numQuestions,
 		};
 
-		console.log(data);
+		// console.log(data);
 
 		this.setState({
 			value: -1,
@@ -97,13 +97,13 @@ class TrackingTheme extends Component {
 		await FetchData("/sumCorrectIncorrect", "PUT", data)
 			.then((res) => {
 				if (res.status === 200) {
-					console.log(res);
+					// console.log(res);
 					return res.json();
 				} else {
 				}
 			})
 			.then((res) => {
-				console.log(res);
+				// console.log(res);
 				if (res.nextQuestion === "") {
 					this.props.clearNumQuestions();
 					this.props.history.push("/section3");

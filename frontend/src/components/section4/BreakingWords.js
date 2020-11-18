@@ -6,7 +6,6 @@ import Pic from "../../play.png";
 import FetchData from "../utils/FetchData";
 import { NextQuestionButton, SectionBar } from "../utils/Utils";
 
-
 const openNotification = () => {
 	notification.open({
 		message: "You should type an answer to go next.",
@@ -64,7 +63,7 @@ class BreakingWords extends Component {
 			judgeOfAnswer = "w." + this.state.question;
 		}
 
-		console.log(judgeOfAnswer)
+		console.log(judgeOfAnswer);
 
 		await this.props.answerQuestionAns(judgeOfAnswer, this.state.question);
 
@@ -104,6 +103,7 @@ class BreakingWords extends Component {
 		const questionText2 = this.props.curState[this.state.question].text2;
 		const keyword = this.props.curState[this.state.question].keyword;
 		const audio = this.props.curState[this.state.question].audio;
+		const wordBox = require("../../Site/Images/task4_6_wordbox.png");
 
 		return (
 			<div className="main-context-div" style={{ fontSize: this.props.fontSize }}>
@@ -117,19 +117,22 @@ class BreakingWords extends Component {
 						></ReactAudioPlayer>
 					</div>
 					<Row>
-						<Col span={5}>
+						<Col span={4}>
 							<div
 								style={{
-									backgroundColor: "lightgreen",
-									width: "160px",
-									borderStyle: "dotted",
+									color: "black",
+									fontWeight: "bold",
+									backgroundImage: `url(${wordBox})`,
+									backgroundSize: "100% 100%",
+									padding: "5px",
+									paddingRight: "35px",
 									textAlign: "center",
 								}}
 							>
-								{keyword}{" "}
+								{keyword}
 							</div>
 						</Col>
-						<Col>
+						<Col offset={1}>
 							{questionText1} <input value={this.state.answerText} onChange={this.onChange} />{" "}
 							{questionText2}
 						</Col>

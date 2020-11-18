@@ -30,6 +30,7 @@ class Section4 extends Component {
 	};
 	render() {
 		const audio = "../../Site/audio/Task_4_Breaking_words_Directions.mp3";
+		const wordBox = require("../../Site/Images/task4_6_wordbox.png");
 
 		return (
 			<div className="main-context-div" style={{ fontSize: this.props.fontSize }}>
@@ -68,11 +69,21 @@ class Section4 extends Component {
 					<div>
 						<Row style={{ marginTop: "20px" }}>
 							<Col span={4} offset={0}>
-								<Text strong style={{ color: "black" }}>
+								<div
+									style={{
+										color: "black",
+										fontWeight: "bold",
+										backgroundImage: `url(${wordBox})`,
+										backgroundSize: "100% 100%",
+										padding: "5px",
+										paddingRight: "35px",
+										textAlign: "center",
+									}}
+								>
 									driver
-								</Text>
+								</div>
 							</Col>
-							<Col>
+							<Col offset={1}>
 								<Text strong style={{ color: "black" }}>
 									Children are too young to{" "}
 								</Text>
@@ -84,11 +95,21 @@ class Section4 extends Component {
 						</Row>
 						<Row style={{ marginTop: "20px" }}>
 							<Col span={4} offset={0}>
-								<Text strong style={{ color: "black" }}>
+								<div
+									style={{
+										color: "black",
+										fontWeight: "bold",
+										backgroundImage: `url(${wordBox})`,
+										backgroundSize: "100% 100%",
+										padding: "5px",
+										paddingRight: "35px",
+										textAlign: "center",
+									}}
+								>
 									improvement
-								</Text>
+								</div>
 							</Col>
-							<Col>
+							<Col offset={1}>
 								<Text strong style={{ color: "black" }}>
 									My teacher wants my spelling to{" "}
 								</Text>

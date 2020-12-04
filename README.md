@@ -12,25 +12,25 @@ frontend
 ├─ public
 ├─ src
 │  ├─ components 
-			├─ auth
-			├─ section1
-			├─ section2
-			├─ section3
-			├─ section4
-			├─ section5
-			├─ section6
-			├─ section7
-			├─ section8
-			└─ utils (some common utils functions)
+	├─ auth
+	├─ section1
+	├─ section2
+	├─ section3
+	├─ section4
+	├─ section5
+	├─ section6
+	├─ section7
+	├─ section8
+	└─ utils (some common utils functions)
         ├─ FetchData.js (fetch function calls the backend Restful API)
         ├─ Utils.js (some common utils functions)
 │  ├─ Site (static files here, images and audio)
-			├─ audio
-			├─ Images
-			└─ section8_images
+	├─ audio
+	├─ Images
+	└─ section8_images
 │  ├─ store
-			├─ index.js (don't worry about this)
-			└─ reducer.js (This is where you put the question texts and answers)
+	├─ index.js (don't worry about this)
+	└─ reducer.js (This is where you put the question texts and answers)
 │  ├─ App.js
 │  ├─ index.js (entry point)
 │  ├─ index.css (css style)

@@ -156,7 +156,7 @@ class Section7 extends Component {
 					<div style={{ margin: "40px", display: "flex", justifyContent: "center", alignItems: "center" }}>
 						<Radio.Group onChange={this.onChange} value={this.state.value}>
 							<Radio value={1} style={{ color: "black" }}>
-								Yes
+								YES
 							</Radio>
 							<Radio value={2} style={{ color: "black", fontSize: this.props.fontSize }}>
 								maybe YES

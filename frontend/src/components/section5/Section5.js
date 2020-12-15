@@ -83,14 +83,14 @@ class Section5 extends Component {
 						</Title>
 						<Divider style={{ margin: "10px" }} />
 
-						{/* <div style={{ marginBottom: "5px", height: "50px" }}>
+						<div style={{ marginBottom: "5px", height: "50px" }}>
 							<img onClick={this.playAudio} src={Pic} height="54px" width="54px" alt="img" />
 							<ReactAudioPlayer
 								style={{ display: this.state.showElem, verticalAlign: "middle" }}
 								src={audio}
 								controls
 							></ReactAudioPlayer>
-						</div> */}
+						</div>
 
 					</div>
 					<div>

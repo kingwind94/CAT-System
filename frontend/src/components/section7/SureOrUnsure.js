@@ -152,7 +152,7 @@ class SureOrUnsure extends Component {
 
 					<div style={{ margin: "40px", display: "flex", justifyContent: "center", alignItems: "center" }}>
 						<Radio.Group onChange={this.onChange} value={this.state.selectOption}>
-							<Radio value={1}>Yes</Radio>
+							<Radio value={1}>YES</Radio>
 							<Radio value={2}>maybe YES</Radio>
 							<Radio value={3}>maybe NO</Radio>
 							<Radio value={4}>NO</Radio>

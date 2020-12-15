@@ -84,7 +84,7 @@ class UnderstandingResponses extends Component {
 				console.log(res);
 				if (res.nextQuestion === "") {
 					this.props.clearNumQuestions();
-					this.props.history.push("/");
+					this.props.history.push("/ending");
 				} else {
 					this.setState({ question: res.nextQuestion });
 				}

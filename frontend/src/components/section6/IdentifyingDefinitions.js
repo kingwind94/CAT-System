@@ -184,7 +184,7 @@ class IdentifyingDefinitions extends Component {
 									checked={this.state.optionA === 2}
 									onClick={() => this.setState({ optionA: 2 })}
 								>
-									adult
+									adults
 								</Radio>
 							</div>
 						</Col>
@@ -239,7 +239,7 @@ class IdentifyingDefinitions extends Component {
 									checked={this.state.optionB === 2}
 									onClick={() => this.setState({ optionB: 2 })}
 								>
-									adult
+									adults
 								</Radio>
 							</div>
 						</Col>
@@ -294,7 +294,7 @@ class IdentifyingDefinitions extends Component {
 									checked={this.state.optionC === 2}
 									onClick={() => this.setState({ optionC: 2 })}
 								>
-									adult
+									adults
 								</Radio>
 							</div>
 						</Col>

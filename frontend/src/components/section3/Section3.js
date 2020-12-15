@@ -33,8 +33,8 @@ class Section3 extends Component {
 					</Title>
 					<Divider />
 					<div className="green-text">
-						<Paragraph>Can you help Jim fix his essays?</Paragraph>
-						<Paragraph>
+						<Paragraph style={{ color: "black" }}>Can you help Jim fix his essays?</Paragraph>
+						<Paragraph style={{ color: "black" }}>
 							Jim needs your help! All the sentences in his essay got out of order. Can you reorder his
 							essays?
 						</Paragraph>
@@ -43,19 +43,19 @@ class Section3 extends Component {
 					<div style={{ marginTop: "40px" }}>
 						<ul>
 							<li>
-								<Text>First, read the sentences.</Text>
+								<Text style={{ color: "black" }}>First, read the sentences.</Text>
 							</li>
 							<li>
-								<Text>Then, drag and drop to reorder the sentences into an organized essay.</Text>
+								<Text style={{ color: "black" }}>Then, drag and drop to reorder the sentences into an organized essay.</Text>
 							</li>
 							<li>
-								<Text>Complete the first essay and then move to the next essay.</Text>
+								<Text style={{ color: "black" }}>Complete the first essay and then move to the next essay.</Text>
 							</li>
 							<li>
-								<Text>Some essays have 4 sentences, others have 5 or 6 sentences.</Text>
+								<Text style={{ color: "black" }}>Some essays have 4 sentences, others have 5 or 6 sentences.</Text>
 							</li>
 							<li>
-								<Text strong>There is no sample item for this section.</Text>
+								<Text strong style={{ color: "black" }}>There is no sample item for this section.</Text>
 							</li>
 						</ul>
 					</div>

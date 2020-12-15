@@ -19,6 +19,7 @@ import Section7 from "./components/section7/Section7";
 import SureOrUnsure from "./components/section7/SureOrUnsure";
 import Section8 from "./components/section8/Section8";
 import UnderstandingResponses from "./components/section8/UnderstandingResponses";
+import ThankYouPage from "./components/ending/ThankYouPage"
 
 class PageSwitch extends React.Component {
 	constructor(props) {
@@ -74,6 +75,7 @@ class PageSwitch extends React.Component {
 				<Route path="/section7_1" component={SureOrUnsure}></Route>
 				<Route path="/section8" component={Section8}></Route>
 				<Route path="/section8_1" component={UnderstandingResponses}></Route>
+				<Route path="/ending" component={ThankYouPage}></Route>
 			</Switch>
 		);
 	}
